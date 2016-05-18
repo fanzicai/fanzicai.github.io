@@ -37,11 +37,11 @@
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">fanzi.home</a></h1>
+		  <h1 class="header-author"><a href="/">fanzi.blog</a></h1>
 		</hgroup>
 
 		
-		<p class="header-subtitle">凡尘过客</p>
+		<p class="header-subtitle">凡尘博客</p>
 		
 
 		
@@ -129,7 +129,7 @@
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">fanzi.home</h1>
+  		<h1 class="header-author js-mobile-header hide">fanzi.blog</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
@@ -139,10 +139,10 @@
 			
 			</div>
 			<hgroup>
-			  <h1 class="header-author">fanzi.home</h1>
+			  <h1 class="header-author">fanzi.blog</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">凡尘过客</p>
+			<p class="header-subtitle">凡尘博客</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -172,7 +172,7 @@
     <article id="post-Hexo-Preliminary-Study" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/18/Hexo-Preliminary-Study/" class="article-date">
+      <a href="/Program2016/05/18/Hexo-Preliminary-Study.html" class="article-date">
   	<time datetime="2016-05-18T02:51:44.000Z" itemprop="datePublished">2016-05-18</time>
 </a>
     </div>
@@ -186,7 +186,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/18/Hexo-Preliminary-Study/">Hexo Preliminary Study</a>
+      <a class="article-title" href="/Program2016/05/18/Hexo-Preliminary-Study.html">Hexo Preliminary Study</a>
     </h1>
   
 
@@ -195,59 +195,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong><a href="https://hexo.io" target="_blank" rel="external">Hexo</a></strong> is a fast, simple &amp; powerful blog framework. In hexo, we can write posts in <strong>Markdown</strong> (including <strong>GFM</strong>, Github Flavored Markdown).</p>
-<h2 id="Hexo-Install"><a href="#Hexo-Install" class="headerlink" title="Hexo Install"></a><strong>Hexo Install</strong></h2><p>Refered in <em><a href="https://hexo.io/docs/index.html" target="_blank" rel="external">https://hexo.io/docs/index.html</a></em></p>
-<p>Before Hexo installing, need install:</p>
-<ul>
-<li><a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>, recommend the LTS Version</li>
-<li><a href="https://git-scm.com/download" target="_blank" rel="external">Git</a></li>
-</ul>
-<p>Install Hexo in git bash:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir %Blog_Root_Dir%</span><br><span class="line">$ cd %Blog_Root_Dir%</span><br><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
-<p>Init Hexo:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure></p>
-<h2 id="Hexo-and-GitHub-Pages"><a href="#Hexo-and-GitHub-Pages" class="headerlink" title="Hexo and GitHub Pages"></a><strong>Hexo and GitHub Pages</strong></h2><ul>
-<li><p>Create Repo on GitHub</p>
-<blockquote>
-<p>the repo name is <strong><em><a href="https://github.com/fanzicai/fanzicai.github.io" target="_blank" rel="external">fanzicai.github.io</a></em></strong></p>
-</blockquote>
-</li>
-<li><p>Edit <em>_config.yml</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">     type: git</span><br><span class="line">     repo: git@github.com:fanzicai/fanzicai.github.io.git</span><br><span class="line">     branch: master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Install deploy-tools</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Deploy</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean </span><br><span class="line">$ hexo generate         ## or &quot;hexo g&quot;</span><br><span class="line">$ hexo deploy           ## or &quot;hexo d&quot;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="Hexo-Test"><a href="#Hexo-Test" class="headerlink" title="Hexo Test"></a><strong>Hexo Test</strong></h2><p>Test on <a href="http://127.0.0.1:4000" target="_blank" rel="external">http://127.0.0.1:4000</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server          ## or &quot;hexo s&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="Hexo-Theme"><a href="#Hexo-Theme" class="headerlink" title="Hexo Theme"></a><strong>Hexo Theme</strong></h2><p>For example, the theme “<a href="https://github.com/fanzicai/hexo-theme-athene" target="_blank" rel="external">hexo-theme-athene</a>“</p>
-<ul>
-<li><p>About athene</p>
-<ul>
-<li>for <a href="https://github.com/hexojs/hexo" target="_blank" rel="external">hexo</a> 3.* and latest</li>
-<li>refer to <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">hexo-theme-yilia</a></li>
-<li>for learning</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>Use athene</p>
-<ul>
-<li><p>install</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd %Blog_Root_Dir%</span><br><span class="line">$ git clone git@github.com:fanzicai/hexo-theme-athene  themes/athene</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>configure</p>
-<blockquote>
-<p>edit the “_config.yml”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: athene</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-
+        <p><strong><a href="https://hexo.io">Hexo</a></strong> is a fast, simple &amp; powerful blog framework. In hexo, we can write posts in <strong>Markdown</strong> (including <strong>GFM</strong>, Github Flavored Markdown).</p>
       
     </div>
     
@@ -259,7 +207,15 @@
 	</div>
 
       
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Program/">Program</a>
+	</div>
 
+
+      
+        <p class="article-more-link">
+          <a  href="/Program2016/05/18/Hexo-Preliminary-Study.html">更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -280,7 +236,7 @@
     <article id="post-MarkdownPad-2-Preliminary-Study" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/17/MarkdownPad-2-Preliminary-Study/" class="article-date">
+      <a href="/Program2016/05/17/MarkdownPad-2-Preliminary-Study.html" class="article-date">
   	<time datetime="2016-05-17T08:41:23.000Z" itemprop="datePublished">2016-05-17</time>
 </a>
     </div>
@@ -294,7 +250,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/17/MarkdownPad-2-Preliminary-Study/">MarkdownPad 2 Preliminary Study</a>
+      <a class="article-title" href="/Program2016/05/17/MarkdownPad-2-Preliminary-Study.html">MarkdownPad 2 Preliminary Study</a>
     </h1>
   
 
@@ -304,22 +260,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong>MarkdownPad</strong> is a full-featured Markdown editor for Windows.</p>
-<h2 id="Markdown-Download"><a href="#Markdown-Download" class="headerlink" title="Markdown Download"></a><strong>Markdown Download</strong></h2><p><strong>Download URL</strong> for Windows<strong>:</strong></p>
-<blockquote>
-<p><em><a href="http://markdownpad.com/download.html" target="_blank" rel="external">http://markdownpad.com/download.html</a></em></p>
-</blockquote>
-<h2 id="Free-Key-for-Learning"><a href="#Free-Key-for-Learning" class="headerlink" title="Free Key for Learning"></a><strong>Free Key for Learning</strong></h2><p>Catch from WWW.</p>
-<blockquote>
-<ul>
-<li><strong>Email:</strong> <em>Soar360@live.com</em></li>
-<li><strong>Key:</strong> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8HUpTtLA2a5/sQytXJUQl/QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMnxt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><strong>Remark:</strong> <em>Just for Learning</em></li>
-</ul>
-</blockquote>
-
       
     </div>
     
@@ -331,7 +271,15 @@
 	</div>
 
       
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Program/">Program</a>
+	</div>
 
+
+      
+        <p class="article-more-link">
+          <a  href="/Program2016/05/17/MarkdownPad-2-Preliminary-Study.html">更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -355,7 +303,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 fanzi.home
+    		&copy; 2016 fanzi.blog
     	</div>
       	<div class="footer-right">
       		<a href="https://github.com/hexojs/hexo" target="_blank">Hexo</a>  Theme <a href="https://github.com/fanzicai/hexo-theme-athene" target="_blank">Athene</a> by fanzicai
