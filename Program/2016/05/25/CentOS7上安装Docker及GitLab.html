@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>MarkdownPad 2 Preliminary Study | fanzi.home@web</title>
+  <title>CentOS7上安装Docker及GitLab | fanzi.home@web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MarkdownPad is a full-featured Markdown editor for Windows.">
+  <meta name="description" content="Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MarkdownPad 2 Preliminary Study">
-<meta property="og:url" content="http://fanzicai.github.com/Program/2016/05/17/MarkdownPad-2-Preliminary-Study.html">
+<meta property="og:title" content="CentOS7上安装Docker及GitLab">
+<meta property="og:url" content="http://fanzicai.github.com/Program/2016/05/25/CentOS7上安装Docker及GitLab.html">
 <meta property="og:site_name" content="fanzi.home@web">
-<meta property="og:description" content="MarkdownPad is a full-featured Markdown editor for Windows.">
-<meta property="og:updated_time" content="2016-05-18T09:40:28.533Z">
+<meta property="og:description" content="Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
+<meta property="og:updated_time" content="2016-05-25T09:35:38.337Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MarkdownPad 2 Preliminary Study">
-<meta name="twitter:description" content="MarkdownPad is a full-featured Markdown editor for Windows.">
+<meta name="twitter:title" content="CentOS7上安装Docker及GitLab">
+<meta name="twitter:description" content="Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
   
     <link rel="alternative" href="/atom.xml" title="fanzi.home@web" type="application/atom+xml">
   
@@ -205,11 +205,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-MarkdownPad-2-Preliminary-Study" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-CentOS7上安装Docker及GitLab" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/Program/2016/05/17/MarkdownPad-2-Preliminary-Study.html" class="article-date">
-  	<time datetime="2016-05-17T08:41:23.000Z" itemprop="datePublished">2016-05-17</time>
+      <a href="/Program/2016/05/25/CentOS7上安装Docker及GitLab.html" class="article-date">
+  	<time datetime="2016-05-25T07:04:14.000Z" itemprop="datePublished">2016-05-25</time>
 </a>
     </div>
   
@@ -222,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      MarkdownPad 2 Preliminary Study
+      CentOS7上安装Docker及GitLab
     </h1>
   
 
@@ -231,7 +231,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitLab/">GitLab</a></li></ul>
 	</div>
 
         
@@ -246,23 +246,65 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>MarkdownPad</strong> is a full-featured Markdown editor for Windows.</p>
-<a id="more"></a>
-<h2 id="1-Markdown-Download"><a href="#1-Markdown-Download" class="headerlink" title="1. Markdown Download"></a><strong>1. Markdown Download</strong></h2><p><strong>Download URL</strong> for Windows<strong>:</strong></p>
-<blockquote>
-<p><em><a href="http://markdownpad.com/download.html" target="_blank" rel="external">http://markdownpad.com/download.html</a></em></p>
-</blockquote>
-<h2 id="2-Free-Key-for-Learning"><a href="#2-Free-Key-for-Learning" class="headerlink" title="2. Free Key for Learning"></a><strong>2. Free Key for Learning</strong></h2><p>Catch from WWW.</p>
-<blockquote>
+        <p><a href="https://www.docker.com/" target="_blank" rel="external">Docker</a>是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。<br><a id="more"></a></p>
+<h2 id="1-CentOS"><a href="#1-CentOS" class="headerlink" title="1. CentOS"></a><strong>1. CentOS</strong></h2><p><a href="https://www.centos.org/" target="_blank" rel="external">CentOS7</a>（Community Enterprise Operation System, 社区企业操作系统）,截至发文时，最新版为CentOS7，本文安装的是64位。</p>
 <ul>
-<li><strong>Email:</strong> <em>Soar360@live.com</em></li>
-<li><strong>Key:</strong> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GBPduHjWfJU1mZqcPM3BikjYKF6xKhlKIys3i1MU2eJHqWGImDHzWdD6xhMNLGVpbP2M5SN6bnxn2kSE8qHqNY5QaaRxmO3YSMHxlv2EYpjdwLcPwfeTG7kUdnhKE0vVy4RidP6Y2wZ0q74f47fzsZo45JE2hfQBFi2O9Jldjp1mW8HUpTtLA2a5/sQytXJUQl/QKO0jUQY4pa5CCx20sV1ClOTZtAGngSOJtIOFXK599sBr5aIEFyH0K7H4BoNMiiDMnxt1rD8Vb/ikJdhGMMQr0R4B+L3nWU97eaVPTRKfWGDE8/eAgKzpGwrQQoDh+nzX1xoVQ8NAuH+s4UcSeQ==</span><br></pre></td></tr></table></figure>
+<li><p>安装环境：</p>
+<blockquote>
+<p>VMware® Workstation 12 Pro</p>
+</blockquote>
+</li>
+<li><p>安装版本</p>
+<blockquote>
+<p><a href="https://www.centos.org/download/" target="_blank" rel="external">CentOS-7-x86_64-Everything-1511</a> </p>
+</blockquote>
+</li>
+<li><p>安装方式</p>
+<blockquote>
+<p>Minimal Install</p>
+</blockquote>
 </li>
 </ul>
+<hr>
+<h2 id="2-Docker"><a href="#2-Docker" class="headerlink" title="2. Docker"></a><strong>2. <a href="https://www.docker.com/" target="_blank" rel="external">Docker</a></strong></h2><p>参考<a href="https://docs.docker.com/engine/installation/linux/centos/" target="_blank" rel="external">官网安装流程</a>。</p>
 <ul>
-<li><strong>Remark:</strong> <em>Just for Learning</em></li>
+<li><p>准备工作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加repo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /etc/yum.repos.d/docker.repo &lt;&lt;-&apos;EOF&apos;</span><br><span class="line">[dockerrepo]</span><br><span class="line">name=Docker Repository</span><br><span class="line">baseurl=https://yum.dockerproject.org/repo/main/centos/$releasever/</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://yum.dockerproject.org/gpg</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>正式安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install docker-engine</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>自启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-</blockquote>
+<hr>
+<h2 id="3-GitLab"><a href="#3-GitLab" class="headerlink" title="3. GitLab"></a><strong>3. GitLab</strong></h2><p>安装教程详见<a href="http://docs.gitlab.com/omnibus/docker/" target="_blank" rel="external">http://docs.gitlab.com/omnibus/docker/</a>。</p>
+<ul>
+<li><p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --detach \</span><br><span class="line">    --hostname gitlab.example.com \</span><br><span class="line">    --env GITLAB_OMNIBUS_CONFIG=&quot;external_url &apos;http://my.domain.com/&apos;; gitlab_rails[&apos;lfs_enabled&apos;] = true;&quot;\</span><br><span class="line">    --publish 443:443 --publish 80:80 \</span><br><span class="line">    --name gitlab \</span><br><span class="line">    --restart always \</span><br><span class="line">    --volume /srv/gitlab/config:/etc/gitlab:Z \</span><br><span class="line">    --volume /srv/gitlab/logs:/var/log/gitlab:Z \</span><br><span class="line">    --volume /srv/gitlab/data:/var/opt/gitlab:Z \</span><br><span class="line">    gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it gitlab /bin/bash</span><br><span class="line">sudo docker exec -it gitlab vi /etc/gitlab/gitlab.rb</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker start gitlab</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>停止</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker stop gitlab</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rm gitlab</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker logs gitlab</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
     </div>
@@ -272,15 +314,20 @@
     
 <nav id="article-nav">
   
-    <a href="/Program/2016/05/18/Hexo-Preliminary-Study.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Program/2016/05/25/CentOS7上安装Docker及Jenkins.html" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          Hexo Preliminary Study
+          CentOS7上安装Docker及Jenkins
         
       </div>
     </a>
   
+  
+    <a href="/Program/2016/05/20/CentOS7上安装GitLab（SRC）.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CentOS7上安装GitLab（SRC）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -313,7 +360,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="MarkdownPad-2-Preliminary-Study" data-title="MarkdownPad 2 Preliminary Study" data-url="http://fanzicai.github.com/Program/2016/05/17/MarkdownPad-2-Preliminary-Study.html"></div>
+	<div class="ds-thread" data-thread-key="CentOS7上安装Docker及GitLab" data-title="CentOS7上安装Docker及GitLab" data-url="http://fanzicai.github.com/Program/2016/05/25/CentOS7上安装Docker及GitLab.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

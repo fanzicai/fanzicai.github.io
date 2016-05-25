@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>在CentOS7上安装GitLab（SRC） | fanzi.home@web</title>
+  <title>CentOS7上安装GitLab（SRC） | fanzi.home@web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="GitLab是基于Ruby on Rails的一个开源的版本管理系统，其内嵌了Redis。本文在CentOS7上采用源码方式安装GitLab汉化版.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在CentOS7上安装GitLab（SRC）">
-<meta property="og:url" content="http://fanzicai.github.com/Program/2016/05/20/在CentOS7上安装GitLab（SRC）.html">
+<meta property="og:title" content="CentOS7上安装GitLab（SRC）">
+<meta property="og:url" content="http://fanzicai.github.com/Program/2016/05/20/CentOS7上安装GitLab（SRC）.html">
 <meta property="og:site_name" content="fanzi.home@web">
 <meta property="og:description" content="GitLab是基于Ruby on Rails的一个开源的版本管理系统，其内嵌了Redis。本文在CentOS7上采用源码方式安装GitLab汉化版.">
-<meta property="og:updated_time" content="2016-05-25T03:29:45.328Z">
+<meta property="og:updated_time" content="2016-05-25T08:58:38.661Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在CentOS7上安装GitLab（SRC）">
+<meta name="twitter:title" content="CentOS7上安装GitLab（SRC）">
 <meta name="twitter:description" content="GitLab是基于Ruby on Rails的一个开源的版本管理系统，其内嵌了Redis。本文在CentOS7上采用源码方式安装GitLab汉化版.">
   
     <link rel="alternative" href="/atom.xml" title="fanzi.home@web" type="application/atom+xml">
@@ -129,7 +129,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/CentOS/" style="font-size: 20px;">CentOS</a> <a href="/tags/Gem/" style="font-size: 10px;">Gem</a> <a href="/tags/Git/" style="font-size: 20px;">Git</a> <a href="/tags/GitHub/" style="font-size: 20px;">GitHub</a> <a href="/tags/GitLab/" style="font-size: 20px;">GitLab</a> <a href="/tags/Go/" style="font-size: 10px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Redis/" style="font-size: 20px;">Redis</a> <a href="/tags/Ruby-on-Rails/" style="font-size: 20px;">Ruby on Rails</a> <a href="/tags/SELinux/" style="font-size: 10px;">SELinux</a>
+						<a href="/tags/CentOS/" style="font-size: 20px;">CentOS</a> <a href="/tags/Docker/" style="font-size: 16.67px;">Docker</a> <a href="/tags/Gem/" style="font-size: 10px;">Gem</a> <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/GitHub/" style="font-size: 13.33px;">GitHub</a> <a href="/tags/GitLab/" style="font-size: 16.67px;">GitLab</a> <a href="/tags/Go/" style="font-size: 10px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Redis/" style="font-size: 13.33px;">Redis</a> <a href="/tags/Ruby-on-Rails/" style="font-size: 13.33px;">Ruby on Rails</a> <a href="/tags/SELinux/" style="font-size: 10px;">SELinux</a>
 					</div>
 				</section>
 				
@@ -205,10 +205,10 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-在CentOS7上安装GitLab（SRC）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-CentOS7上安装GitLab（SRC）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/Program/2016/05/20/在CentOS7上安装GitLab（SRC）.html" class="article-date">
+      <a href="/Program/2016/05/20/CentOS7上安装GitLab（SRC）.html" class="article-date">
   	<time datetime="2016-05-20T05:31:11.000Z" itemprop="datePublished">2016-05-20</time>
 </a>
     </div>
@@ -222,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      在CentOS7上安装GitLab（SRC）
+      CentOS7上安装GitLab（SRC）
     </h1>
   
 
@@ -246,7 +246,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://about.gitlab.com/" target="_blank" rel="external">GitLab</a>是基于<a href="http://www.ruby-lang.org/en/" target="_blank" rel="external">Ruby on Rails</a>的一个开源的版本管理系统，其内嵌了Redis。本文在<a href="https://www.centos.org/" target="_blank" rel="external">CentOS7</a>上采用源码方式安装GitLab汉化版.<br><a id="more"></a></p>
+        <p><a href="https://about.gitlab.com/" target="_blank" rel="external">GitLab</a>是基于<a href="http://www.ruby-lang.org/en/" target="_blank" rel="external">Ruby on Rails</a>的一个开源的版本管理系统，其内嵌了Redis。本文在<a href="https://www.centos.org/" target="_blank" rel="external">CentOS7</a>上采用<a href="http://docs.gitlab.com/ce/install/installation.html" target="_blank" rel="external">源码方式</a>安装GitLab汉化版.<br><a id="more"></a></p>
 <h2 id="1-CentOS"><a href="#1-CentOS" class="headerlink" title="1. CentOS"></a><strong>1. CentOS</strong></h2><p><a href="https://www.centos.org/" target="_blank" rel="external">CentOS7</a>（Community Enterprise Operation System, 社区企业操作系统）,截至发文时，最新版为CentOS7，本文安装的是64位。</p>
 <ul>
 <li><p>安装环境：</p>
@@ -416,6 +416,11 @@
 <p>增加server 127.0.0.1:9000</p>
 </blockquote>
 </li>
+<li><p>修改nginx.conf</p>
+<blockquote>
+<p>增加include /etc/nginx/sites-enabled/*<br>去掉默认的80 server</p>
+</blockquote>
+</li>
 <li><p>自启动</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable nginx</span><br><span class="line">systemctl start nginx</span><br><span class="line">firewall-cmd --permanent --add-service=http</span><br><span class="line">systemctl reload firewalld</span><br></pre></td></tr></table></figure>
 </li>
@@ -433,6 +438,10 @@
 <p>整个安装过程，在最后配置nginx代理时碰到很多权限问题，这和<a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/index.html" target="_blank" rel="external">SELinux</a>有关，还需要研究，细化权限配置。<br>前文中，端口9000默认在SELinux里开放，故直接使用，后续还应保持8080端口并添加相应权限，避免与其他应用的9000端口冲突。<br>查看端口开放情况<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">semanage port -l | grep http</span><br></pre></td></tr></table></figure></p>
 <p>安装semanage<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install policycoreutils-python</span><br></pre></td></tr></table></figure></p>
 </blockquote>
+<ul>
+<li><a href="https://wiki.centos.org/TipsAndTricks/SelinuxBooleans" target="_blank" rel="external">SELinux Booleans</a></li>
+<li><a href="http://www.thegeekstuff.com/2012/06/enable-epel-repository/" target="_blank" rel="external">EPEL information</a></li>
+</ul>
 
       
     </div>
@@ -442,9 +451,18 @@
     
 <nav id="article-nav">
   
+    <a href="/Program/2016/05/25/CentOS7上安装Docker及GitLab.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          CentOS7上安装Docker及GitLab
+        
+      </div>
+    </a>
   
-    <a href="/Program/2016/05/19/在CentOS7上安装GitLab（RPM）.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">在CentOS7上安装GitLab（RPM）</div>
+  
+    <a href="/Program/2016/05/19/CentOS7上安装GitLab（RPM）.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CentOS7上安装GitLab（RPM）</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -479,7 +497,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="在CentOS7上安装GitLab（SRC）" data-title="在CentOS7上安装GitLab（SRC）" data-url="http://fanzicai.github.com/Program/2016/05/20/在CentOS7上安装GitLab（SRC）.html"></div>
+	<div class="ds-thread" data-thread-key="CentOS7上安装GitLab（SRC）" data-title="CentOS7上安装GitLab（SRC）" data-url="http://fanzicai.github.com/Program/2016/05/20/CentOS7上安装GitLab（SRC）.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
