@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://fanzicai.github.com/Program/2016/05/20/CentOS7上安装GitLab（SRC）.html">
 <meta property="og:site_name" content="fanzi.home@web">
 <meta property="og:description" content="GitLab是基于Ruby on Rails的一个开源的版本管理系统，其内嵌了Redis。本文在CentOS7上采用源码方式安装GitLab汉化版.">
-<meta property="og:updated_time" content="2016-05-25T08:58:38.661Z">
+<meta property="og:updated_time" content="2016-05-26T02:32:35.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7上安装GitLab（SRC）">
 <meta name="twitter:description" content="GitLab是基于Ruby on Rails的一个开源的版本管理系统，其内嵌了Redis。本文在CentOS7上采用源码方式安装GitLab汉化版.">
@@ -424,21 +424,21 @@
 <li><p>自启动</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable nginx</span><br><span class="line">systemctl start nginx</span><br><span class="line">firewall-cmd --permanent --add-service=http</span><br><span class="line">systemctl reload firewalld</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Context权限</p>
-<blockquote>
-<p>此时nginx还无法访问gitlab等资源，根据SELinux规则做些权限修改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chcon -vR -t httpd_user_content_t /home/git/gitlab/public</span><br><span class="line">chcon -vR -t httpd_user_content_t /home/git/gitlab/tmp/sockets/</span><br><span class="line">chmod +rx /home/git</span><br><span class="line">chmod +rx /home/gitlab</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>确认安装情况</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/git/gitlab/</span><br><span class="line">sudo -u git -H bundle exec rake gitlab:check RAILS_ENV=production</span><br></pre></td></tr></table></figure>
-</li>
 </ul>
-<h2 id="17-注意事项"><a href="#17-注意事项" class="headerlink" title="17. 注意事项"></a><strong>17. 注意事项</strong></h2><blockquote>
+<hr>
+<h2 id="17-SELinux设置"><a href="#17-SELinux设置" class="headerlink" title="17. SELinux设置"></a><strong>17. SELinux设置</strong></h2><p>此时nginx还无法访问gitlab等资源，根据SELinux规则做些权限修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setenforce Permissive</span><br></pre></td></tr></table></figure></p>
+<p>运行gitlab一段时间，并访问gitlab<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /var/log/audit/audit.log</span><br></pre></td></tr></table></figure></p>
+<p>可以查看到一些日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep ssh-keygen /var/log/audit/audit.log | audit2allow -M postgreylocal</span><br></pre></td></tr></table></figure></p>
+<p>可以制定关于ssh-keygen的一些允许规则，其他“comm”同理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">semodule -i postgreylocal.pp</span><br></pre></td></tr></table></figure></p>
+<p>可以添加自定义的SELinux策略</p>
+<hr>
+<h2 id="18-确认安装情况"><a href="#18-确认安装情况" class="headerlink" title="18. 确认安装情况"></a><strong>18. 确认安装情况</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/git/gitlab/</span><br><span class="line">sudo -u git -H bundle exec rake gitlab:check RAILS_ENV=production</span><br></pre></td></tr></table></figure>
+<h2 id="19-注意事项"><a href="#19-注意事项" class="headerlink" title="19. 注意事项"></a><strong>19. 注意事项</strong></h2><blockquote>
 <p>整个安装过程，在最后配置nginx代理时碰到很多权限问题，这和<a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/index.html" target="_blank" rel="external">SELinux</a>有关，还需要研究，细化权限配置。<br>前文中，端口9000默认在SELinux里开放，故直接使用，后续还应保持8080端口并添加相应权限，避免与其他应用的9000端口冲突。<br>查看端口开放情况<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">semanage port -l | grep http</span><br></pre></td></tr></table></figure></p>
 <p>安装semanage<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install policycoreutils-python</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <ul>
+<li><a href="https://wiki.centos.org/zh/HowTos/SELinux?highlight=%28selinux%29" target="_blank" rel="external">CentOS SELinux</a></li>
 <li><a href="https://wiki.centos.org/TipsAndTricks/SelinuxBooleans" target="_blank" rel="external">SELinux Booleans</a></li>
 <li><a href="http://www.thegeekstuff.com/2012/06/enable-epel-repository/" target="_blank" rel="external">EPEL information</a></li>
 </ul>
