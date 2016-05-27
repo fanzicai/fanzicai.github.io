@@ -18,7 +18,7 @@
 
 持续的软件版本发布/测试项目。
 监控外部调用执行的工作。">
-<meta property="og:updated_time" content="2016-05-27T03:11:45.447Z">
+<meta property="og:updated_time" content="2016-05-27T03:28:41.336Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7上安装Docker及Jenkins">
 <meta name="twitter:description" content="Jenkins是基于Java开发的一种持续集成工具，用于监控持续重复的工作，功能包括：
@@ -302,6 +302,22 @@
 </ul>
 <blockquote>
 <p>下载image及创建名为jenkis的容器并运行<br>启动、停止容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker start jenkis</span><br><span class="line">docker stop jenkis</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li>访问<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://*.*.*.*:8080</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="3-Git插件"><a href="#3-Git插件" class="headerlink" title="3. Git插件"></a><strong>3. Git插件</strong></h2><blockquote>
+<p>管理插件<br>因为采用gitlab管理源码，需要添加</p>
+<ul>
+<li>git plugin</li>
+<li>git client plugin</li>
+<li>gitlab hook plugin</li>
+<li>gitlab plugin</li>
+<li>gitlab merge request builder</li>
+<li>gitlab logo plugin</li>
+</ul>
 </blockquote>
 
       
