@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://fanzicai.github.com/Program/2016/05/25/CentOS7上搭建Docker私有仓库.html">
 <meta property="og:site_name" content="fanzi.home@web">
 <meta property="og:description" content="Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
-<meta property="og:updated_time" content="2016-05-25T09:32:23.730Z">
+<meta property="og:updated_time" content="2016-05-27T02:42:01.415Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7上搭建Docker私有仓库">
 <meta name="twitter:description" content="Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
@@ -266,22 +266,19 @@
 </li>
 </ul>
 <hr>
-<h2 id="2-Docker"><a href="#2-Docker" class="headerlink" title="2. Docker"></a><strong>2. <a href="https://www.docker.com/" target="_blank" rel="external">Docker</a></strong></h2><p>参考<a href="https://docs.docker.com/engine/installation/linux/centos/" target="_blank" rel="external">官网安装流程</a>。</p>
+<h2 id="2-Docker"><a href="#2-Docker" class="headerlink" title="2. Docker"></a><strong>2. <a href="https://www.docker.com/" target="_blank" rel="external">Docker</a></strong></h2><p>参考<a href="https://docs.docker.com/engine/installation/linux/centos/" target="_blank" rel="external">官网安装流程</a>和<a href="https://wiki.centos.org/zh/Cloud/Docker?highlight=%28docker%29" target="_blank" rel="external">CentOS Wiki</a>。</p>
 <ul>
 <li><p>准备工作</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y update</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>添加repo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /etc/yum.repos.d/docker.repo &lt;&lt;-&apos;EOF&apos;</span><br><span class="line">[dockerrepo]</span><br><span class="line">name=Docker Repository</span><br><span class="line">baseurl=https://yum.dockerproject.org/repo/main/centos/$releasever/</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://yum.dockerproject.org/gpg</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>正式安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install docker-engine</span><br></pre></td></tr></table></figure>
+<li><p>CentOS Wiki推荐方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install docker</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>自启动</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>本地仓库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry</span><br><span class="line">docker run -d -p 5000:5000 -v /opt/data/registry:/tmp/registry docker.io/registry</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull registry</span><br><span class="line">docker run -d -p 5000:5000 --restart=always -v /opt/data/registry:/tmp/registry --name registry docker.io/registry</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>访问仓库</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl *.*.*.*:5000/v1/search</span><br></pre></td></tr></table></figure>
@@ -296,13 +293,14 @@
 <li><p>创建镜像链接</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker tag docker.io/gitlab/gitlab-ce *.*.*.*:5000/gitlab-ce</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>解决docker配置文件问题</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/lib/systemd/system/docker.service</span><br></pre></td></tr></table></figure>
+<li><p>修改客户端配置文件</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/docker</span><br></pre></td></tr></table></figure>
+</blockquote>
 </li>
 </ul>
 <blockquote>
-<p>[Service]中增加<br>EnvironmentFile=/etc/sysconfig/docker<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/docker</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"># /etc/sysconfig/docker</span><br><span class="line"></span><br><span class="line"># Modify these options if you want to change the way the docker daemon runs</span><br><span class="line">OPTIONS=&apos;-H tcp://0.0.0.0:4243 -H unix:///var/run/docker.sock&apos;</span><br><span class="line">DOCKER_CERT_PATH=/etc/docker</span><br><span class="line"></span><br><span class="line"># If you want to add your own registry to be used for docker search and docker</span><br><span class="line"># pull use the ADD_REGISTRY option to list a set of registries, each prepended</span><br><span class="line"># with --add-registry flag. The first registry added will be the first registry</span><br><span class="line"># searched.</span><br><span class="line"># ADD_REGISTRY=&apos;--add-registry registry.access.redhat.com&apos;</span><br><span class="line"></span><br><span class="line"># If you want to block registries from being used, uncomment the BLOCK_REGISTRY</span><br><span class="line"># option and give it a set of registries, each prepended with --block-registry</span><br><span class="line"># flag. For example adding docker.io will stop users from downloading images</span><br><span class="line"># from docker.io</span><br><span class="line"># BLOCK_REGISTRY=&apos;--block-registry&apos;</span><br><span class="line"></span><br><span class="line"># If you have a registry secured with https but do not have proper certs</span><br><span class="line"># distributed, you can tell docker to not look for full authorization by</span><br><span class="line"># adding the registry to the INSECURE_REGISTRY line and uncommenting it.</span><br><span class="line"> INSECURE_REGISTRY=&apos;--insecure-registry *.*.*.*:5000&apos;</span><br><span class="line"></span><br><span class="line"># On an SELinux system, if you remove the --selinux-enabled option, you</span><br><span class="line"># also need to turn on the docker_transition_unconfined boolean.</span><br><span class="line">setsebool -P docker_transition_unconfined 1</span><br><span class="line"></span><br><span class="line"># Location used for temporary files, such as those created by</span><br><span class="line"># docker load and build operations. Default is /var/lib/docker/tmp</span><br><span class="line"># Can be overriden by setting the following environment variable.</span><br><span class="line"># DOCKER_TMPDIR=/var/tmp</span><br><span class="line"></span><br><span class="line"># Controls the /etc/cron.daily/docker-logrotate cron job status.</span><br><span class="line"># To disable, uncomment the line below.</span><br><span class="line"># LOGROTATE=false</span><br></pre></td></tr></table></figure>
+<p>增加”–insecure-registry *.*.*.*:5000”</p>
 </blockquote>
 <ul>
 <li>提交镜像<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker push *.*.*.*:5000/gitlab-ce</span><br></pre></td></tr></table></figure></li>

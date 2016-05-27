@@ -18,7 +18,7 @@
 
 持续的软件版本发布/测试项目。
 监控外部调用执行的工作。">
-<meta property="og:updated_time" content="2016-05-25T09:35:10.026Z">
+<meta property="og:updated_time" content="2016-05-27T03:11:45.447Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7上安装Docker及Jenkins">
 <meta name="twitter:description" content="Jenkins是基于Java开发的一种持续集成工具，用于监控持续重复的工作，功能包括：
@@ -280,6 +280,29 @@
 </li>
 </ul>
 <hr>
+<h2 id="2-Docker"><a href="#2-Docker" class="headerlink" title="2. Docker"></a><strong>2. <a href="https://www.docker.com/" target="_blank" rel="external">Docker</a></strong></h2><p>参考<a href="https://wiki.centos.org/zh/Cloud/Docker?highlight=%28docker%29" target="_blank" rel="external">CentOS Wiki</a>。</p>
+<ul>
+<li><p>准备工作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>CentOS Wiki推荐方式</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install docker</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>自启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="3-Jenkins"><a href="#3-Jenkins" class="headerlink" title="3. Jenkins"></a><strong>3. <a href="https://jenkins.io/" target="_blank" rel="external">Jenkins</a></strong></h2><p>采用<a href="https://hub.docker.com/_/jenkins/" target="_blank" rel="external">docker jenkins</a></p>
+<ul>
+<li>安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --detach --name jenkis --restart always -p 8080:8080 -p 50000:50000 jenkins</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>下载image及创建名为jenkis的容器并运行<br>启动、停止容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker start jenkis</span><br><span class="line">docker stop jenkis</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 
       
     </div>

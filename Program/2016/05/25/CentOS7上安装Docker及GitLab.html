@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://fanzicai.github.com/Program/2016/05/25/CentOS7上安装Docker及GitLab.html">
 <meta property="og:site_name" content="fanzi.home@web">
 <meta property="og:description" content="Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
-<meta property="og:updated_time" content="2016-05-27T01:53:09.555Z">
+<meta property="og:updated_time" content="2016-05-27T02:05:10.646Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7上安装Docker及GitLab">
 <meta name="twitter:description" content="Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
@@ -297,24 +297,27 @@
 <li><p>安装</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --detach \</span><br><span class="line">    --hostname gitlab.example.com \</span><br><span class="line">    --env GITLAB_OMNIBUS_CONFIG=&quot;external_url &apos;http://my.domain.com/&apos;; gitlab_rails[&apos;lfs_enabled&apos;] = true;&quot;\</span><br><span class="line">    --publish 443:443 --publish 80:80 --publish 22:22\</span><br><span class="line">    --name gitlab \</span><br><span class="line">    --restart always \</span><br><span class="line">    gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure>
 </li>
+<li><p>进入gitlab控制台</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it gitlab /bin/bash</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it gitlab /bin/bash</span><br><span class="line">sudo docker exec -it gitlab vi /etc/gitlab/gitlab.rb</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it gitlab vi /etc/gitlab/gitlab.rb</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>运行</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker start gitlab</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>停止</p>
+<li><p>其他命令</p>
+<blockquote>
+<p>停止</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker stop gitlab</span><br></pre></td></tr></table></figure>
+</blockquote>
 </li>
-<li><p>删除</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rm gitlab</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更新</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看日志</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker logs gitlab</span><br></pre></td></tr></table></figure></li>
 </ul>
+<blockquote>
+<p>删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rm gitlab</span><br></pre></td></tr></table></figure></p>
+<p>更新<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure></p>
+<p>查看日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker logs gitlab</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 
       
     </div>
