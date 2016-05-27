@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://fanzicai.github.com/Program/2016/05/25/CentOS7上安装Docker及GitLab.html">
 <meta property="og:site_name" content="fanzi.home@web">
 <meta property="og:description" content="Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
-<meta property="og:updated_time" content="2016-05-25T09:35:38.337Z">
+<meta property="og:updated_time" content="2016-05-27T01:53:09.555Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7上安装Docker及GitLab">
 <meta name="twitter:description" content="Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
@@ -266,16 +266,26 @@
 </li>
 </ul>
 <hr>
-<h2 id="2-Docker"><a href="#2-Docker" class="headerlink" title="2. Docker"></a><strong>2. <a href="https://www.docker.com/" target="_blank" rel="external">Docker</a></strong></h2><p>参考<a href="https://docs.docker.com/engine/installation/linux/centos/" target="_blank" rel="external">官网安装流程</a>。</p>
+<h2 id="2-Docker"><a href="#2-Docker" class="headerlink" title="2. Docker"></a><strong>2. <a href="https://www.docker.com/" target="_blank" rel="external">Docker</a></strong></h2><p>参考<a href="https://docs.docker.com/engine/installation/linux/centos/" target="_blank" rel="external">官网安装流程</a>和<a href="https://wiki.centos.org/zh/Cloud/Docker?highlight=%28docker%29" target="_blank" rel="external">CentOS Wiki</a>。</p>
 <ul>
 <li><p>准备工作</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y update</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>添加repo</p>
+<li><p>官网方式</p>
+<blockquote>
+<p>添加repo</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /etc/yum.repos.d/docker.repo &lt;&lt;-&apos;EOF&apos;</span><br><span class="line">[dockerrepo]</span><br><span class="line">name=Docker Repository</span><br><span class="line">baseurl=https://yum.dockerproject.org/repo/main/centos/$releasever/</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://yum.dockerproject.org/gpg</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+</blockquote>
 </li>
-<li><p>正式安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install docker-engine</span><br></pre></td></tr></table></figure>
+</ul>
+<blockquote>
+<p>正式安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install docker-engine</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li><p>CentOS Wiki推荐方式</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install docker</span><br></pre></td></tr></table></figure>
+</blockquote>
 </li>
 <li><p>自启动</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
@@ -285,7 +295,7 @@
 <h2 id="3-GitLab"><a href="#3-GitLab" class="headerlink" title="3. GitLab"></a><strong>3. GitLab</strong></h2><p>安装教程详见<a href="http://docs.gitlab.com/omnibus/docker/" target="_blank" rel="external">http://docs.gitlab.com/omnibus/docker/</a>。</p>
 <ul>
 <li><p>安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --detach \</span><br><span class="line">    --hostname gitlab.example.com \</span><br><span class="line">    --env GITLAB_OMNIBUS_CONFIG=&quot;external_url &apos;http://my.domain.com/&apos;; gitlab_rails[&apos;lfs_enabled&apos;] = true;&quot;\</span><br><span class="line">    --publish 443:443 --publish 80:80 \</span><br><span class="line">    --name gitlab \</span><br><span class="line">    --restart always \</span><br><span class="line">    --volume /srv/gitlab/config:/etc/gitlab:Z \</span><br><span class="line">    --volume /srv/gitlab/logs:/var/log/gitlab:Z \</span><br><span class="line">    --volume /srv/gitlab/data:/var/opt/gitlab:Z \</span><br><span class="line">    gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --detach \</span><br><span class="line">    --hostname gitlab.example.com \</span><br><span class="line">    --env GITLAB_OMNIBUS_CONFIG=&quot;external_url &apos;http://my.domain.com/&apos;; gitlab_rails[&apos;lfs_enabled&apos;] = true;&quot;\</span><br><span class="line">    --publish 443:443 --publish 80:80 --publish 22:22\</span><br><span class="line">    --name gitlab \</span><br><span class="line">    --restart always \</span><br><span class="line">    gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>配置</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it gitlab /bin/bash</span><br><span class="line">sudo docker exec -it gitlab vi /etc/gitlab/gitlab.rb</span><br></pre></td></tr></table></figure>
