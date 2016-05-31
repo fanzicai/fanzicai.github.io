@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://fanzicai.github.com/Program/2016/05/25/CentOS7上安装Docker及GitLab.html">
 <meta property="og:site_name" content="fanzi.home@web">
 <meta property="og:description" content="Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
-<meta property="og:updated_time" content="2016-05-27T02:05:10.646Z">
+<meta property="og:updated_time" content="2016-05-30T07:23:57.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7上安装Docker及GitLab">
 <meta name="twitter:description" content="Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
@@ -129,7 +129,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/CentOS/" style="font-size: 20px;">CentOS</a> <a href="/tags/Docker/" style="font-size: 16.67px;">Docker</a> <a href="/tags/Gem/" style="font-size: 10px;">Gem</a> <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/GitHub/" style="font-size: 13.33px;">GitHub</a> <a href="/tags/GitLab/" style="font-size: 16.67px;">GitLab</a> <a href="/tags/Go/" style="font-size: 10px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Redis/" style="font-size: 13.33px;">Redis</a> <a href="/tags/Ruby-on-Rails/" style="font-size: 13.33px;">Ruby on Rails</a> <a href="/tags/SELinux/" style="font-size: 10px;">SELinux</a>
+						<a href="/tags/CentOS/" style="font-size: 20px;">CentOS</a> <a href="/tags/Docker/" style="font-size: 17.5px;">Docker</a> <a href="/tags/Gem/" style="font-size: 12.5px;">Gem</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12.5px;">GitHub</a> <a href="/tags/GitLab/" style="font-size: 17.5px;">GitLab</a> <a href="/tags/Go/" style="font-size: 12.5px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 12.5px;">Nginx</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Redis/" style="font-size: 15px;">Redis</a> <a href="/tags/Ruby-on-Rails/" style="font-size: 15px;">Ruby on Rails</a> <a href="/tags/SELinux/" style="font-size: 12.5px;">SELinux</a>
 					</div>
 				</section>
 				
@@ -317,6 +317,8 @@
 <p>删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rm gitlab</span><br></pre></td></tr></table></figure></p>
 <p>更新<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure></p>
 <p>查看日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker logs gitlab</span><br></pre></td></tr></table></figure></p>
+<p>查看Container<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure></p>
+<p>查看Image<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 
       

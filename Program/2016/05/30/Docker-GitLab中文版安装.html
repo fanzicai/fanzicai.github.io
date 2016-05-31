@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>CentOS7上安装GitLab（SRC） | fanzi.home@web</title>
+  <title>Docker GitLab中文版安装 | fanzi.home@web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="GitLab是基于Ruby on Rails的一个开源的版本管理系统，其内嵌了Redis。本文在CentOS7上采用源码方式安装GitLab汉化版.">
+  <meta name="description" content="GitLab是基于Ruby on Rails的一个开源的版本管理系统，其内嵌了Redis。本文在CentOS7上采用Docker安装GitLab汉化版.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS7上安装GitLab（SRC）">
-<meta property="og:url" content="http://fanzicai.github.com/Program/2016/05/20/CentOS7上安装GitLab（SRC）.html">
+<meta property="og:title" content="Docker GitLab中文版安装">
+<meta property="og:url" content="http://fanzicai.github.com/Program/2016/05/30/Docker-GitLab中文版安装.html">
 <meta property="og:site_name" content="fanzi.home@web">
-<meta property="og:description" content="GitLab是基于Ruby on Rails的一个开源的版本管理系统，其内嵌了Redis。本文在CentOS7上采用源码方式安装GitLab汉化版.">
-<meta property="og:updated_time" content="2016-05-26T02:59:14.153Z">
+<meta property="og:description" content="GitLab是基于Ruby on Rails的一个开源的版本管理系统，其内嵌了Redis。本文在CentOS7上采用Docker安装GitLab汉化版.">
+<meta property="og:updated_time" content="2016-05-31T05:19:21.451Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS7上安装GitLab（SRC）">
-<meta name="twitter:description" content="GitLab是基于Ruby on Rails的一个开源的版本管理系统，其内嵌了Redis。本文在CentOS7上采用源码方式安装GitLab汉化版.">
+<meta name="twitter:title" content="Docker GitLab中文版安装">
+<meta name="twitter:description" content="GitLab是基于Ruby on Rails的一个开源的版本管理系统，其内嵌了Redis。本文在CentOS7上采用Docker安装GitLab汉化版.">
   
     <link rel="alternative" href="/atom.xml" title="fanzi.home@web" type="application/atom+xml">
   
@@ -205,11 +205,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-CentOS7上安装GitLab（SRC）" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Docker-GitLab中文版安装" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/Program/2016/05/20/CentOS7上安装GitLab（SRC）.html" class="article-date">
-  	<time datetime="2016-05-20T05:31:11.000Z" itemprop="datePublished">2016-05-20</time>
+      <a href="/Program/2016/05/30/Docker-GitLab中文版安装.html" class="article-date">
+  	<time datetime="2016-05-30T07:11:22.000Z" itemprop="datePublished">2016-05-30</time>
 </a>
     </div>
   
@@ -222,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      CentOS7上安装GitLab（SRC）
+      Docker GitLab中文版安装
     </h1>
   
 
@@ -231,7 +231,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gem/">Gem</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitLab/">GitLab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ruby-on-Rails/">Ruby on Rails</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SELinux/">SELinux</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gem/">Gem</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitLab/">GitLab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ruby-on-Rails/">Ruby on Rails</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SELinux/">SELinux</a></li></ul>
 	</div>
 
         
@@ -246,37 +246,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://about.gitlab.com/" target="_blank" rel="external">GitLab</a>是基于<a href="http://www.ruby-lang.org/en/" target="_blank" rel="external">Ruby on Rails</a>的一个开源的版本管理系统，其内嵌了Redis。本文在<a href="https://www.centos.org/" target="_blank" rel="external">CentOS7</a>上采用<a href="http://docs.gitlab.com/ce/install/installation.html" target="_blank" rel="external">源码方式</a>安装<a href="https://gitlab.com/larryli/gitlab/tags" target="_blank" rel="external">GitLab汉化版</a>.<br><a id="more"></a></p>
-<h2 id="1-CentOS"><a href="#1-CentOS" class="headerlink" title="1. CentOS"></a><strong>1. CentOS</strong></h2><p><a href="https://www.centos.org/" target="_blank" rel="external">CentOS7</a>（Community Enterprise Operation System, 社区企业操作系统）,截至发文时，最新版为CentOS7，本文安装的是64位。</p>
+        <p><a href="https://about.gitlab.com/" target="_blank" rel="external">GitLab</a>是基于<a href="http://www.ruby-lang.org/en/" target="_blank" rel="external">Ruby on Rails</a>的一个开源的版本管理系统，其内嵌了Redis。本文在<a href="https://www.centos.org/" target="_blank" rel="external">CentOS7</a>上采用<a href="https://www.docker.com/" target="_blank" rel="external">Docker</a>安装<a href="https://gitlab.com/larryli/gitlab/tags" target="_blank" rel="external">GitLab汉化版</a>.<br><a id="more"></a></p>
+<h2 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a><strong>1. 准备工作</strong></h2><p>可参考<a href="http://fanzicai.github.io/Program/2016/05/25/CentOS7%E4%B8%8A%E5%AE%89%E8%A3%85Docker%E5%8F%8AGitLab.html" target="_blank" rel="external">CentOS7上安装Docker及GitLab</a>一文，先行安装CentOS、Docker。</p>
 <ul>
-<li><p>安装环境：</p>
-<blockquote>
-<p>VMware® Workstation 12 Pro</p>
-</blockquote>
-</li>
-<li><p>安装版本</p>
-<blockquote>
-<p><a href="https://www.centos.org/download/" target="_blank" rel="external">CentOS-7-x86_64-Everything-1511</a> </p>
-</blockquote>
-</li>
-<li><p>安装方式</p>
-<blockquote>
-<p>Minimal Install</p>
-</blockquote>
+<li>Docker MySQL<br>官方已提供MySQL的<a href="https://hub.docker.com/r/mysql/mysql-server/" target="_blank" rel="external">Docker Image</a>。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --restart always --name mysql -e MYSQL_ROOT_PASSWORD=123 -d mysql/mysql-server:latest</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<blockquote>
+<p>进入mysql控制台<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it mysql /bin/bash</span><br><span class="line">mysql -uroot -p123</span><br></pre></td></tr></table></figure></p>
+<p>创建git用户及database<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE USER &apos;git&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;$password&apos;;</span><br><span class="line">CREATE DATABASE IF NOT EXISTS `gitlabhq_production` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`;</span><br><span class="line">GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, CREATE TEMPORARY TABLES, DROP, INDEX, ALTER, LOCK TABLES ON `gitlabhq_production`.* TO &apos;git&apos;@&apos;%&apos;;</span><br><span class="line">flush privileges;</span><br><span class="line">\q</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li>Docker <a href="https://wiki.centos.org/zh/Cloud/Docker?highlight=%28docker%29" target="_blank" rel="external">CentOS</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run --detach -ti \</span><br><span class="line">    --publish 80:80 --publish 8080:8080 \</span><br><span class="line">    --name gitlab \</span><br><span class="line">    --restart always \</span><br><span class="line">    --link mysql:mysql \</span><br><span class="line">    centos:latest</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>其中–link参数用于表明连接之前mysql容器</p>
+<ul>
+<li>进入gitlab-cn shell<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it gitlab /bin/bash</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
 <hr>
 <h2 id="2-基本工具"><a href="#2-基本工具" class="headerlink" title="2. 基本工具"></a><strong>2. 基本工具</strong></h2><p>正式安GitLab及其依赖库之前，系统必须具备一些条件，需执行以下命令安装一些必要的基本工具</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br><span class="line">yum -y group install &quot;development tools&quot;</span><br><span class="line">yum -y install vim cmake wget</span><br><span class="line">yum -y install readline-devel gdbm-devel openssl-devel expat-devel sqlite-devel libyaml-devel libffi-devel libxml2-devel libxslt-devel libicu-devel system-config-firewall-tui python-devel xmlto logwatch perl-ExtUtils-CBuilder</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br><span class="line">yum -y group install &quot;development tools&quot;</span><br><span class="line">yum -y install vim cmake wget</span><br><span class="line">yum -y install readline-devel gdbm-devel openssl-devel expat-devel sqlite-devel libyaml-devel libffi-devel libxml2-devel libxslt-devel libicu-devel system-config-firewall-tui python-devel xmlto logwatch perl-ExtUtils-CBuilder</span><br><span class="line">yum -y install sudo</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>以下如非特殊说明，均采用root登录安装</p>
 </blockquote>
 <hr>
-<h2 id="3-Git"><a href="#3-Git" class="headerlink" title="3. Git"></a><strong>3. Git</strong></h2><p>因CentOS仓库的Git版本较低，本文采用源码安装的方式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /root</span><br><span class="line">wget https://www.kernel.org/pub/software/scm/git/git-2.8.3.tar.gz</span><br><span class="line">tar xvf git-2.8.3.tar.gz</span><br><span class="line">cd git-2.8.3</span><br><span class="line">./configure --prefix=/usr</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-Git用户"><a href="#3-Git用户" class="headerlink" title="3. Git用户"></a><strong>3. Git用户</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adduser --system --shell /bin/bash --comment &apos;GitLab&apos; --create-home --home-dir /home/git/ git</span><br><span class="line">chmod -R go+rx /home/git</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="4-Ruby"><a href="#4-Ruby" class="headerlink" title="4. Ruby"></a><strong>4. Ruby</strong></h2><ul>
+<h2 id="4-Git"><a href="#4-Git" class="headerlink" title="4. Git"></a><strong>4. Git</strong></h2><p>因CentOS仓库的Git版本较低，本文采用源码安装的方式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /root</span><br><span class="line">wget https://www.kernel.org/pub/software/scm/git/git-2.8.3.tar.gz</span><br><span class="line">tar xvf git-2.8.3.tar.gz</span><br><span class="line">cd git-2.8.3</span><br><span class="line">./configure --prefix=/usr</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="5-Ruby"><a href="#5-Ruby" class="headerlink" title="5. Ruby"></a><strong>5. Ruby</strong></h2><ul>
 <li><p>Ruby</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd /root</span><br><span class="line">yum -y install ruby</span><br><span class="line">wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.1.tar.gz</span><br><span class="line">tar xvf ruby-2.3.1.tar.gz</span><br><span class="line">cd ruby-2.3.1</span><br><span class="line">./configure --prefix=/usr --disable-install-rdoc</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd /home/git</span><br><span class="line">yum -y install ruby</span><br><span class="line">wget https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.1.tar.gz</span><br><span class="line">tar xvf ruby-2.3.1.tar.gz</span><br><span class="line">cd ruby-2.3.1</span><br><span class="line">./configure --prefix=/usr --disable-install-rdoc</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Bundler</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/</span><br><span class="line">gem install bundler</span><br><span class="line">bundle config mirror.https://rubygems.org https://ruby.taobao.org</span><br></pre></td></tr></table></figure>
@@ -286,35 +290,17 @@
 </li>
 </ul>
 <hr>
-<h2 id="5-Go"><a href="#5-Go" class="headerlink" title="5. Go"></a><strong>5. Go</strong></h2><p>Go源码安装，需要系统本身已有旧版本。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum -y install go</span><br><span class="line">cd /root</span><br><span class="line">wget https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz</span><br><span class="line">tar xvf go1.5.3.linux-amd64.tar.gz -C /usr/local/ </span><br><span class="line">ln -sf /usr/local/go/bin/&#123;go,godoc,gofmt&#125; /usr/bin/</span><br></pre></td></tr></table></figure></p>
+<h2 id="6-Go"><a href="#6-Go" class="headerlink" title="6. Go"></a><strong>6. Go</strong></h2><p>Go源码安装，但需要系统本身已有旧版本。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum -y install go</span><br><span class="line">cd /root</span><br><span class="line">wget https://storage.googleapis.com/golang/go1.5.3.linux-amd64.tar.gz</span><br><span class="line">tar xvf go1.5.3.linux-amd64.tar.gz -C /usr/local/ </span><br><span class="line">ln -sf /usr/local/go/bin/&#123;go,godoc,gofmt&#125; /usr/bin/</span><br></pre></td></tr></table></figure></p>
 <hr>
-<h2 id="6-Git用户"><a href="#6-Git用户" class="headerlink" title="6. Git用户"></a><strong>6. Git用户</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser --system --shell /bin/bash --comment &apos;GitLab&apos; --create-home --home-dir /home/git/ git</span><br></pre></td></tr></table></figure>
-<h2 id="7-PostgreSQL"><a href="#7-PostgreSQL" class="headerlink" title="7. PostgreSQL"></a><strong>7. PostgreSQL</strong></h2><ul>
-<li><p>PostgreSQL安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">yum -y install postgresql-server postgresql-contrib postgresql-devel</span><br><span class="line">postgresql-setup initdb</span><br><span class="line">systemctl enable postgresql</span><br><span class="line">systemctl start postgresql</span><br></pre></td></tr></table></figure>
+<h2 id="7-MySQL"><a href="#7-MySQL" class="headerlink" title="7. MySQL"></a><strong>7. MySQL</strong></h2><ul>
+<li><p>MySQL安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://repo.mysql.com//mysql57-community-release-el7-8.noarch.rpm</span><br><span class="line">rpm -Uvh mysql57-community-release-el7-8.noarch.rpm</span><br><span class="line">yum -y update</span><br><span class="line">yum -y install mysql mysql-devel</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>默认用户postgres的密码修改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su postgres</span><br><span class="line">psql -U postgres</span><br></pre></td></tr></table></figure>
+<li><p>MySQL连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h mysql -ugit -p$password -D gitlabhq_production</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<blockquote>
-<p>执行SQL语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER postgres WITH PASSWORD &apos;postgres&apos;</span><br></pre></td></tr></table></figure></p>
-<p>退出命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\q</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<ul>
-<li><p>GitLab库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo -u postgres psql -d template1 -c &quot;CREATE USER git CREATEDB;&quot;</span><br><span class="line">sudo -u postgres psql -d template1 -c &quot;CREATE DATABASE gitlabhq_production OWNER git;&quot;</span><br><span class="line">sudo -u postgres psql -d template1 -c &quot;CREATE EXTENSION IF NOT EXISTS pg_trgm;&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>查看创建情况</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -u git -H psql -d gitlabhq_production</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>执行SQL语句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT true AS enabled FROM pg_available_extensions WHERE name = &apos;pg_trgm&apos;;</span><br></pre></td></tr></table></figure></p>
-<p>结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enabled</span><br><span class="line">-------</span><br><span class="line">t</span><br><span class="line">(1 row)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<hr>
-<h2 id="8-Redis"><a href="#8-Redis" class="headerlink" title="8. Redis"></a><strong>8. Redis</strong></h2><p>CentOS仓库默认没有Redis，先安装EPEL源。</p>
+<h2 id="gt-其中-password为之前创建git用户时的密码"><a href="#gt-其中-password为之前创建git用户时的密码" class="headerlink" title="&gt; 其中$password为之前创建git用户时的密码"></a>&gt; 其中$password为之前创建git用户时的密码</h2><h2 id="8-Redis"><a href="#8-Redis" class="headerlink" title="8. Redis"></a><strong>8. Redis</strong></h2><p>CentOS仓库默认没有Redis，先安装EPEL源。</p>
 <ul>
 <li><p>Redis安装</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum -y install epel-release</span><br><span class="line">yum -y install redis</span><br></pre></td></tr></table></figure>
@@ -325,7 +311,7 @@
 </blockquote>
 </li>
 <li><p>设置及启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chown redis:redis /var/run/redis</span><br><span class="line">chmod 755 /var/run/redis</span><br><span class="line">usermod -aG redis git</span><br><span class="line">systemctl enable redis</span><br><span class="line">systemctl start redis</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chown redis:redis /var/run/redis</span><br><span class="line">chmod 755 /var/run/redis</span><br><span class="line">usermod -aG redis git</span><br><span class="line">systemctl enable redis</span><br><span class="line">redis-server /etc/redis.conf &amp;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
@@ -354,7 +340,6 @@
 </ul>
 <blockquote>
 <p>必要时编辑unicorn.rb文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -u git -H vim config/unicorn.rb</span><br></pre></td></tr></table></figure></p>
-<p>本文将8080改为9000</p>
 </blockquote>
 <ul>
 <li><p>其他配置</p>
@@ -369,13 +354,16 @@
 <p>本文无修改</p>
 </blockquote>
 <ul>
-<li><p>database.yml文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo -u git cp config/database.yml.postgresql config/database.yml</span><br><span class="line">sudo -u git -H chmod o-rwx config/database.yml</span><br></pre></td></tr></table></figure>
+<li>database.yml文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo -u git cp config/database.yml.mysql config/database.yml</span><br><span class="line">sudo -u git -H chmod o-rwx config/database.yml</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>gitlab-shell</p>
+</ul>
 <blockquote>
+<p>编辑database.yml文件<br>修改用户为git，host为mysql</p>
+</blockquote>
+<ul>
+<li>gitlab-shell<blockquote>
 <p>编辑Gemfile<br>改为ruby.taobao.org</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo -u git -H bundle install --deployment --without development test mysql aws</span><br><span class="line">sudo -u git -H bundle exec rake gitlab:shell:install REDIS_URL=unix:/var/run/redis/redis.sock RAILS_ENV=production</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo -u git -H bundle install --deployment --without development test postgres aws</span><br><span class="line">sudo -u git -H bundle exec rake gitlab:shell:install REDIS_URL=unix:/var/run/redis/redis.sock RAILS_ENV=production</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ul>
@@ -391,10 +379,10 @@
 <hr>
 <h2 id="14-gitlab服务"><a href="#14-gitlab服务" class="headerlink" title="14. gitlab服务"></a><strong>14. gitlab服务</strong></h2><ul>
 <li><p>一些配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod -R ug+rwX,o-rwx /home/git/repositories/</span><br><span class="line">sudo chmod -R ug-s /home/git/repositories/</span><br><span class="line">sudo find /home/git/repositories/ -type d -print0 | sudo xargs -0 chmod g+s</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R git:git /home/git/repositories/</span><br><span class="line">sudo chmod -R ug+rwX,o-rwx /home/git/repositories/</span><br><span class="line">sudo chmod -R ug-s /home/git/repositories/</span><br><span class="line">sudo find /home/git/repositories/ -type d -print0 | sudo xargs -0 chmod g+s</span><br><span class="line">sudo chmod 700 /home/git/gitlab-v8.8.0.zh1-5c495e42d863613b5288d332c2c6f4189a684735/public/uploads</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>自启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo cp lib/support/init.d/gitlab /etc/init.d/gitlab</span><br><span class="line">chkconfig gitlab on</span><br><span class="line">systemctl start gitlab</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo cp lib/support/init.d/gitlab /etc/init.d/gitlab</span><br><span class="line">chkconfig gitlab on</span><br><span class="line">/etc/init.d/gitlab start</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
@@ -413,7 +401,7 @@
 </li>
 <li><p>修改gitlab配置</p>
 <blockquote>
-<p>增加server 127.0.0.1:9000</p>
+<p>增加server 127.0.0.1:8080</p>
 </blockquote>
 </li>
 <li><p>修改nginx.conf</p>
@@ -422,26 +410,13 @@
 </blockquote>
 </li>
 <li><p>自启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable nginx</span><br><span class="line">systemctl start nginx</span><br><span class="line">firewall-cmd --permanent --add-service=http</span><br><span class="line">systemctl reload firewalld</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable nginx</span><br><span class="line">nginx</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h2 id="17-SELinux设置"><a href="#17-SELinux设置" class="headerlink" title="17. SELinux设置"></a><strong>17. SELinux设置</strong></h2><p>此时nginx还无法访问gitlab等资源，根据SELinux规则做些权限修改<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setenforce Permissive</span><br></pre></td></tr></table></figure></p>
-<p>运行gitlab一段时间，并访问gitlab<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /var/log/audit/audit.log</span><br></pre></td></tr></table></figure></p>
-<p>可以查看到一些日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep ssh-keygen /var/log/audit/audit.log | audit2allow -M postgreylocal</span><br></pre></td></tr></table></figure></p>
-<p>可以制定关于ssh-keygen的一些允许规则，其他“comm”同理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">semodule -i postgreylocal.pp</span><br></pre></td></tr></table></figure></p>
-<p>可以添加自定义的SELinux策略</p>
-<hr>
-<h2 id="18-确认安装情况"><a href="#18-确认安装情况" class="headerlink" title="18. 确认安装情况"></a><strong>18. 确认安装情况</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/git/gitlab/</span><br><span class="line">sudo -u git -H bundle exec rake gitlab:check RAILS_ENV=production</span><br></pre></td></tr></table></figure>
-<h2 id="19-注意事项"><a href="#19-注意事项" class="headerlink" title="19. 注意事项"></a><strong>19. 注意事项</strong></h2><blockquote>
-<p>整个安装过程，在最后配置nginx代理时碰到很多权限问题，这和<a href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/index.html" target="_blank" rel="external">SELinux</a>有关，还需要研究，细化权限配置。<br>前文中，端口9000默认在SELinux里开放，故直接使用，后续还应保持8080端口并添加相应权限，避免与其他应用的9000端口冲突。<br>查看端口开放情况<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">semanage port -l | grep http</span><br></pre></td></tr></table></figure></p>
-<p>安装semanage<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install policycoreutils-python</span><br></pre></td></tr></table></figure></p>
+<h2 id="17-确认安装情况"><a href="#17-确认安装情况" class="headerlink" title="17. 确认安装情况"></a><strong>17. 确认安装情况</strong></h2><blockquote>
+<p>编辑/home/git/gitlab-shell/config.yml<br>将url改为<a href="http://127.0.0.1:8080" target="_blank" rel="external">http://127.0.0.1:8080</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/git/gitlab/</span><br><span class="line">sudo -u git -H bundle exec rake gitlab:check RAILS_ENV=production</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<ul>
-<li><a href="https://wiki.centos.org/zh/HowTos/SELinux?highlight=%28selinux%29" target="_blank" rel="external">CentOS SELinux</a></li>
-<li><a href="https://wiki.centos.org/TipsAndTricks/SelinuxBooleans" target="_blank" rel="external">SELinux Booleans</a></li>
-<li><a href="http://www.thegeekstuff.com/2012/06/enable-epel-repository/" target="_blank" rel="external">EPEL information</a></li>
-</ul>
 
       
     </div>
@@ -451,18 +426,9 @@
     
 <nav id="article-nav">
   
-    <a href="/Program/2016/05/25/CentOS7上安装Docker及GitLab.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          CentOS7上安装Docker及GitLab
-        
-      </div>
-    </a>
   
-  
-    <a href="/Program/2016/05/19/CentOS7上安装GitLab（RPM）.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CentOS7上安装GitLab（RPM）</div>
+    <a href="/Program/2016/05/25/CentOS7上搭建Docker私有仓库.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CentOS7上搭建Docker私有仓库</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -497,7 +463,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="CentOS7上安装GitLab（SRC）" data-title="CentOS7上安装GitLab（SRC）" data-url="http://fanzicai.github.com/Program/2016/05/20/CentOS7上安装GitLab（SRC）.html"></div>
+	<div class="ds-thread" data-thread-key="Docker-GitLab中文版安装" data-title="Docker GitLab中文版安装" data-url="http://fanzicai.github.com/Program/2016/05/30/Docker-GitLab中文版安装.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
