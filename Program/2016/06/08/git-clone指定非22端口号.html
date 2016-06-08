@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: Gitlab | fanzi.home@web</title>
+  <title>git clone指定非22端口号 | fanzi.home@web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="凡尘过客今他乡，子若布衣奈何天">
-<meta property="og:type" content="website">
-<meta property="og:title" content="fanzi.home@web">
-<meta property="og:url" content="http://fanzicai.github.com/tags/Gitlab/index.html">
+  <meta name="description" content="git clone项目时，采用ssh协议时，一般远端均是22端口。部署docker时，考虑端口映射成其他，如2222。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git clone指定非22端口号">
+<meta property="og:url" content="http://fanzicai.github.com/Program/2016/06/08/git-clone指定非22端口号.html">
 <meta property="og:site_name" content="fanzi.home@web">
-<meta property="og:description" content="凡尘过客今他乡，子若布衣奈何天">
+<meta property="og:description" content="git clone项目时，采用ssh协议时，一般远端均是22端口。部署docker时，考虑端口映射成其他，如2222。">
+<meta property="og:updated_time" content="2016-06-08T01:42:35.799Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="fanzi.home@web">
-<meta name="twitter:description" content="凡尘过客今他乡，子若布衣奈何天">
+<meta name="twitter:title" content="git clone指定非22端口号">
+<meta name="twitter:description" content="git clone项目时，采用ssh协议时，一般远端均是22端口。部署docker时，考虑端口映射成其他，如2222。">
   
     <link rel="alternative" href="/atom.xml" title="fanzi.home@web" type="application/atom+xml">
   
@@ -204,58 +205,135 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-git-clone指定非22端口号" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Program/2016/06/08/TortoiseGit连接Gitlab.html" class="archive-article-date">
-  	<time datetime="2016-06-08T08:03:36.000Z" itemprop="datePublished">6月 8日</time>
+    <div class="article-meta">
+      <a href="/Program/2016/06/08/git-clone指定非22端口号.html" class="article-date">
+  	<time datetime="2016-06-08T01:32:17.000Z" itemprop="datePublished">2016-06-08</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Program/2016/06/08/TortoiseGit连接Gitlab.html">TortoiseGit连接Gitlab</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      git clone指定非22端口号
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gitlab/">Gitlab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TortoiseGit/">TortoiseGit</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
 	</div>
 
-          
+        
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/Program/">Program</a>
 	</div>
 
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>git clone项目时，采用ssh协议时，一般远端均是22端口。部署docker时，考虑端口映射成其他，如2222。<br><a id="more"></a></p>
+<ul>
+<li><p>22端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@hostname:repos/test.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>非22端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone ssh://git@hostname:2222/repos/test.git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改默认端口</p>
+<blockquote>
+<p>编辑~/.ssh/config</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host ***</span><br><span class="line">    Hostname ***</span><br><span class="line">    User ***</span><br><span class="line">    Port 2222</span><br><span class="line">    IdentifyFile ~/.ssh/***</span><br></pre></td></tr></table></figure></blockquote>
+</li>
+</ul>
+
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Program/2016/06/08/TortoiseGit连接Gitlab.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          TortoiseGit连接Gitlab
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Program/2016/06/08/CentOS7下设置时区方式.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CentOS7下设置时区方式</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
 
-  
-  
-    </div></section>
-  
 
-    
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="git-clone指定非22端口号" data-title="git clone指定非22端口号" data-url="http://fanzicai.github.com/Program/2016/06/08/git-clone指定非22端口号.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -282,9 +360,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}
