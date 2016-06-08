@@ -4,27 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>CentOS7上安装Docker及Jenkins | fanzi.home@web</title>
+  <title>SuSE安装Apache及mod_python模块 | fanzi.home@web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Jenkins是基于Java开发的一种持续集成工具，用于监控持续重复的工作，功能包括：
-
-持续的软件版本发布/测试项目。
-监控外部调用执行的工作。">
+  <meta name="description" content="本文在SuSE 11发行版上源码安装apache以及mod_python模块。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS7上安装Docker及Jenkins">
-<meta property="og:url" content="http://fanzicai.github.com/Program/2016/05/25/CentOS7上安装Docker及Jenkins.html">
+<meta property="og:title" content="SuSE安装Apache及mod_python模块">
+<meta property="og:url" content="http://fanzicai.github.com/Program/2016/06/08/SuSE安装Apache及mod-python模块.html">
 <meta property="og:site_name" content="fanzi.home@web">
-<meta property="og:description" content="Jenkins是基于Java开发的一种持续集成工具，用于监控持续重复的工作，功能包括：
-
-持续的软件版本发布/测试项目。
-监控外部调用执行的工作。">
-<meta property="og:updated_time" content="2016-05-27T08:47:03.617Z">
+<meta property="og:description" content="本文在SuSE 11发行版上源码安装apache以及mod_python模块。">
+<meta property="og:updated_time" content="2016-06-08T08:36:11.852Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS7上安装Docker及Jenkins">
-<meta name="twitter:description" content="Jenkins是基于Java开发的一种持续集成工具，用于监控持续重复的工作，功能包括：
-
-持续的软件版本发布/测试项目。
-监控外部调用执行的工作。">
+<meta name="twitter:title" content="SuSE安装Apache及mod_python模块">
+<meta name="twitter:description" content="本文在SuSE 11发行版上源码安装apache以及mod_python模块。">
   
     <link rel="alternative" href="/atom.xml" title="fanzi.home@web" type="application/atom+xml">
   
@@ -214,11 +205,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-CentOS7上安装Docker及Jenkins" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-SuSE安装Apache及mod-python模块" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/Program/2016/05/25/CentOS7上安装Docker及Jenkins.html" class="article-date">
-  	<time datetime="2016-05-25T07:50:55.000Z" itemprop="datePublished">2016-05-25</time>
+      <a href="/Program/2016/06/08/SuSE安装Apache及mod-python模块.html" class="article-date">
+  	<time datetime="2016-06-08T08:23:25.000Z" itemprop="datePublished">2016-06-08</time>
 </a>
     </div>
   
@@ -231,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      CentOS7上安装Docker及Jenkins
+      SuSE安装Apache及mod_python模块
     </h1>
   
 
@@ -240,7 +231,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jenkins/">Jenkins</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Apache/">Apache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SuSE/">SuSE</a></li></ul>
 	</div>
 
         
@@ -255,70 +246,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://jenkins.io/" target="_blank" rel="external">Jenkins</a>是基于Java开发的一种持续集成工具，用于监控持续重复的工作，功能包括：</p>
+        <p>本文在SuSE 11发行版上源码安装apache以及mod_python模块。</p>
+<a id="more"></a>
+<h2 id="Apache"><a href="#Apache" class="headerlink" title="Apache"></a><strong>Apache</strong></h2><p>本文采用httpd-2.2.19.tar.gz为例。</p>
 <ul>
-<li>持续的软件版本发布/测试项目。</li>
-<li>监控外部调用执行的工作。<a id="more"></a>
+<li>安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar xvf httpd-2.2.19.tar.gz</span><br><span class="line">cd httpd*/</span><br><span class="line">./configure --prefix=/usr/local/apache --with-python=/usr/local/bin/python</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="1-CentOS"><a href="#1-CentOS" class="headerlink" title="1. CentOS"></a><strong>1. CentOS</strong></h2><p><a href="https://www.centos.org/" target="_blank" rel="external">CentOS7</a>（Community Enterprise Operation System, 社区企业操作系统）,截至发文时，最新版为CentOS7，本文安装的是64位。</p>
+<p>其中，指定了python的执行路径</p>
 <ul>
-<li><p>安装环境：</p>
-<blockquote>
-<p>VMware® Workstation 12 Pro</p>
-</blockquote>
-</li>
-<li><p>安装版本</p>
-<blockquote>
-<p><a href="https://www.centos.org/download/" target="_blank" rel="external">CentOS-7-x86_64-Everything-1511</a> </p>
-</blockquote>
-</li>
-<li><p>安装方式</p>
-<blockquote>
-<p>Minimal Install</p>
-</blockquote>
+<li>运行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/apache/bin/apachectl -k start</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h2 id="2-Docker"><a href="#2-Docker" class="headerlink" title="2. Docker"></a><strong>2. <a href="https://www.docker.com/" target="_blank" rel="external">Docker</a></strong></h2><p>参考<a href="https://wiki.centos.org/zh/Cloud/Docker?highlight=%28docker%29" target="_blank" rel="external">CentOS Wiki</a>。</p>
+<h2 id="mod-python"><a href="#mod-python" class="headerlink" title="mod_python"></a><strong>mod_python</strong></h2><p>本文以mod_python-3.3.1.tgz为例</p>
 <ul>
-<li><p>准备工作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y update</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>CentOS Wiki推荐方式</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install docker</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>自启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h2 id="3-Jenkins"><a href="#3-Jenkins" class="headerlink" title="3. Jenkins"></a><strong>3. <a href="https://jenkins.io/" target="_blank" rel="external">Jenkins</a></strong></h2><p>采用<a href="https://hub.docker.com/_/jenkins/" target="_blank" rel="external">docker jenkins</a></p>
-<ul>
-<li>安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --detach --name jenkins --restart always -p 8080:8080 -p 50000:50000 jenkins</span><br></pre></td></tr></table></figure>
+<li>安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar xvf mod_python-3.3.1.tgz</span><br><span class="line">cd mod_python*</span><br><span class="line">./configure --with-apxs=/usr/local/apache/bin/apxs --with-python=/usr/local/bin/python2.6</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <blockquote>
-<p>下载image及创建名为jenkis的容器并运行<br>启动、停止容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker start jenkins</span><br><span class="line">docker stop jenkins</span><br></pre></td></tr></table></figure></p>
+<p>编译中出现错误<br>Connobject.c:142:error:request for member ‘next’ in something not a structure or union<br>需修改mod_python-3.3.1/src/connobject.c文件<br>“!(b==APR_BRIGADE_SENTINEL(b))”<br>修改为：“!(b==APR_BRIGADE_SENTINEL(bb))”</p>
 </blockquote>
 <ul>
-<li>访问<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://*.*.*.*:8080</span><br></pre></td></tr></table></figure>
+<li>配置<blockquote>
+<p>httpd.conf文件中增加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LoadModule python_module /usr/local/apache/modules/mod_python.so</span><br></pre></td></tr></table></figure>
+</blockquote>
 </li>
 </ul>
-<hr>
-<h2 id="3-Git插件"><a href="#3-Git插件" class="headerlink" title="3. Git插件"></a><strong>3. Git插件</strong></h2><blockquote>
-<p>管理插件<br>因为采用gitlab管理源码，需要添加</p>
-<ul>
-<li>git plugin</li>
-<li>git client plugin</li>
-<li>gitlab hook plugin</li>
-<li>gitlab plugin</li>
-<li>gitlab merge request builder</li>
-<li>gitlab logo plugin</li>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a><strong>测试</strong></h2><ul>
+<li><p>apache/htdocs/目录下，添加文件test/mptest.py</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">from mod_python import apache</span><br><span class="line"> </span><br><span class="line">def handler(req):</span><br><span class="line">     req.write(&quot;Hello World!&quot;)</span><br><span class="line">     return apache.OK</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>httpd.conf配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory /usr/local/apache/htdocs/test&gt;</span><br><span class="line">    AllowOverride FileInfo</span><br><span class="line">    AddHandler mod_python .py  #注意：mod_python与“.py”中间有空格</span><br><span class="line">    PythonHandler mptest</span><br><span class="line">    PythonDebug On</span><br><span class="line">    Order allow,deny</span><br><span class="line">     Allow from all</span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line">&lt;IfModule alias_module&gt;</span><br><span class="line">    ScriptAlias /htdocs/test/ &quot;/usr/local/apache/htdocs/test/&quot;</span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>访问<br><a href="http://192.168.100.125:8080/test/mptest.py" target="_blank" rel="external">http://192.168.100.125:8080/test/mptest.py</a></p>
+</li>
 </ul>
-</blockquote>
 
       
     </div>
@@ -328,18 +293,9 @@
     
 <nav id="article-nav">
   
-    <a href="/Program/2016/05/25/CentOS7上搭建Docker私有仓库.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          CentOS7上搭建Docker私有仓库
-        
-      </div>
-    </a>
   
-  
-    <a href="/Program/2016/05/25/CentOS7上安装Docker及GitLab.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CentOS7上安装Docker及GitLab</div>
+    <a href="/Program/2016/06/08/TortoiseGit连接Gitlab.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">TortoiseGit连接Gitlab</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -374,7 +330,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="CentOS7上安装Docker及Jenkins" data-title="CentOS7上安装Docker及Jenkins" data-url="http://fanzicai.github.com/Program/2016/05/25/CentOS7上安装Docker及Jenkins.html"></div>
+	<div class="ds-thread" data-thread-key="SuSE安装Apache及mod-python模块" data-title="SuSE安装Apache及mod_python模块" data-url="http://fanzicai.github.com/Program/2016/06/08/SuSE安装Apache及mod-python模块.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
