@@ -624,11 +624,18 @@ a {
   border: 1px solid #cf5d0f;
 }
 #header .header-nav .social a.github {
-  background: url("/img/github.png") center no-repeat #afb6ca;
-  border: 1px solid #afb6ca;
+  background: url("/img/github.png") center no-repeat #ef7522;
+  border: 1px solid #ef7522;
 }
 #header .header-nav .social a.github:hover {
-  border: 1px solid #909ab6;
+  border: 1px solid #cf5d0f;
+}
+#header .header-nav .social a.docker {
+  background: url("/img/docker.png") center no-repeat #3b5998;
+  border: 1px solid #3b5998;
+}
+#header .header-nav .social a.docker:hover {
+  border: 1px solid #2d4373;
 }
 #header .header-nav .social a.facebook {
   background: url("/img/facebook.png") center no-repeat #3b5998;
