@@ -130,7 +130,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/CentOS/" style="font-size: 20px;">CentOS</a> <a href="/tags/Docker/" style="font-size: 17.5px;">Docker</a> <a href="/tags/Gem/" style="font-size: 10px;">Gem</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12.5px;">GitHub</a> <a href="/tags/GitLab/" style="font-size: 15px;">GitLab</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/Go/" style="font-size: 10px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/MySQL/" style="font-size: 12.5px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 12.5px;">Redis</a> <a href="/tags/Ruby-on-Rails/" style="font-size: 12.5px;">Ruby on Rails</a> <a href="/tags/SELinux/" style="font-size: 10px;">SELinux</a> <a href="/tags/SuSE/" style="font-size: 10px;">SuSE</a> <a href="/tags/TortoiseGit/" style="font-size: 10px;">TortoiseGit</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a>
+						<a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/CentOS/" style="font-size: 20px;">CentOS</a> <a href="/tags/Docker/" style="font-size: 17.5px;">Docker</a> <a href="/tags/FCGI/" style="font-size: 10px;">FCGI</a> <a href="/tags/Gem/" style="font-size: 10px;">Gem</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12.5px;">GitHub</a> <a href="/tags/GitLab/" style="font-size: 15px;">GitLab</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/Go/" style="font-size: 10px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/LightTPD/" style="font-size: 10px;">LightTPD</a> <a href="/tags/MySQL/" style="font-size: 12.5px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 12.5px;">Nginx</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Pylons/" style="font-size: 12.5px;">Pylons</a> <a href="/tags/Pyramid/" style="font-size: 12.5px;">Pyramid</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 12.5px;">Redis</a> <a href="/tags/Ruby-on-Rails/" style="font-size: 12.5px;">Ruby on Rails</a> <a href="/tags/SCGI/" style="font-size: 10px;">SCGI</a> <a href="/tags/SELinux/" style="font-size: 10px;">SELinux</a> <a href="/tags/SuSE/" style="font-size: 10px;">SuSE</a> <a href="/tags/TortoiseGit/" style="font-size: 10px;">TortoiseGit</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a>
 					</div>
 				</section>
 				
@@ -209,6 +209,134 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-nginx中pylons的FCGI发布" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Program/2016/06/13/nginx中pylons的FCGI发布.html" class="article-date">
+  	<time datetime="2016-06-13T02:05:26.000Z" itemprop="datePublished">2016-06-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Program/2016/06/13/nginx中pylons的FCGI发布.html">nginx中pylons的FCGI发布</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://nginx.org/">Nginx</a> (“engine x”) 是一个高性能的HTTP和反向代理服务器，也是一个IMAP/POP3/SMTP服务器。Nginx是由Igor Sysoev为俄罗斯访问量第二的Rambler.ru站点开发的，第一个公开版本0.1.0发布于2004年10月4日。其将源代码以类BSD许可证的形式发布，因它的稳定性、丰富的功能集、示例配置文件和低系统资源的消耗而闻名。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FCGI/">FCGI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pylons/">Pylons</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pyramid/">Pyramid</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Program/">Program</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/Program/2016/06/13/nginx中pylons的FCGI发布.html">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-lighttpd中pylons的SCGI发布" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Program/2016/06/13/lighttpd中pylons的SCGI发布.html" class="article-date">
+  	<time datetime="2016-06-13T01:40:57.000Z" itemprop="datePublished">2016-06-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Program/2016/06/13/lighttpd中pylons的SCGI发布.html">lighttpd中pylons的SCGI发布</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.lighttpd.net/">Lighttpd</a> 是一个德国人领导的开源Web服务器软件，其根本的目的是提供一个专门针对高性能网站，安全、快速、兼容性好并且灵活的web server环境。具有非常低的内存开销、cpu占用率低、效能好以及丰富的模块等特点。</p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LightTPD/">LightTPD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pylons/">Pylons</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pyramid/">Pyramid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SCGI/">SCGI</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Program/">Program</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/Program/2016/06/13/lighttpd中pylons的SCGI发布.html">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Windows下更改GitBash默认路径" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -704,137 +832,6 @@
       
         <p class="article-more-link">
           <a  href="/Program/2016/05/25/CentOS7上搭建Docker私有仓库.html">更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-CentOS7上安装Docker及Jenkins" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/Program/2016/05/25/CentOS7上安装Docker及Jenkins.html" class="article-date">
-  	<time datetime="2016-05-25T07:50:55.000Z" itemprop="datePublished">2016-05-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Program/2016/05/25/CentOS7上安装Docker及Jenkins.html">CentOS7上安装Docker及Jenkins</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://jenkins.io/">Jenkins</a>是基于Java开发的一种持续集成工具，用于监控持续重复的工作，功能包括：</p>
-<ul>
-<li>持续的软件版本发布/测试项目。</li>
-<li>监控外部调用执行的工作。
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jenkins/">Jenkins</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Program/">Program</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/Program/2016/05/25/CentOS7上安装Docker及Jenkins.html">更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-CentOS7上安装Docker及GitLab" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/Program/2016/05/25/CentOS7上安装Docker及GitLab.html" class="article-date">
-  	<time datetime="2016-05-25T07:04:14.000Z" itemprop="datePublished">2016-05-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Program/2016/05/25/CentOS7上安装Docker及GitLab.html">CentOS7上安装Docker及GitLab</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://www.docker.com/">Docker</a>是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitLab/">GitLab</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Program/">Program</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/Program/2016/05/25/CentOS7上安装Docker及GitLab.html">更多 >></a>
         </p>
       
       <div class="clearfix"></div>

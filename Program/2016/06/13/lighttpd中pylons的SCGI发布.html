@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>CentOS7上安装Docker及GitLab | fanzi.home@web</title>
+  <title>lighttpd中pylons的SCGI发布 | fanzi.home@web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
+  <meta name="description" content="Lighttpd 是一个德国人领导的开源Web服务器软件，其根本的目的是提供一个专门针对高性能网站，安全、快速、兼容性好并且灵活的web server环境。具有非常低的内存开销、cpu占用率低、效能好以及丰富的模块等特点。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS7上安装Docker及GitLab">
-<meta property="og:url" content="http://fanzicai.github.com/Program/2016/05/25/CentOS7上安装Docker及GitLab.html">
+<meta property="og:title" content="lighttpd中pylons的SCGI发布">
+<meta property="og:url" content="http://fanzicai.github.com/Program/2016/06/13/lighttpd中pylons的SCGI发布.html">
 <meta property="og:site_name" content="fanzi.home@web">
-<meta property="og:description" content="Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
-<meta property="og:updated_time" content="2016-05-30T07:23:57.471Z">
+<meta property="og:description" content="Lighttpd 是一个德国人领导的开源Web服务器软件，其根本的目的是提供一个专门针对高性能网站，安全、快速、兼容性好并且灵活的web server环境。具有非常低的内存开销、cpu占用率低、效能好以及丰富的模块等特点。">
+<meta property="og:updated_time" content="2016-06-13T02:05:32.268Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS7上安装Docker及GitLab">
-<meta name="twitter:description" content="Docker是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
+<meta name="twitter:title" content="lighttpd中pylons的SCGI发布">
+<meta name="twitter:description" content="Lighttpd 是一个德国人领导的开源Web服务器软件，其根本的目的是提供一个专门针对高性能网站，安全、快速、兼容性好并且灵活的web server环境。具有非常低的内存开销、cpu占用率低、效能好以及丰富的模块等特点。">
   
     <link rel="alternative" href="/atom.xml" title="fanzi.home@web" type="application/atom+xml">
   
@@ -209,11 +209,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-CentOS7上安装Docker及GitLab" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-lighttpd中pylons的SCGI发布" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/Program/2016/05/25/CentOS7上安装Docker及GitLab.html" class="article-date">
-  	<time datetime="2016-05-25T07:04:14.000Z" itemprop="datePublished">2016-05-25</time>
+      <a href="/Program/2016/06/13/lighttpd中pylons的SCGI发布.html" class="article-date">
+  	<time datetime="2016-06-13T01:40:57.000Z" itemprop="datePublished">2016-06-13</time>
 </a>
     </div>
   
@@ -226,7 +226,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      CentOS7上安装Docker及GitLab
+      lighttpd中pylons的SCGI发布
     </h1>
   
 
@@ -235,7 +235,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitLab/">GitLab</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LightTPD/">LightTPD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pylons/">Pylons</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pyramid/">Pyramid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SCGI/">SCGI</a></li></ul>
 	</div>
 
         
@@ -250,80 +250,69 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://www.docker.com/" target="_blank" rel="external">Docker</a>是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。<br><a id="more"></a></p>
-<h2 id="1-CentOS"><a href="#1-CentOS" class="headerlink" title="1. CentOS"></a><strong>1. CentOS</strong></h2><p><a href="https://www.centos.org/" target="_blank" rel="external">CentOS7</a>（Community Enterprise Operation System, 社区企业操作系统）,截至发文时，最新版为CentOS7，本文安装的是64位。</p>
+        <p><a href="https://www.lighttpd.net/" target="_blank" rel="external">Lighttpd</a> 是一个德国人领导的开源Web服务器软件，其根本的目的是提供一个专门针对高性能网站，安全、快速、兼容性好并且灵活的web server环境。具有非常低的内存开销、cpu占用率低、效能好以及丰富的模块等特点。</p>
+<a id="more"></a>
+<h2 id="1-安装环境"><a href="#1-安装环境" class="headerlink" title="1. 安装环境"></a><strong>1. 安装环境</strong></h2><ul>
+<li>操作系统<br>SuSE Linux 11, 2.6.32.12-0.7-pae</li>
+<li>LightTPD<br>lighttpd-1.4.32</li>
+</ul>
+<hr>
+<h2 id="2-LightTPD"><a href="#2-LightTPD" class="headerlink" title="2. LightTPD"></a><strong>2. LightTPD</strong></h2><ul>
+<li><p>安装LightTPD</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar xvf lighttpd-1.4.32.tar.gz</span><br><span class="line">cd lighttpd-1.4.32/</span><br><span class="line">./configure --prefix=/usr/local/lighttpd --without-pcre --without-bzip2</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>添加服务</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp doc/initscripts/rc.lighttpd /etc/init.d/lighttpd</span><br><span class="line">chkconfig lighttpd on</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>修改该文件，行35<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LIGHTTPD_BIN=/usr/local/lighttpd/sbin/lighttpd</span><br></pre></td></tr></table></figure></p>
+</blockquote>
 <ul>
-<li><p>安装环境：</p>
+<li><p>配置文件</p>
 <blockquote>
-<p>VMware® Workstation 12 Pro</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cp doc/initscripts/sysconfig.lighttpd /etc/sysconfig/lighttpd</span><br><span class="line">mkdir /etc/lighttpd</span><br><span class="line">cp doc/config/lighttpd.conf /etc/lighttpd/</span><br><span class="line">cp doc/config/modules.conf /etc/lighttpd/</span><br><span class="line">cp –r doc/config/conf.d/ /etc/lighttpd/</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
-<li><p>安装版本</p>
+<li><p>配置修改</p>
 <blockquote>
-<p><a href="https://www.centos.org/download/" target="_blank" rel="external">CentOS-7-x86_64-Everything-1511</a> </p>
+<p>修改modules.conf，行127增加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include “conf.d/scgi.conf”</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
-<li><p>安装方式</p>
+</ul>
 <blockquote>
-<p>Minimal Install</p>
+<p>修改lighttpd.conf，行127增加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server.bind = “0.0.0.0”</span><br></pre></td></tr></table></figure></p>
+<p>注释掉lighttpd.conf的315~317行，内容如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#$HTTP[&quot;url&quot;] =~ &quot;\.pdf$&quot; &#123;</span><br><span class="line">#  server.range-requests = &quot;disable&quot;</span><br><span class="line">#&#125;</span><br></pre></td></tr></table></figure></p>
+<p>修改scgi.conf，增加内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scgi.server = ( &quot;/&quot; =&gt;</span><br><span class="line">                   ((</span><br><span class="line">                        &quot;host&quot; =&gt; &quot;127.0.0.1&quot;,</span><br><span class="line">                        &quot;port&quot; =&gt; 5000,</span><br><span class="line">                        &quot;check-local&quot; =&gt; &quot;disable&quot;,</span><br><span class="line">                        &quot;docroot&quot; =&gt; &quot;/&quot;</span><br><span class="line">                   ))</span><br><span class="line">                )</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li>运行服务<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server lighttpd start</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ul>
 <hr>
-<h2 id="2-Docker"><a href="#2-Docker" class="headerlink" title="2. Docker"></a><strong>2. <a href="https://www.docker.com/" target="_blank" rel="external">Docker</a></strong></h2><p>参考<a href="https://docs.docker.com/engine/installation/linux/centos/" target="_blank" rel="external">官网安装流程</a>和<a href="https://wiki.centos.org/zh/Cloud/Docker?highlight=%28docker%29" target="_blank" rel="external">CentOS Wiki</a>。</p>
+<h2 id="3-Pylons"><a href="#3-Pylons" class="headerlink" title="3. Pylons"></a><strong>3. Pylons</strong></h2><p>本文pylons可参照官网方式安装。</p>
 <ul>
-<li><p>准备工作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y update</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>官网方式</p>
+<li><p>flup</p>
 <blockquote>
-<p>添加repo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo tee /etc/yum.repos.d/docker.repo &lt;&lt;-&apos;EOF&apos;</span><br><span class="line">[dockerrepo]</span><br><span class="line">name=Docker Repository</span><br><span class="line">baseurl=https://yum.dockerproject.org/repo/main/centos/$releasever/</span><br><span class="line">enabled=1</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://yum.dockerproject.org/gpg</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<p>flup-1.0.3.dev-20110405.tar.gz</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source pylons/bin/activate</span><br><span class="line">tar xvf flup-1.0.3.dev-20110405.tar.gz</span><br><span class="line">cd flup-1.0.3.dev-20110405</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
-</ul>
+<li><p>development.ini</p>
 <blockquote>
-<p>正式安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y install docker-engine</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[server:main]</span><br><span class="line">        use = egg:PasteScript#flup_scgi_thread</span><br><span class="line">        host = 127.0.0.1</span><br><span class="line">        port = 5000</span><br></pre></td></tr></table></figure>
 </blockquote>
-<ul>
-<li><p>CentOS Wiki推荐方式</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install docker</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>自启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h2 id="3-GitLab"><a href="#3-GitLab" class="headerlink" title="3. GitLab"></a><strong>3. GitLab</strong></h2><p>安装教程详见<a href="http://docs.gitlab.com/omnibus/docker/" target="_blank" rel="external">http://docs.gitlab.com/omnibus/docker/</a>。</p>
-<ul>
-<li><p>安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --detach \</span><br><span class="line">    --hostname gitlab.example.com \</span><br><span class="line">    --env GITLAB_OMNIBUS_CONFIG=&quot;external_url &apos;http://my.domain.com/&apos;; gitlab_rails[&apos;lfs_enabled&apos;] = true;&quot;\</span><br><span class="line">    --publish 443:443 --publish 80:80 --publish 22:22\</span><br><span class="line">    --name gitlab \</span><br><span class="line">    --restart always \</span><br><span class="line">    gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进入gitlab控制台</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it gitlab /bin/bash</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker exec -it gitlab vi /etc/gitlab/gitlab.rb</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker start gitlab</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>其他命令</p>
-<blockquote>
-<p>停止</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker stop gitlab</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>删除<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker rm gitlab</span><br></pre></td></tr></table></figure></p>
-<p>更新<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure></p>
-<p>查看日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker logs gitlab</span><br></pre></td></tr></table></figure></p>
-<p>查看Container<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure></p>
-<p>查看Image<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure></p>
-</blockquote>
+<p>注：目前pylons已经被<a href="http://www.pylonsproject.org/" target="_blank" rel="external">Pyramid</a>替代，建议新的项目应采用<a href="http://www.pylonsproject.org/" target="_blank" rel="external">Pyramid</a>.</p>
 
       
     </div>
@@ -333,18 +322,18 @@
     
 <nav id="article-nav">
   
-    <a href="/Program/2016/05/25/CentOS7上安装Docker及Jenkins.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Program/2016/06/13/nginx中pylons的FCGI发布.html" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          CentOS7上安装Docker及Jenkins
+          nginx中pylons的FCGI发布
         
       </div>
     </a>
   
   
-    <a href="/Program/2016/05/20/CentOS7上安装GitLab（SRC）.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CentOS7上安装GitLab（SRC）</div>
+    <a href="/Program/2016/06/13/Windows下更改GitBash默认路径.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Windows下更改GitBash默认路径</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -379,7 +368,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="CentOS7上安装Docker及GitLab" data-title="CentOS7上安装Docker及GitLab" data-url="http://fanzicai.github.com/Program/2016/05/25/CentOS7上安装Docker及GitLab.html"></div>
+	<div class="ds-thread" data-thread-key="lighttpd中pylons的SCGI发布" data-title="lighttpd中pylons的SCGI发布" data-url="http://fanzicai.github.com/Program/2016/06/13/lighttpd中pylons的SCGI发布.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
