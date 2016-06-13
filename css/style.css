@@ -637,6 +637,13 @@ a {
 #header .header-nav .social a.docker:hover {
   border: 1px solid #2d4373;
 }
+#header .header-nav .social a.cnblog {
+  background: url("/img/coderwall.png") center no-repeat #c83d20;
+  border: 1px solid #c83d20;
+}
+#header .header-nav .social a.cnblog:hover {
+  border: 1px solid #9c3019;
+}
 #header .header-nav .social a.facebook {
   background: url("/img/facebook.png") center no-repeat #3b5998;
   border: 1px solid #3b5998;
