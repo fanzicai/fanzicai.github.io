@@ -130,7 +130,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/CentOS/" style="font-size: 20px;">CentOS</a> <a href="/tags/Docker/" style="font-size: 17.5px;">Docker</a> <a href="/tags/FCGI/" style="font-size: 10px;">FCGI</a> <a href="/tags/Gem/" style="font-size: 10px;">Gem</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12.5px;">GitHub</a> <a href="/tags/GitLab/" style="font-size: 15px;">GitLab</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/Go/" style="font-size: 10px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/LightTPD/" style="font-size: 10px;">LightTPD</a> <a href="/tags/MySQL/" style="font-size: 12.5px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 12.5px;">Nginx</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Pylons/" style="font-size: 12.5px;">Pylons</a> <a href="/tags/Pyramid/" style="font-size: 12.5px;">Pyramid</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 12.5px;">Redis</a> <a href="/tags/Ruby-on-Rails/" style="font-size: 12.5px;">Ruby on Rails</a> <a href="/tags/SCGI/" style="font-size: 10px;">SCGI</a> <a href="/tags/SELinux/" style="font-size: 10px;">SELinux</a> <a href="/tags/SuSE/" style="font-size: 10px;">SuSE</a> <a href="/tags/TortoiseGit/" style="font-size: 10px;">TortoiseGit</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a>
+						<a href="/tags/ARM/" style="font-size: 12px;">ARM</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/C/" style="font-size: 14px;">C</a> <a href="/tags/CentOS/" style="font-size: 20px;">CentOS</a> <a href="/tags/Docker/" style="font-size: 18px;">Docker</a> <a href="/tags/FCGI/" style="font-size: 10px;">FCGI</a> <a href="/tags/Gem/" style="font-size: 10px;">Gem</a> <a href="/tags/Git/" style="font-size: 16px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12px;">GitHub</a> <a href="/tags/GitLab/" style="font-size: 16px;">GitLab</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/Go/" style="font-size: 10px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/LightTPD/" style="font-size: 10px;">LightTPD</a> <a href="/tags/Linux/" style="font-size: 14px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 12px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 12px;">Nginx</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Pylons/" style="font-size: 12px;">Pylons</a> <a href="/tags/Pyramid/" style="font-size: 12px;">Pyramid</a> <a href="/tags/Python/" style="font-size: 16px;">Python</a> <a href="/tags/Redis/" style="font-size: 12px;">Redis</a> <a href="/tags/Ruby-on-Rails/" style="font-size: 12px;">Ruby on Rails</a> <a href="/tags/SCGI/" style="font-size: 10px;">SCGI</a> <a href="/tags/SELinux/" style="font-size: 10px;">SELinux</a> <a href="/tags/SuSE/" style="font-size: 10px;">SuSE</a> <a href="/tags/TortoiseGit/" style="font-size: 10px;">TortoiseGit</a> <a href="/tags/Windows/" style="font-size: 12px;">Windows</a> <a href="/tags/x86/" style="font-size: 10px;">x86</a>
 					</div>
 				</section>
 				
@@ -209,6 +209,262 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-CentOS7下设置时区方式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Program/2016/06/08/CentOS7下设置时区方式.html" class="article-date">
+  	<time datetime="2016-06-08T01:20:25.000Z" itemprop="datePublished">2016-06-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Program/2016/06/08/CentOS7下设置时区方式.html">CentOS7下设置时区方式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>时间的设置，通常采用date命令，很容易就能达到目的。最近在使用docker centos时，默认时区一般是美国，想要改变成北京时间。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Program/">Program</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/Program/2016/06/08/CentOS7下设置时区方式.html">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Dockerfile之fanzi-gitlab-cn" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Program/2016/06/02/Dockerfile之fanzi-gitlab-cn.html" class="article-date">
+  	<time datetime="2016-06-02T01:02:37.000Z" itemprop="datePublished">2016-06-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Program/2016/06/02/Dockerfile之fanzi-gitlab-cn.html">Dockerfile之fanzi/gitlab-cn</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Dockerfile是创建docker image的一种常用方式。本文采用dockerfile创建<a href="https://hub.docker.com/r/fanzi/gitlab-cn/">gitlab-cn image</a>。该image基于Centos Image 7创建，并与mysql image联合使用。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitLab/">GitLab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Program/">Program</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/Program/2016/06/02/Dockerfile之fanzi-gitlab-cn.html">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Docker-GitLab中文版安装" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Program/2016/05/30/Docker-GitLab中文版安装.html" class="article-date">
+  	<time datetime="2016-05-30T07:11:22.000Z" itemprop="datePublished">2016-05-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Program/2016/05/30/Docker-GitLab中文版安装.html">Docker GitLab中文版安装</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://about.gitlab.com/">GitLab</a>是基于<a href="http://www.ruby-lang.org/en/">Ruby on Rails</a>的一个开源的版本管理系统，其内嵌了Redis。本文在<a href="https://www.centos.org/">CentOS7</a>上采用<a href="https://www.docker.com/">Docker</a>安装<a href="https://gitlab.com/larryli/gitlab/tags">GitLab汉化版</a>.<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitLab/">GitLab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Program/">Program</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/Program/2016/05/30/Docker-GitLab中文版安装.html">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-CentOS7上搭建Docker私有仓库" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Program/2016/05/25/CentOS7上搭建Docker私有仓库.html" class="article-date">
+  	<time datetime="2016-05-25T08:19:37.000Z" itemprop="datePublished">2016-05-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Program/2016/05/25/CentOS7上搭建Docker私有仓库.html">CentOS7上搭建Docker私有仓库</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.docker.com/">Docker</a>是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Program/">Program</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/Program/2016/05/25/CentOS7上搭建Docker私有仓库.html">更多 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-CentOS7上安装Docker及Jenkins" class="article article-type-post" itemscope itemprop="blogPost">
   

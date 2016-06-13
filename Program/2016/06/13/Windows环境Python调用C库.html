@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Hexo Preliminary Study | fanzi.home@web</title>
+  <title>Windows环境Python调用C库 | fanzi.home@web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hexo is a fast, simple &amp;amp; powerful blog framework. In hexo, we can write posts in Markdown (including GFM, Github Flavored Markdown).">
+  <meta name="description" content="Python调用C库，通常情况下采用ctypes模块。本文则采用另外一种方式。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo Preliminary Study">
-<meta property="og:url" content="http://fanzicai.github.com/Program/2016/05/18/Hexo-Preliminary-Study.html">
+<meta property="og:title" content="Windows环境Python调用C库">
+<meta property="og:url" content="http://fanzicai.github.com/Program/2016/06/13/Windows环境Python调用C库.html">
 <meta property="og:site_name" content="fanzi.home@web">
-<meta property="og:description" content="Hexo is a fast, simple &amp;amp; powerful blog framework. In hexo, we can write posts in Markdown (including GFM, Github Flavored Markdown).">
-<meta property="og:updated_time" content="2016-05-19T09:47:20.173Z">
+<meta property="og:description" content="Python调用C库，通常情况下采用ctypes模块。本文则采用另外一种方式。">
+<meta property="og:updated_time" content="2016-06-13T02:48:28.684Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo Preliminary Study">
-<meta name="twitter:description" content="Hexo is a fast, simple &amp;amp; powerful blog framework. In hexo, we can write posts in Markdown (including GFM, Github Flavored Markdown).">
+<meta name="twitter:title" content="Windows环境Python调用C库">
+<meta name="twitter:description" content="Python调用C库，通常情况下采用ctypes模块。本文则采用另外一种方式。">
   
     <link rel="alternative" href="/atom.xml" title="fanzi.home@web" type="application/atom+xml">
   
@@ -209,11 +209,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Hexo-Preliminary-Study" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Windows环境Python调用C库" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/Program/2016/05/18/Hexo-Preliminary-Study.html" class="article-date">
-  	<time datetime="2016-05-18T02:51:44.000Z" itemprop="datePublished">2016-05-18</time>
+      <a href="/Program/2016/06/13/Windows环境Python调用C库.html" class="article-date">
+  	<time datetime="2016-06-13T02:24:51.000Z" itemprop="datePublished">2016-06-13</time>
 </a>
     </div>
   
@@ -226,7 +226,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo Preliminary Study
+      Windows环境Python调用C库
     </h1>
   
 
@@ -235,7 +235,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js/">Node.js</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/">Windows</a></li></ul>
 	</div>
 
         
@@ -250,73 +250,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong><a href="https://hexo.io" target="_blank" rel="external">Hexo</a></strong> is a fast, simple &amp; powerful blog framework. In hexo, we can write posts in <strong>Markdown</strong> (including <strong>GFM</strong>, Github Flavored Markdown).</p>
+        <p>Python调用C库，通常情况下采用<a href="http://starship.python.net/crew/theller/ctypes/" target="_blank" rel="external">ctypes</a>模块。本文则采用另外一种方式。</p>
 <a id="more"></a>
-<h2 id="1-Hexo-Install"><a href="#1-Hexo-Install" class="headerlink" title="1. Hexo Install"></a><strong>1. Hexo Install</strong></h2><p>Refered in <em><a href="https://hexo.io/docs/index.html" target="_blank" rel="external">https://hexo.io/docs/index.html</a></em></p>
-<p>Before Hexo installing, need install:</p>
-<ul>
-<li><a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js</a>, recommend the LTS Version</li>
-<li><a href="https://git-scm.com/download" target="_blank" rel="external">Git</a></li>
-</ul>
-<p>Install Hexo in git bash:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir %Blog_Root_Dir%</span><br><span class="line">cd %Blog_Root_Dir%</span><br><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
-<p>Init Hexo:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init [dir]</span><br></pre></td></tr></table></figure></p>
-<h2 id="2-Hexo-and-GitHub-Pages"><a href="#2-Hexo-and-GitHub-Pages" class="headerlink" title="2. Hexo and GitHub Pages"></a><strong>2. Hexo and GitHub Pages</strong></h2><ul>
-<li><p>Create Repo on GitHub</p>
+<h2 id="1-py2c工程"><a href="#1-py2c工程" class="headerlink" title="1. py2c工程"></a><strong>1. py2c工程</strong></h2><p>采用VC创建“py2c”的dll工程。</p>
 <blockquote>
-<p>the repo name is <strong><em><a href="https://github.com/fanzicai/fanzicai.github.io" target="_blank" rel="external">fanzicai.github.io</a></em></strong></p>
+<p>将python安装目录下的include，添加到编译环境中<br>将python安装目录下的libs，添加到编译环境中</p>
 </blockquote>
-</li>
-<li><p>Edit <em>_config.yml</em></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">     type: git</span><br><span class="line">     repo: git@github.com:fanzicai/fanzicai.github.io.git</span><br><span class="line">     branch: master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Install deploy-tools</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Deploy</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean </span><br><span class="line">hexo generate         ## or &quot;hexo g&quot;</span><br><span class="line">hexo deploy           ## or &quot;hexo d&quot;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>一键发布<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy g</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>View<blockquote>
-<p><a href="https://fanzicai.github.io" target="_blank" rel="external">https://fanzicai.github.io</a></p>
-</blockquote>
-</li>
-</ul>
-<h2 id="3-Hexo-Test"><a href="#3-Hexo-Test" class="headerlink" title="3. Hexo Test"></a><strong>3. Hexo Test</strong></h2><p>Test on <a href="http://127.0.0.1:4000" target="_blank" rel="external">http://127.0.0.1:4000</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server          ## or &quot;hexo s&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="4-Hexo-Theme"><a href="#4-Hexo-Theme" class="headerlink" title="4. Hexo Theme"></a><strong>4. Hexo Theme</strong></h2><p>For example, the theme “<a href="https://github.com/fanzicai/hexo-theme-athene" target="_blank" rel="external">hexo-theme-athene</a>“</p>
-<ul>
-<li><p>About athene</p>
-<ul>
-<li>for <a href="https://github.com/hexojs/hexo" target="_blank" rel="external">hexo</a> 3.* and latest</li>
-<li>refer to <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="external">hexo-theme-yilia</a></li>
-<li>for learning</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><p>Use athene</p>
-<ul>
-<li><p>install</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd %Blog_Root_Dir%</span><br><span class="line">git clone git@github.com:fanzicai/hexo-theme-athene  themes/athene</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>configure</p>
+<li><p>py2c.c</p>
 <blockquote>
-<p>edit the “_config.yml”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: athene</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">// py2c.cpp : Defines the entry point for the DLL application.</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">#include &quot;stdafx.h&quot;</span><br><span class="line"></span><br><span class="line">#include &lt;Python.h&gt;</span><br><span class="line"></span><br><span class="line">#ifdef __cplusplus</span><br><span class="line">extern &quot;C&quot;&#123;</span><br><span class="line">#endif</span><br><span class="line">	static PyObject *py2c_showMsg(PyObject *self, PyObject *args);</span><br><span class="line">	</span><br><span class="line">	__declspec(dllexport) void initpy2c()</span><br><span class="line">	&#123;</span><br><span class="line">		static PyMethodDef py2cMethods[] = &#123;</span><br><span class="line">			&#123;</span><br><span class="line">				&quot;showMsg&quot;, py2c_showMsg, METH_VARARGS</span><br><span class="line">			&#125;,</span><br><span class="line">			&#123;</span><br><span class="line">				NULL, NULL, NULL</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		PyObject *py2c = Py_InitModule(&quot;py2c&quot;, py2cMethods);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	static PyObject *py2c_showMsg(PyObject *self, PyObject *args)</span><br><span class="line">	&#123;</span><br><span class="line">		const char *msg = NULL;</span><br><span class="line">		</span><br><span class="line">		if(!PyArg_ParseTuple(args,&quot;s&quot;,&amp;msg))</span><br><span class="line">			return NULL;</span><br><span class="line"></span><br><span class="line">		int r = ::MessageBox(NULL, msg, &quot;Caption:Form C module&quot;, MB_ICONINFORMATION | MB_OK);</span><br><span class="line"></span><br><span class="line">		return Py_BuildValue(&quot;i&quot;, r);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#ifdef __cplusplus</span><br><span class="line">&#125;</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#pragma comment(lib,&quot;python27.lib&quot;)</span><br><span class="line"></span><br><span class="line">BOOL APIENTRY DllMain( HANDLE hModule, </span><br><span class="line">                       DWORD  ul_reason_for_call, </span><br><span class="line">                       LPVOID lpReserved</span><br><span class="line">					 )</span><br><span class="line">&#123;</span><br><span class="line">    return TRUE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
-</ul>
-</li>
-<li><p>Fork Me on GitHub</p>
+<li><p>编译</p>
 <blockquote>
-<p>Edit “themes/athene/layout.ejs”, insert</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;https://github.com/fanzicai&quot;&gt;&lt;img style=&quot;position: absolute; top: 0; left: 0; border: 0;&quot; src=&quot;https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67&quot; alt=&quot;Fork me on GitHub&quot; data-canonical-src=&quot;https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png&quot;&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
-<p>before &lt; / body &gt;</p>
+<p>编译工程，生成py2c.dll</p>
 </blockquote>
 </li>
 </ul>
+<hr>
+<h2 id="2-使用py2c"><a href="#2-使用py2c" class="headerlink" title="2. 使用py2c"></a><strong>2. 使用py2c</strong></h2><blockquote>
+<p>将编译生成的py2c.dll文件改名为py2c.pyd，然后放到python安装目录下的DLLS目录中<br>运行python<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import py2c</span><br><span class="line">py2c.showMsg(“test msg”)</span><br></pre></td></tr></table></figure></p>
+<p>运行结果，会弹出窗口显示“test msg”信息</p>
+</blockquote>
+<hr>
+<p>本文为在<strong><em>其他环境</em></strong>下进行“Python调用C库”打下基础。</p>
 
       
     </div>
@@ -326,18 +284,18 @@
     
 <nav id="article-nav">
   
-    <a href="/Program/2016/05/19/CentOS7上安装GitLab（RPM）.html" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/Program/2016/06/13/Linux-x86环境Python调用C库.html" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          CentOS7上安装GitLab（RPM）
+          Linux-x86环境Python调用C库
         
       </div>
     </a>
   
   
-    <a href="/Program/2016/05/17/MarkdownPad-2-Preliminary-Study.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MarkdownPad 2 Preliminary Study</div>
+    <a href="/Program/2016/06/13/nginx中pylons的FCGI发布.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">nginx中pylons的FCGI发布</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -372,7 +330,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Hexo-Preliminary-Study" data-title="Hexo Preliminary Study" data-url="http://fanzicai.github.com/Program/2016/05/18/Hexo-Preliminary-Study.html"></div>
+	<div class="ds-thread" data-thread-key="Windows环境Python调用C库" data-title="Windows环境Python调用C库" data-url="http://fanzicai.github.com/Program/2016/06/13/Windows环境Python调用C库.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
