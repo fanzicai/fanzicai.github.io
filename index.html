@@ -130,7 +130,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/CentOS/" style="font-size: 20px;">CentOS</a> <a href="/tags/Docker/" style="font-size: 18px;">Docker</a> <a href="/tags/Gem/" style="font-size: 10px;">Gem</a> <a href="/tags/Git/" style="font-size: 14px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12px;">GitHub</a> <a href="/tags/GitLab/" style="font-size: 16px;">GitLab</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/Go/" style="font-size: 10px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/MySQL/" style="font-size: 12px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 12px;">Redis</a> <a href="/tags/Ruby-on-Rails/" style="font-size: 12px;">Ruby on Rails</a> <a href="/tags/SELinux/" style="font-size: 10px;">SELinux</a> <a href="/tags/SuSE/" style="font-size: 10px;">SuSE</a> <a href="/tags/TortoiseGit/" style="font-size: 10px;">TortoiseGit</a>
+						<a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/CentOS/" style="font-size: 20px;">CentOS</a> <a href="/tags/Docker/" style="font-size: 17.5px;">Docker</a> <a href="/tags/Gem/" style="font-size: 10px;">Gem</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12.5px;">GitHub</a> <a href="/tags/GitLab/" style="font-size: 15px;">GitLab</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/Go/" style="font-size: 10px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/MySQL/" style="font-size: 12.5px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Redis/" style="font-size: 12.5px;">Redis</a> <a href="/tags/Ruby-on-Rails/" style="font-size: 12.5px;">Ruby on Rails</a> <a href="/tags/SELinux/" style="font-size: 10px;">SELinux</a> <a href="/tags/SuSE/" style="font-size: 10px;">SuSE</a> <a href="/tags/TortoiseGit/" style="font-size: 10px;">TortoiseGit</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a>
 					</div>
 				</section>
 				
@@ -209,6 +209,81 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-Windows下更改GitBash默认路径" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Program/2016/06/13/Windows下更改GitBash默认路径.html" class="article-date">
+  	<time datetime="2016-06-13T01:22:54.000Z" itemprop="datePublished">2016-06-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/Program/2016/06/13/Windows下更改GitBash默认路径.html">Windows下更改GitBash默认路径</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>运行Git Bash后，控制台会进入默认路径（目录）。Git安装后，默认路径为用户目录。</p>
+<h2 id="Git-Bash默认路径"><a href="#Git-Bash默认路径" class="headerlink" title="Git Bash默认路径"></a><strong>Git Bash默认路径</strong></h2><ul>
+<li><p>方法一</p>
+<blockquote>
+<p>Git Bash快捷方式的属性中，有一项配置“起始位置”，改为所需目录即可<br>通常情况下，该方法无效，故采用方法二</p>
+</blockquote>
+</li>
+<li><p>方法二</p>
+<blockquote>
+<p>Git安装目录下，如“D:\Program Files\Git\etc”，找到profile文件，增加以下内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HOME=&quot;所要设置的起始目录&quot;</span><br><span class="line">HOME=&quot;$(cd &quot;$HOME&quot; ; pwd)&quot;</span><br><span class="line">cd</span><br><span class="line">export PATH=&quot;$HOME/bin:$PATH&quot;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<p>本文使用的Git版本是2.8.2。 </p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows/">Windows</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Program/">Program</a>
+	</div>
+
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-SuSE安装Apache及mod-python模块" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -771,70 +846,6 @@
       
         <p class="article-more-link">
           <a  href="/Program/2016/05/25/CentOS7上安装Docker及GitLab.html">更多 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-CentOS7上安装GitLab（SRC）" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/Program/2016/05/20/CentOS7上安装GitLab（SRC）.html" class="article-date">
-  	<time datetime="2016-05-20T05:31:11.000Z" itemprop="datePublished">2016-05-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/Program/2016/05/20/CentOS7上安装GitLab（SRC）.html">CentOS7上安装GitLab（SRC）</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://about.gitlab.com/">GitLab</a>是基于<a href="http://www.ruby-lang.org/en/">Ruby on Rails</a>的一个开源的版本管理系统，其内嵌了Redis。本文在<a href="https://www.centos.org/">CentOS7</a>上采用<a href="http://docs.gitlab.com/ce/install/installation.html">源码方式</a>安装<a href="https://gitlab.com/larryli/gitlab/tags">GitLab汉化版</a>.<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gem/">Gem</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitLab/">GitLab</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PostgreSQL/">PostgreSQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ruby-on-Rails/">Ruby on Rails</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SELinux/">SELinux</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Program/">Program</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a  href="/Program/2016/05/20/CentOS7上安装GitLab（SRC）.html">更多 >></a>
         </p>
       
       <div class="clearfix"></div>
