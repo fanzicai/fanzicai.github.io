@@ -237,21 +237,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>运行Git Bash后，控制台会进入默认路径（目录）。Git安装后，默认路径为用户目录。</p>
-<h2 id="Git-Bash默认路径"><a href="#Git-Bash默认路径" class="headerlink" title="Git Bash默认路径"></a><strong>Git Bash默认路径</strong></h2><ul>
-<li><p>方法一</p>
-<blockquote>
-<p>Git Bash快捷方式的属性中，有一项配置“起始位置”，改为所需目录即可<br>通常情况下，该方法无效，故采用方法二</p>
-</blockquote>
-</li>
-<li><p>方法二</p>
-<blockquote>
-<p>Git安装目录下，如“D:\Program Files\Git\etc”，找到profile文件，增加以下内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">HOME=&quot;所要设置的起始目录&quot;</span><br><span class="line">HOME=&quot;$(cd &quot;$HOME&quot; ; pwd)&quot;</span><br><span class="line">cd</span><br><span class="line">export PATH=&quot;$HOME/bin:$PATH&quot;</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
-<p>本文使用的Git版本是2.8.2。 </p>
-
       
     </div>
     
@@ -268,6 +253,10 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/Program/2016/06/13/Windows下更改GitBash默认路径.html">更多 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
