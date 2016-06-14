@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Linux-Nginx-Mysql-Python环境搭建 | fanzi.home@web</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文在Linux环境下自动部署Nginx、MySQL、Pylons，并自动创建myweb测试用工程，可直接对外提供Web服务。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-Nginx-Mysql-Python环境搭建">
+<meta property="og:url" content="http://fanzicai.github.com/Program/20140614-Linux-Nginx-Mysql-Python环境搭建.html">
+<meta property="og:site_name" content="fanzi.home@web">
+<meta property="og:description" content="本文在Linux环境下自动部署Nginx、MySQL、Pylons，并自动创建myweb测试用工程，可直接对外提供Web服务。">
+<meta property="og:updated_time" content="2016-06-14T05:55:29.979Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux-Nginx-Mysql-Python环境搭建">
+<meta name="twitter:description" content="本文在Linux环境下自动部署Nginx、MySQL、Pylons，并自动创建myweb测试用工程，可直接对外提供Web服务。">
+  
+    <link rel="alternative" href="/atom.xml" title="fanzi.home@web" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?9c42ec7550fcd3d6d18ecbb8a940058c";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/sa.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">fanzi.blog</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">凡尘博客</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+							
+								<li><a href="/">
+									
+										主页
+									
+								</a></li>
+					    
+								<li><a href="/archives">
+									
+										所有文章
+									
+								</a></li>
+					    
+								<li><a href="/tags/2013">
+									
+										2013年
+									
+								</a></li>
+					    
+								<li><a href="/tags/2014">
+									
+										2014年
+									
+								</a></li>
+					    
+								<li><a href="/tags/2015">
+									
+										2015年
+									
+								</a></li>
+					    
+								<li><a href="/tags/2016">
+									
+										2016年
+									
+								</a></li>
+					    
+								<li><a href="/categories/Program/">
+									
+										编程
+									
+								</a></li>
+					    
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/fanzicai" title="github">github</a>
+					        
+								<a class="docker" target="_blank" href="https://hub.docker.com/u/fanzi" title="docker">docker</a>
+					        
+								<a class="cnblog" target="_blank" href="http://www.cnblogs.com/fanzicai/" title="cnblog">cnblog</a>
+					        
+								<a class="mail" target="_blank" href="mailto:fanzicai@yahoo.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/2013/" style="font-size: 18.75px;">2013</a> <a href="/tags/2014/" style="font-size: 11.25px;">2014</a> <a href="/tags/2015/" style="font-size: 10px;">2015</a> <a href="/tags/2016/" style="font-size: 20px;">2016</a> <a href="/tags/ARM/" style="font-size: 11.25px;">ARM</a> <a href="/tags/Apache/" style="font-size: 10px;">Apache</a> <a href="/tags/C/" style="font-size: 12.5px;">C</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/CentOS/" style="font-size: 18.75px;">CentOS</a> <a href="/tags/Debian/" style="font-size: 10px;">Debian</a> <a href="/tags/Docker/" style="font-size: 16.25px;">Docker</a> <a href="/tags/FCGI/" style="font-size: 10px;">FCGI</a> <a href="/tags/Gem/" style="font-size: 10px;">Gem</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/GitHub/" style="font-size: 12.5px;">GitHub</a> <a href="/tags/GitLab/" style="font-size: 15px;">GitLab</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/Go/" style="font-size: 10px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Jenkins/" style="font-size: 10px;">Jenkins</a> <a href="/tags/LightTPD/" style="font-size: 10px;">LightTPD</a> <a href="/tags/Linux/" style="font-size: 15px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 13.75px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 12.5px;">Nginx</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Pylons/" style="font-size: 12.5px;">Pylons</a> <a href="/tags/Pyramid/" style="font-size: 12.5px;">Pyramid</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/Redis/" style="font-size: 11.25px;">Redis</a> <a href="/tags/Ruby-on-Rails/" style="font-size: 11.25px;">Ruby on Rails</a> <a href="/tags/SCGI/" style="font-size: 10px;">SCGI</a> <a href="/tags/SELinux/" style="font-size: 10px;">SELinux</a> <a href="/tags/SuSE/" style="font-size: 11.25px;">SuSE</a> <a href="/tags/TortoiseGit/" style="font-size: 10px;">TortoiseGit</a> <a href="/tags/Visual-Studio/" style="font-size: 10px;">Visual Studio</a> <a href="/tags/Windows/" style="font-size: 12.5px;">Windows</a> <a href="/tags/x86/" style="font-size: 10px;">x86</a>
+					</div>
+				</section>
+				
+
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">凡尘过客今他乡，子若布衣奈何天</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">fanzi.blog</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/sa.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">fanzi.blog</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">凡尘博客</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">
+            
+              主页
+            
+          </a></li>
+		        
+					<li><a href="/archives">
+            
+              所有文章
+            
+          </a></li>
+		        
+					<li><a href="/tags/2013">
+            
+              2013年
+            
+          </a></li>
+		        
+					<li><a href="/tags/2014">
+            
+              2014年
+            
+          </a></li>
+		        
+					<li><a href="/tags/2015">
+            
+              2015年
+            
+          </a></li>
+		        
+					<li><a href="/tags/2016">
+            
+              2016年
+            
+          </a></li>
+		        
+					<li><a href="/categories/Program/">
+            
+              编程
+            
+          </a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/fanzicai" title="github">github</a>
+			        
+						<a class="docker" target="_blank" href="https://hub.docker.com/u/fanzi" title="docker">docker</a>
+			        
+						<a class="cnblog" target="_blank" href="http://www.cnblogs.com/fanzicai/" title="cnblog">cnblog</a>
+			        
+						<a class="mail" target="_blank" href="mailto:fanzicai@yahoo.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Linux-Nginx-Mysql-Python环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/Program/20140614-Linux-Nginx-Mysql-Python环境搭建.html" class="article-date">
+  	<time datetime="2014-06-14T05:35:53.000Z" itemprop="datePublished">2014-06-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux-Nginx-Mysql-Python环境搭建
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2014/">2014</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pylons/">Pylons</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SuSE/">SuSE</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Program/">Program</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文在Linux环境下自动部署Nginx、MySQL、Pylons，并自动创建myweb测试用工程，可直接对外提供Web服务。</p>
+<a id="more"></a>
+<h2 id="1-软件包"><a href="#1-软件包" class="headerlink" title="1. 软件包"></a><strong>1. 软件包</strong></h2><ul>
+<li><p>核心包</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nginx-1.4.6.tar.gz</span><br><span class="line">mysql-5.1.53-linux-i686-glibc23.tar.gz</span><br><span class="line">Python-2.7.5.tar.bz2</span><br><span class="line">MySQL-python-1.2.5.tar</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>辅助包</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">openssl-1.0.1f.tar.gz</span><br><span class="line">pcre-8.34.tar.bz2</span><br><span class="line">PyXML-0.8.4.tar.gz</span><br><span class="line">readline-6.2.4.1.tar.gz</span><br><span class="line">setuptools-3.3.tar.gz</span><br><span class="line">sqlite-autoconf-3080002.tar.gz</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>其他包</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2.tar</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>该包为提前在某台Linux机器上安装好的Python目录的压缩包，安装路径为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/python2</span><br></pre></td></tr></table></figure></p>
+<p>制作过程：<br>1、源码安装Python2.7.5<br>2、在该python环境下，easy_install安装pylons</p>
+</blockquote>
+<hr>
+<h2 id="2-辅助文件"><a href="#2-辅助文件" class="headerlink" title="2. 辅助文件"></a><strong>2. 辅助文件</strong></h2><ul>
+<li><p>mysql.cfg</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line"># Example MySQL config file for very large systems.</span><br><span class="line">#</span><br><span class="line"># This is for a large system with memory of 1G-2G where the system runs mainly</span><br><span class="line"># MySQL.</span><br><span class="line">#</span><br><span class="line"># You can copy this file to</span><br><span class="line"># /etc/my.cnf to set global options,</span><br><span class="line"># mysql-data-dir/my.cnf to set server-specific options (in this</span><br><span class="line"># installation this directory is /usr/local/mysql/data) or</span><br><span class="line"># ~/.my.cnf to set user-specific options.</span><br><span class="line">#</span><br><span class="line"># In this file, you can use all long options that a program supports.</span><br><span class="line"># If you want to know which options a program supports, run the program</span><br><span class="line"># with the &quot;--help&quot; option.</span><br><span class="line"></span><br><span class="line"># The following options will be passed to all MySQL clients</span><br><span class="line">[client]</span><br><span class="line">#password	= your_password</span><br><span class="line">port		= 3306</span><br><span class="line">socket		= /tmp/mysql.sock</span><br><span class="line"></span><br><span class="line"># Here follows entries for some specific programs</span><br><span class="line"></span><br><span class="line"># The MySQL server</span><br><span class="line">[mysqld]</span><br><span class="line">port		= 3306</span><br><span class="line">socket		= /tmp/mysql.sock</span><br><span class="line">skip-locking</span><br><span class="line">key_buffer_size = 384M</span><br><span class="line">max_allowed_packet = 1M</span><br><span class="line">table_open_cache = 512</span><br><span class="line">sort_buffer_size = 2M</span><br><span class="line">read_buffer_size = 2M</span><br><span class="line">read_rnd_buffer_size = 8M</span><br><span class="line">myisam_sort_buffer_size = 64M</span><br><span class="line">thread_cache_size = 8</span><br><span class="line">query_cache_size = 32M</span><br><span class="line"># Try number of CPU&apos;s*2 for thread_concurrency</span><br><span class="line">thread_concurrency = 8</span><br><span class="line">default-character-set=utf8</span><br><span class="line"></span><br><span class="line"># Don&apos;t listen on a TCP/IP port at all. This can be a security enhancement,</span><br><span class="line"># if all processes that need to connect to mysqld run on the same host.</span><br><span class="line"># All interaction with mysqld must be made via Unix sockets or named pipes.</span><br><span class="line"># Note that using this option without enabling named pipes on Windows</span><br><span class="line"># (via the &quot;enable-named-pipe&quot; option) will render mysqld useless!</span><br><span class="line"># </span><br><span class="line">#skip-networking</span><br><span class="line"></span><br><span class="line"># Replication Master Server (default)</span><br><span class="line"># binary logging is required for replication</span><br><span class="line">log-bin=mysql-bin</span><br><span class="line"></span><br><span class="line"># required unique id between 1 and 2^32 - 1</span><br><span class="line"># defaults to 1 if master-host is not set</span><br><span class="line"># but will not function as a master if omitted</span><br><span class="line">server-id	= 1</span><br><span class="line"></span><br><span class="line"># Replication Slave (comment out master section to use this)</span><br><span class="line">#</span><br><span class="line"># To configure this host as a replication slave, you can choose between</span><br><span class="line"># two methods :</span><br><span class="line">#</span><br><span class="line"># 1) Use the CHANGE MASTER TO command (fully described in our manual) -</span><br><span class="line">#    the syntax is:</span><br><span class="line">#</span><br><span class="line">#    CHANGE MASTER TO MASTER_HOST=&lt;host&gt;, MASTER_PORT=&lt;port&gt;,</span><br><span class="line">#    MASTER_USER=&lt;user&gt;, MASTER_PASSWORD=&lt;password&gt; ;</span><br><span class="line">#</span><br><span class="line">#    where you replace &lt;host&gt;, &lt;user&gt;, &lt;password&gt; by quoted strings and</span><br><span class="line">#    &lt;port&gt; by the master&apos;s port number (3306 by default).</span><br><span class="line">#</span><br><span class="line">#    Example:</span><br><span class="line">#</span><br><span class="line">#    CHANGE MASTER TO MASTER_HOST=&apos;125.564.12.1&apos;, MASTER_PORT=3306,</span><br><span class="line">#    MASTER_USER=&apos;joe&apos;, MASTER_PASSWORD=&apos;secret&apos;;</span><br><span class="line">#</span><br><span class="line"># OR</span><br><span class="line">#</span><br><span class="line"># 2) Set the variables below. However, in case you choose this method, then</span><br><span class="line">#    start replication for the first time (even unsuccessfully, for example</span><br><span class="line">#    if you mistyped the password in master-password and the slave fails to</span><br><span class="line">#    connect), the slave will create a master.info file, and any later</span><br><span class="line">#    change in this file to the variables&apos; values below will be ignored and</span><br><span class="line">#    overridden by the content of the master.info file, unless you shutdown</span><br><span class="line">#    the slave server, delete master.info and restart the slaver server.</span><br><span class="line">#    For that reason, you may want to leave the lines below untouched</span><br><span class="line">#    (commented) and instead use CHANGE MASTER TO (see above)</span><br><span class="line">#</span><br><span class="line"># required unique id between 2 and 2^32 - 1</span><br><span class="line"># (and different from the master)</span><br><span class="line"># defaults to 2 if master-host is set</span><br><span class="line"># but will not function as a slave if omitted</span><br><span class="line">#server-id       = 2</span><br><span class="line">#</span><br><span class="line"># The replication master for this slave - required</span><br><span class="line">#master-host     =   &lt;hostname&gt;</span><br><span class="line">#</span><br><span class="line"># The username the slave will use for authentication when connecting</span><br><span class="line"># to the master - required</span><br><span class="line">#master-user     =   &lt;username&gt;</span><br><span class="line">#</span><br><span class="line"># The password the slave will authenticate with when connecting to</span><br><span class="line"># the master - required</span><br><span class="line">#master-password =   &lt;password&gt;</span><br><span class="line">#</span><br><span class="line"># The port the master is listening on.</span><br><span class="line"># optional - defaults to 3306</span><br><span class="line">#master-port     =  &lt;port&gt;</span><br><span class="line">#</span><br><span class="line"># binary logging - not required for slaves, but recommended</span><br><span class="line">#log-bin=mysql-bin</span><br><span class="line">#</span><br><span class="line"># binary logging format - mixed recommended </span><br><span class="line">#binlog_format=mixed</span><br><span class="line"></span><br><span class="line"># Point the following paths to different dedicated disks</span><br><span class="line">#tmpdir		= /tmp/		</span><br><span class="line">#log-update 	= /path-to-dedicated-directory/hostname</span><br><span class="line"></span><br><span class="line"># Uncomment the following if you are using InnoDB tables</span><br><span class="line">#innodb_data_home_dir = /usr/local/mysql/data/</span><br><span class="line">#innodb_data_file_path = ibdata1:2000M;ibdata2:10M:autoextend</span><br><span class="line">#innodb_log_group_home_dir = /usr/local/mysql/data/</span><br><span class="line"># You can set .._buffer_pool_size up to 50 - 80 %</span><br><span class="line"># of RAM but beware of setting memory usage too high</span><br><span class="line">#innodb_buffer_pool_size = 384M</span><br><span class="line">#innodb_additional_mem_pool_size = 20M</span><br><span class="line"># Set .._log_file_size to 25 % of buffer pool size</span><br><span class="line">#innodb_log_file_size = 100M</span><br><span class="line">#innodb_log_buffer_size = 8M</span><br><span class="line">#innodb_flush_log_at_trx_commit = 1</span><br><span class="line">#innodb_lock_wait_timeout = 50</span><br><span class="line"></span><br><span class="line">[mysqldump]</span><br><span class="line">quick</span><br><span class="line">max_allowed_packet = 16M</span><br><span class="line"></span><br><span class="line">[mysql]</span><br><span class="line">no-auto-rehash</span><br><span class="line"># Remove the next comment character if you are not familiar with SQL</span><br><span class="line">#safe-updates</span><br><span class="line"></span><br><span class="line">[myisamchk]</span><br><span class="line">key_buffer_size = 256M</span><br><span class="line">sort_buffer_size = 256M</span><br><span class="line">read_buffer = 2M</span><br><span class="line">write_buffer = 2M</span><br><span class="line"></span><br><span class="line">[mysqlhotcopy]</span><br><span class="line">interactive-timeout</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>nginx.conf</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#user  nobody;</span><br><span class="line">worker_processes  1;</span><br><span class="line"></span><br><span class="line">#error_log  logs/error.log;</span><br><span class="line">#error_log  logs/error.log  notice;</span><br><span class="line">#error_log  logs/error.log  info;</span><br><span class="line"></span><br><span class="line">#pid        logs/nginx.pid;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    #log_format  main  &apos;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &apos;</span><br><span class="line">    #                  &apos;$status $body_bytes_sent &quot;$http_referer&quot; &apos;</span><br><span class="line">    #                  &apos;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&apos;;</span><br><span class="line"></span><br><span class="line">    #access_log  logs/access.log  main;</span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line">    #tcp_nopush     on;</span><br><span class="line"></span><br><span class="line">    #keepalive_timeout  0;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">    #gzip  on;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        #charset koi8-r;</span><br><span class="line"></span><br><span class="line">        #access_log  logs/host.access.log  main;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            #root   html;</span><br><span class="line">            #index  index.html index.htm;</span><br><span class="line">            fastcgi_pass 127.0.0.1:5000;</span><br><span class="line">            fastcgi_param PATH_INFO $fastcgi_script_name;</span><br><span class="line">            fastcgi_param REQUEST_METHOD $request_method;</span><br><span class="line">            fastcgi_param QUERY_STRING $query_string;</span><br><span class="line">            fastcgi_param CONTENT_TYPE $content_type;</span><br><span class="line">            fastcgi_param CONTENT_LENGTH $content_length;</span><br><span class="line">            fastcgi_param  SERVER_ADDR        $server_addr;</span><br><span class="line">            fastcgi_param  SERVER_PORT        $server_port;</span><br><span class="line">            fastcgi_param  SERVER_NAME        $server_name;</span><br><span class="line">            fastcgi_param  SERVER_PROTOCOL    $server_protocol;</span><br><span class="line">            fastcgi_pass_header Authorization;</span><br><span class="line">            fastcgi_intercept_errors off;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        #error_page  404              /404.html;</span><br><span class="line"></span><br><span class="line">        # redirect server error pages to the static page /50x.html</span><br><span class="line">        #</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        # proxy the PHP scripts to Apache listening on 127.0.0.1:80</span><br><span class="line">        #</span><br><span class="line">        #location ~ \.php$ &#123;</span><br><span class="line">        #    proxy_pass   http://127.0.0.1;</span><br><span class="line">        #&#125;</span><br><span class="line"></span><br><span class="line">        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span><br><span class="line">        #</span><br><span class="line">        #location ~ \.php$ &#123;</span><br><span class="line">        #    root           html;</span><br><span class="line">        #    fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">        #    fastcgi_index  index.php;</span><br><span class="line">        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span><br><span class="line">        #    include        fastcgi_params;</span><br><span class="line">        #&#125;</span><br><span class="line"></span><br><span class="line">        # deny access to .htaccess files, if Apache&apos;s document root</span><br><span class="line">        # concurs with nginx&apos;s one</span><br><span class="line">        #</span><br><span class="line">        #location ~ /\.ht &#123;</span><br><span class="line">        #    deny  all;</span><br><span class="line">        #&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # another virtual host using mix of IP-, name-, and port-based configuration</span><br><span class="line">    #</span><br><span class="line">    #server &#123;</span><br><span class="line">    #    listen       8000;</span><br><span class="line">    #    listen       somename:8080;</span><br><span class="line">    #    server_name  somename  alias  another.alias;</span><br><span class="line"></span><br><span class="line">    #    location / &#123;</span><br><span class="line">    #        root   html;</span><br><span class="line">    #        index  index.html index.htm;</span><br><span class="line">    #    &#125;</span><br><span class="line">    #&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # HTTPS server</span><br><span class="line">    #</span><br><span class="line">    #server &#123;</span><br><span class="line">    #    listen       443;</span><br><span class="line">    #    server_name  localhost;</span><br><span class="line"></span><br><span class="line">    #    ssl                  on;</span><br><span class="line">    #    ssl_certificate      cert.pem;</span><br><span class="line">    #    ssl_certificate_key  cert.key;</span><br><span class="line"></span><br><span class="line">    #    ssl_session_timeout  5m;</span><br><span class="line"></span><br><span class="line">    #    ssl_protocols  SSLv2 SSLv3 TLSv1;</span><br><span class="line">    #    ssl_ciphers  HIGH:!aNULL:!MD5;</span><br><span class="line">    #    ssl_prefer_server_ciphers   on;</span><br><span class="line"></span><br><span class="line">    #    location / &#123;</span><br><span class="line">    #        root   html;</span><br><span class="line">    #        index  index.html index.htm;</span><br><span class="line">    #    &#125;</span><br><span class="line">    #&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>development.ini</p>
+<blockquote>
+<p>myweb工程的配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">#</span><br><span class="line"># myweb - Pylons development environment configuration</span><br><span class="line">#</span><br><span class="line"># The %(here)s variable will be replaced with the parent directory of this file</span><br><span class="line">#</span><br><span class="line">[DEFAULT]</span><br><span class="line">debug = true</span><br><span class="line"># Uncomment and replace with the address which should receive any error reports</span><br><span class="line">#email_to = you@yourdomain.com</span><br><span class="line">smtp_server = localhost</span><br><span class="line">error_email_from = paste@localhost</span><br><span class="line"></span><br><span class="line">[server:main]</span><br><span class="line">use = egg:Flup#fcgi_thread</span><br><span class="line">host = 127.0.0.1</span><br><span class="line">port = 5000</span><br><span class="line"></span><br><span class="line">[app:main]</span><br><span class="line">use = egg:myweb</span><br><span class="line">full_stack = true</span><br><span class="line">static_files = true</span><br><span class="line"></span><br><span class="line">cache_dir = %(here)s/data</span><br><span class="line">beaker.session.key = myweb</span><br><span class="line">beaker.session.secret = somesecret</span><br><span class="line"></span><br><span class="line"># If you&apos;d like to fine-tune the individual locations of the cache data dirs</span><br><span class="line"># for the Cache data, or the Session saves, un-comment the desired settings</span><br><span class="line"># here:</span><br><span class="line">#beaker.cache.data_dir = %(here)s/data/cache</span><br><span class="line">#beaker.session.data_dir = %(here)s/data/sessions</span><br><span class="line"></span><br><span class="line"># WARNING: *THE LINE BELOW MUST BE UNCOMMENTED ON A PRODUCTION ENVIRONMENT*</span><br><span class="line"># Debug mode will enable the interactive debugging tool, allowing ANYONE to</span><br><span class="line"># execute malicious code after an exception is raised.</span><br><span class="line">#set debug = false</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Logging configuration</span><br><span class="line">[loggers]</span><br><span class="line">keys = root, routes, myweb</span><br><span class="line"></span><br><span class="line">[handlers]</span><br><span class="line">keys = console</span><br><span class="line"></span><br><span class="line">[formatters]</span><br><span class="line">keys = generic</span><br><span class="line"></span><br><span class="line">[logger_root]</span><br><span class="line">level = INFO</span><br><span class="line">handlers = console</span><br><span class="line"></span><br><span class="line">[logger_routes]</span><br><span class="line">level = INFO</span><br><span class="line">handlers =</span><br><span class="line">qualname = routes.middleware</span><br><span class="line"># &quot;level = DEBUG&quot; logs the route matched and routing variables.</span><br><span class="line"></span><br><span class="line">[logger_myweb]</span><br><span class="line">level = DEBUG</span><br><span class="line">handlers =</span><br><span class="line">qualname = myweb</span><br><span class="line"></span><br><span class="line">[handler_console]</span><br><span class="line">class = StreamHandler</span><br><span class="line">args = (sys.stderr,)</span><br><span class="line">level = NOTSET</span><br><span class="line">formatter = generic</span><br><span class="line"></span><br><span class="line">[formatter_generic]</span><br><span class="line">format = %(asctime)s,%(msecs)03d %(levelname)-5.5s [%(name)s] [%(threadName)s] %(message)s</span><br><span class="line">datefmt = %H:%M:%S</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>rc.nginx</p>
+<blockquote>
+<p>nginx启动脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">### BEGIN INIT INFO</span><br><span class="line"># Provides: nginx</span><br><span class="line"># Required-Start: </span><br><span class="line"># Should-Start: </span><br><span class="line"># Required-Stop: </span><br><span class="line"># Default-Start:  2 3 4 5</span><br><span class="line"># Default-Stop: 0 1 6</span><br><span class="line"># Short-Description: start and stop nginx</span><br><span class="line"># Description: </span><br><span class="line">### END INIT INFO</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># SamERP start/stop script.</span><br><span class="line"></span><br><span class="line">service_startup_timeout=20</span><br><span class="line"></span><br><span class="line"># Set some defaults</span><br><span class="line">nginxdir=/usr/local/nginx</span><br><span class="line"></span><br><span class="line">pid_file=$nginxdir/nginx-`/bin/hostname`.pid</span><br><span class="line">out_file=$nginxdir/runtime.out</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Use LSB init script functions for printing messages, if possible</span><br><span class="line">#</span><br><span class="line">lsb_functions=&quot;/lib/lsb/init-functions&quot;</span><br><span class="line">if test -f $lsb_functions ; then</span><br><span class="line">  . $lsb_functions</span><br><span class="line">else</span><br><span class="line">  log_success_msg()</span><br><span class="line">  &#123;</span><br><span class="line">    echo &quot; SUCCESS! $@&quot;</span><br><span class="line">  &#125;</span><br><span class="line">  log_failure_msg()</span><br><span class="line">  &#123;</span><br><span class="line">    echo &quot; ERROR! $@&quot;</span><br><span class="line">  &#125;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">mode=$1    # start or stop</span><br><span class="line">shift</span><br><span class="line">other_args=&quot;$*&quot;   # uncommon, but needed when called from an RPM upgrade action</span><br><span class="line">           # Expected: &quot;--skip-networking --skip-grant-tables&quot;</span><br><span class="line">           # They are not checked here, intentionally, as it is the resposibility</span><br><span class="line">           # of the &quot;spec&quot; file author to give correct arguments only.</span><br><span class="line"></span><br><span class="line">case `echo &quot;testing\c&quot;`,`echo -n testing` in</span><br><span class="line">    *c*,-n*) echo_n=   echo_c=     ;;</span><br><span class="line">    *c*,*)   echo_n=-n echo_c=     ;;</span><br><span class="line">    *)       echo_n=   echo_c=&apos;\c&apos; ;;</span><br><span class="line">esac</span><br><span class="line"></span><br><span class="line">wait_for_pid () &#123;</span><br><span class="line">  verb=&quot;$1&quot;</span><br><span class="line">  manager_pid=&quot;$2&quot;  # process ID of the program operating on the pid-file</span><br><span class="line">  i=0</span><br><span class="line">  avoid_race_condition=&quot;by checking again&quot;</span><br><span class="line">  while test $i -ne $service_startup_timeout ; do</span><br><span class="line">    case &quot;$verb&quot; in</span><br><span class="line">      &apos;created&apos;)</span><br><span class="line">        # wait for a PID-file to pop into existence.</span><br><span class="line">        test -s $pid_file &amp;&amp; i=&apos;&apos; &amp;&amp; break</span><br><span class="line">        ;;</span><br><span class="line">      &apos;removed&apos;)</span><br><span class="line">        # wait for this PID-file to disappear</span><br><span class="line">        test ! -s $pid_file &amp;&amp; i=&apos;&apos; &amp;&amp; break</span><br><span class="line">        ;;</span><br><span class="line">      *)</span><br><span class="line">        echo &quot;wait_for_pid () usage: wait_for_pid created|removed manager_pid&quot;</span><br><span class="line">        exit 1</span><br><span class="line">        ;;</span><br><span class="line">    esac</span><br><span class="line">    echo $echo_n &quot;.$echo_c&quot;</span><br><span class="line">    i=`expr $i + 1`</span><br><span class="line">    sleep 1</span><br><span class="line">  done</span><br><span class="line"></span><br><span class="line">  if test -z &quot;$i&quot; ; then</span><br><span class="line">    log_success_msg</span><br><span class="line">    return 0</span><br><span class="line">  else</span><br><span class="line">    log_failure_msg</span><br><span class="line">    return 1</span><br><span class="line">  fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">case &quot;$mode&quot; in</span><br><span class="line">  &apos;start&apos;)</span><br><span class="line">    # Start daemon</span><br><span class="line">    echo $echo_n &quot;Starting Nginx...&quot;</span><br><span class="line">    echo $echo_n $echo_c</span><br><span class="line"></span><br><span class="line">    if test -n &quot;$other_args&quot;</span><br><span class="line">    then</span><br><span class="line">      log_failure_msg &quot;Nginx does not support options &apos;$other_args&apos;&quot;</span><br><span class="line">      exit 1</span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    if test -s &quot;$pid_file&quot;</span><br><span class="line">    then</span><br><span class="line">      log_failure_msg &quot;Nginx process is already running, stop it first&quot;</span><br><span class="line">      #$0 stop</span><br><span class="line">      exit 1</span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    $nginxdir/sbin/nginx &amp;</span><br><span class="line">    nginxpid=`expr $! + 2`</span><br><span class="line">    echo $nginxpid &gt; $pid_file</span><br><span class="line"></span><br><span class="line">    wait_for_pid created $!; return_value=$?</span><br><span class="line"></span><br><span class="line">    exit $return_value</span><br><span class="line">    ;;</span><br><span class="line"></span><br><span class="line">  &apos;stop&apos;)</span><br><span class="line">    # Stop daemon.</span><br><span class="line"></span><br><span class="line">    if test -s &quot;$pid_file&quot;</span><br><span class="line">    then</span><br><span class="line">      nginx_pid=`cat $pid_file`</span><br><span class="line">      </span><br><span class="line">      if (kill -0 $nginx_pid 2&gt;/dev/null)</span><br><span class="line">      then</span><br><span class="line">        echo $echo_n &quot;Shutting down Nginx...&quot;</span><br><span class="line">        kill $nginx_pid</span><br><span class="line">        rm -f $pid_file $out_file</span><br><span class="line">        wait_for_pid removed &quot;$nginx_pid&quot;; return_value=$?</span><br><span class="line">      else</span><br><span class="line">        log_failure_msg &quot;Nginx process #$nginx_pid is not running!&quot;</span><br><span class="line">        rm -f $pid_file $out_file</span><br><span class="line">      fi</span><br><span class="line">      exit $return_value</span><br><span class="line">    else</span><br><span class="line">      log_failure_msg &quot;Nginx PID file could not be found!&quot;</span><br><span class="line">    fi</span><br><span class="line">    ;;</span><br><span class="line"></span><br><span class="line">  &apos;restart&apos;)</span><br><span class="line">    # Stop the service and regardless of whether it was</span><br><span class="line">    # running or not, start it again.</span><br><span class="line">    if $0 stop  $other_args; then</span><br><span class="line">      $0 start $other_args</span><br><span class="line">    else</span><br><span class="line">      log_failure_msg &quot;Failed to stop running nginx, so refusing to try to start.&quot;</span><br><span class="line">      exit 1</span><br><span class="line">    fi</span><br><span class="line">    ;;</span><br><span class="line"></span><br><span class="line">    *)</span><br><span class="line">      # usage</span><br><span class="line">      echo &quot;Usage: $0  &#123;start|stop|restart&#125;  [ Nginx server options ]&quot;</span><br><span class="line">      exit 1</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br><span class="line"></span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>rc.myweb</p>
+<blockquote>
+<p>myweb启动脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">### BEGIN INIT INFO</span><br><span class="line"># Provides: myweb</span><br><span class="line"># Required-Start: </span><br><span class="line"># Should-Start: </span><br><span class="line"># Required-Stop: </span><br><span class="line"># Default-Start:  2 3 4 5</span><br><span class="line"># Default-Stop: 0 1 6</span><br><span class="line"># Short-Description: start and stop myweb</span><br><span class="line"># Description: </span><br><span class="line">### END INIT INFO</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># myweb start/stop script.</span><br><span class="line"></span><br><span class="line">service_startup_timeout=20</span><br><span class="line"></span><br><span class="line"># Set some defaults</span><br><span class="line">mywebdir=/root/myweb</span><br><span class="line">pylonsdir=/usr/local/python2</span><br><span class="line"></span><br><span class="line">pid_file=$mywebdir/myweb-`/bin/hostname`.pid</span><br><span class="line">out_file=$mywebdir/runtime.out</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># Use LSB init script functions for printing messages, if possible</span><br><span class="line">#</span><br><span class="line">lsb_functions=&quot;/lib/lsb/init-functions&quot;</span><br><span class="line">if test -f $lsb_functions ; then</span><br><span class="line">  . $lsb_functions</span><br><span class="line">else</span><br><span class="line">  log_success_msg()</span><br><span class="line">  &#123;</span><br><span class="line">    echo &quot; SUCCESS! $@&quot;</span><br><span class="line">  &#125;</span><br><span class="line">  log_failure_msg()</span><br><span class="line">  &#123;</span><br><span class="line">    echo &quot; ERROR! $@&quot;</span><br><span class="line">  &#125;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">mode=$1    # start or stop</span><br><span class="line">shift</span><br><span class="line">other_args=&quot;$*&quot;   # uncommon, but needed when called from an RPM upgrade action</span><br><span class="line">           # Expected: &quot;--skip-networking --skip-grant-tables&quot;</span><br><span class="line">           # They are not checked here, intentionally, as it is the resposibility</span><br><span class="line">           # of the &quot;spec&quot; file author to give correct arguments only.</span><br><span class="line"></span><br><span class="line">case `echo &quot;testing\c&quot;`,`echo -n testing` in</span><br><span class="line">    *c*,-n*) echo_n=   echo_c=     ;;</span><br><span class="line">    *c*,*)   echo_n=-n echo_c=     ;;</span><br><span class="line">    *)       echo_n=   echo_c=&apos;\c&apos; ;;</span><br><span class="line">esac</span><br><span class="line"></span><br><span class="line">wait_for_pid () &#123;</span><br><span class="line">  verb=&quot;$1&quot;</span><br><span class="line">  manager_pid=&quot;$2&quot;  # process ID of the program operating on the pid-file</span><br><span class="line">  i=0</span><br><span class="line">  avoid_race_condition=&quot;by checking again&quot;</span><br><span class="line">  while test $i -ne $service_startup_timeout ; do</span><br><span class="line">    case &quot;$verb&quot; in</span><br><span class="line">      &apos;created&apos;)</span><br><span class="line">        # wait for a PID-file to pop into existence.</span><br><span class="line">        test -s $pid_file &amp;&amp; i=&apos;&apos; &amp;&amp; break</span><br><span class="line">        ;;</span><br><span class="line">      &apos;removed&apos;)</span><br><span class="line">        # wait for this PID-file to disappear</span><br><span class="line">        test ! -s $pid_file &amp;&amp; i=&apos;&apos; &amp;&amp; break</span><br><span class="line">        ;;</span><br><span class="line">      *)</span><br><span class="line">        echo &quot;wait_for_pid () usage: wait_for_pid created|removed manager_pid&quot;</span><br><span class="line">        exit 1</span><br><span class="line">        ;;</span><br><span class="line">    esac</span><br><span class="line">    echo $echo_n &quot;.$echo_c&quot;</span><br><span class="line">    i=`expr $i + 1`</span><br><span class="line">    sleep 1</span><br><span class="line">  done</span><br><span class="line"></span><br><span class="line">  if test -z &quot;$i&quot; ; then</span><br><span class="line">    log_success_msg</span><br><span class="line">    return 0</span><br><span class="line">  else</span><br><span class="line">    log_failure_msg</span><br><span class="line">    return 1</span><br><span class="line">  fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">case &quot;$mode&quot; in</span><br><span class="line">  &apos;start&apos;)</span><br><span class="line">    # Start daemon</span><br><span class="line">    echo $echo_n &quot;Starting myweb...&quot;</span><br><span class="line">    echo $echo_n $echo_c</span><br><span class="line"></span><br><span class="line">    if test -n &quot;$other_args&quot;</span><br><span class="line">    then</span><br><span class="line">      log_failure_msg &quot;myweb does not support options &apos;$other_args&apos;&quot;</span><br><span class="line">      exit 1</span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    if test -s &quot;$pid_file&quot;</span><br><span class="line">    then</span><br><span class="line">      log_failure_msg &quot;myweb process is already running, stop it first&quot;</span><br><span class="line">      #$0 stop</span><br><span class="line">      exit 1</span><br><span class="line">    fi</span><br><span class="line"></span><br><span class="line">    export PATH=$pylonsdir/bin:$PATH</span><br><span class="line">    cd $mywebdir</span><br><span class="line">    paster serve --reload development.ini &amp;</span><br><span class="line">    echo $! &gt; $pid_file</span><br><span class="line"></span><br><span class="line">    wait_for_pid created $!; return_value=$?</span><br><span class="line"></span><br><span class="line">    exit $return_value</span><br><span class="line">    ;;</span><br><span class="line"></span><br><span class="line">  &apos;stop&apos;)</span><br><span class="line">    # Stop daemon.</span><br><span class="line"></span><br><span class="line">    if test -s &quot;$pid_file&quot;</span><br><span class="line">    then</span><br><span class="line">      myweb_pid=`cat $pid_file`</span><br><span class="line">      </span><br><span class="line">      if (kill -0 $myweb_pid 2&gt;/dev/null)</span><br><span class="line">      then</span><br><span class="line">        echo $echo_n &quot;Shutting down myweb...&quot;</span><br><span class="line">        kill $myweb_pid</span><br><span class="line">        rm -f $pid_file $out_file</span><br><span class="line">        wait_for_pid removed &quot;$myweb_pid&quot;; return_value=$?</span><br><span class="line">      else</span><br><span class="line">        log_failure_msg &quot;myweb process #$myweb_pid is not running!&quot;</span><br><span class="line">        rm -f $pid_file $out_file</span><br><span class="line">      fi</span><br><span class="line">      exit $return_value</span><br><span class="line">    else</span><br><span class="line">      log_failure_msg &quot;myweb PID file could not be found!&quot;</span><br><span class="line">    fi</span><br><span class="line">    ;;</span><br><span class="line"></span><br><span class="line">  &apos;restart&apos;)</span><br><span class="line">    # Stop the service and regardless of whether it was</span><br><span class="line">    # running or not, start it again.</span><br><span class="line">    if $0 stop  $other_args; then</span><br><span class="line">      $0 start $other_args</span><br><span class="line">    else</span><br><span class="line">      log_failure_msg &quot;Failed to stop running myweb, so refusing to try to start.&quot;</span><br><span class="line">      exit 1</span><br><span class="line">    fi</span><br><span class="line">    ;;</span><br><span class="line"></span><br><span class="line">    *)</span><br><span class="line">      # usage</span><br><span class="line">      echo &quot;Usage: $0  &#123;start|stop|restart&#125;  [ myweb server options ]&quot;</span><br><span class="line">      exit 1</span><br><span class="line">    ;;</span><br><span class="line">esac</span><br><span class="line"></span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="3-安装脚本"><a href="#3-安装脚本" class="headerlink" title="3. 安装脚本"></a><strong>3. 安装脚本</strong></h2><ul>
+<li>setup<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">FLAG_CP=</span><br><span class="line">FLAG_CPR=-r</span><br><span class="line">FLAG_TAR=-xf</span><br><span class="line">FLAG_CFG=\&gt;/dev/null</span><br><span class="line">FLAG_MAKE=\&gt;/dev/null</span><br><span class="line">FLAG_INST=\&gt;/dev/null</span><br><span class="line"></span><br><span class="line">toolsdir=/root/tools</span><br><span class="line">builddir=/root/tools/build</span><br><span class="line"></span><br><span class="line">#创建相关文件夹</span><br><span class="line">echo &quot;正在创建相关文件夹......&quot;</span><br><span class="line">mkdir $toolsdir</span><br><span class="line">mkdir $builddir</span><br><span class="line"></span><br><span class="line">#拷贝所有文件到指定目录</span><br><span class="line">echo &quot;正在拷贝文件到指定目录......&quot;</span><br><span class="line">cp $FLAG_CP ./*.* $toolsdir/</span><br><span class="line"></span><br><span class="line">#安装openssl</span><br><span class="line">echo &quot;正在安装openssl......&quot;</span><br><span class="line">cd $builddir/</span><br><span class="line">tar $FLAG_TAR $toolsdir/openssl-*.*</span><br><span class="line">cd openssl*/</span><br><span class="line">eval ./config $FLAG_CFG</span><br><span class="line">eval make $FLAG_MAKE</span><br><span class="line">eval make install $FLAG_MAKE</span><br><span class="line">ldconfig</span><br><span class="line"></span><br><span class="line">#安装sqlite</span><br><span class="line">echo &quot;正在安装sqlite......&quot;</span><br><span class="line">cd $builddir/</span><br><span class="line">tar $FLAG_TAR $toolsdir/sqlite-*.*</span><br><span class="line">cd sqlite*/</span><br><span class="line">eval ./configure $FLAG_CFG</span><br><span class="line">eval make $FLAG_MAKE</span><br><span class="line">eval make install $FLAG_MAKE</span><br><span class="line">#ldconfig</span><br><span class="line"></span><br><span class="line">#安装zlib和python</span><br><span class="line">echo &quot;正在安装zlib......&quot;</span><br><span class="line">cd $builddir/</span><br><span class="line">tar $FLAG_TAR $toolsdir/Python-*.*</span><br><span class="line">cd Python*/Modules/zlib/</span><br><span class="line">eval ./configure $FLAG_CFG</span><br><span class="line">eval make $FLAG_MAKE</span><br><span class="line">eval make install $FLAG_MAKE</span><br><span class="line">echo &quot;正在安装python......&quot;</span><br><span class="line">cd $builddir/</span><br><span class="line">cd Python*/</span><br><span class="line">eval ./configure --prefix=/usr/local/python2  $FLAG_CFG</span><br><span class="line">eval make $FLAG_MAKE</span><br><span class="line">eval make install $FLAG_MAKE</span><br><span class="line">export PATH=/usr/local/python2/bin:$PATH</span><br><span class="line"></span><br><span class="line">#安装setuptools</span><br><span class="line">echo &quot;正在安装setuptools......&quot;</span><br><span class="line">cd $builddir/</span><br><span class="line">tar $FLAG_TAR $toolsdir/setuptools-*.*</span><br><span class="line">cd setuptools*/</span><br><span class="line">eval python setup.py install $FLAG_INST</span><br><span class="line"></span><br><span class="line">#安装readline</span><br><span class="line">echo &quot;正在安装readline......&quot;</span><br><span class="line">cd $builddir/</span><br><span class="line">tar $FLAG_TAR $toolsdir/readline-*.*</span><br><span class="line">cd readline*/</span><br><span class="line">eval python setup.py install $FLAG_INST</span><br><span class="line"></span><br><span class="line">#安装PyXML</span><br><span class="line">echo &quot;正在安装PyXML......&quot;</span><br><span class="line">cd $builddir/</span><br><span class="line">tar $FLAG_TAR $toolsdir/PyXML-*.*</span><br><span class="line">cd PyXML*/</span><br><span class="line">eval python setup.py install $FLAG_INST</span><br><span class="line"></span><br><span class="line">#安装mysql</span><br><span class="line">echo &quot;正在安装mysql......&quot;</span><br><span class="line">cd $builddir/</span><br><span class="line">tar $FLAG_TAR $toolsdir/mysql-*.*</span><br><span class="line">cp $FLAG_CPR mysql*/ /usr/local/mysql</span><br><span class="line">cd /usr/local/mysql</span><br><span class="line">groupadd mysql</span><br><span class="line">useradd -g mysql mysql</span><br><span class="line">chown -R root:mysql .</span><br><span class="line">./scripts/mysql_install_db --user=mysql</span><br><span class="line">echo &quot;正在启动mysql......&quot;</span><br><span class="line">#启动mysql、并修改root密码</span><br><span class="line">cp $toolsdir/mysql.cfg /etc/my.cnf</span><br><span class="line">./support-files/mysql.server start</span><br><span class="line">./bin/mysqladmin -u root password &apos;hahaha&apos;</span><br><span class="line">chown -R mysql data</span><br><span class="line">#指定mysql为开机启动</span><br><span class="line">ln -s /usr/local/mysql/support-files/mysql.server /etc/init.d/mysql</span><br><span class="line">#update-rc.d mysql defaults</span><br><span class="line">chkconfig -a mysql</span><br><span class="line">#链接必要的lib*.so文件</span><br><span class="line">ln -s /usr/local/mysql/lib/libmysqlclient_r.so.16 /usr/lib/</span><br><span class="line"></span><br><span class="line">#安装pcre</span><br><span class="line">echo &quot;正在安装pcre......&quot;</span><br><span class="line">cd $builddir/</span><br><span class="line">tar $FLAG_TAR $toolsdir/pcre-*.*</span><br><span class="line">cd pcre*/</span><br><span class="line">eval ./configure $FLAG_CFG</span><br><span class="line">eval make $FLAG_MAKE</span><br><span class="line">eval make install $FLAG_MAKE</span><br><span class="line"></span><br><span class="line">#安装nginx</span><br><span class="line">echo &quot;正在安装nginx......&quot;</span><br><span class="line">cd $builddir/</span><br><span class="line">tar $FLAG_TAR $toolsdir/nginx-*.*</span><br><span class="line">cd nginx*/</span><br><span class="line">eval ./configure $FLAG_CFG</span><br><span class="line">eval make $FLAG_MAKE</span><br><span class="line">eval make install $FLAG_MAKE</span><br><span class="line">cp -f $toolsdir/nginx.conf /usr/local/nginx/conf/</span><br><span class="line">cp -f $toolsdir/rc.nginx   /etc/init.d/nginx</span><br><span class="line">chkconfig -a nginx</span><br><span class="line">echo &quot;正在启动nginx......&quot;</span><br><span class="line">service nginx start</span><br><span class="line"></span><br><span class="line">#拷贝pylons</span><br><span class="line">echo &quot;正在部署pylons......&quot;</span><br><span class="line">cd $builddir/</span><br><span class="line">tar $FLAG_TAR $toolsdir/python2*.*</span><br><span class="line">cp -fr python2/ /usr/local/</span><br><span class="line"></span><br><span class="line">#echo &quot;是否在/root目录下创建基本工程myweb,(Y/y or N/n)?&quot;</span><br><span class="line">#read tmp</span><br><span class="line">#创建基本工程myweb</span><br><span class="line">cd /root</span><br><span class="line">paster create -t pylons myweb</span><br><span class="line">cp -f $toolsdir/development.ini /root/myweb/</span><br><span class="line">cp    $toolsdir/rc.myweb        /etc/init.d/myweb</span><br><span class="line">chkconfig -a myweb</span><br><span class="line">echo &quot;正在启动myweb......&quot;</span><br><span class="line">service myweb start</span><br><span class="line">echo &quot;安装过程全部结束，可以通过nginx访问myweb......&quot;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h2 id="4-说明文件"><a href="#4-说明文件" class="headerlink" title="4. 说明文件"></a><strong>4. 说明文件</strong></h2><ul>
+<li>readme<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">﻿lnmp</span><br><span class="line">    l - linux</span><br><span class="line">    n - nginx</span><br><span class="line">    m - mysql</span><br><span class="line">    p - python/pylons</span><br><span class="line">    </span><br><span class="line">target</span><br><span class="line">    os: suse linux</span><br><span class="line">    base on: gcc g++ bzip ncurses-devel</span><br><span class="line">    </span><br><span class="line">setup</span><br><span class="line">    tar xvf lnmp_tools.tar.gz</span><br><span class="line">    cd lnmp_tools/</span><br><span class="line">    ./setup</span><br><span class="line">    </span><br><span class="line">test</span><br><span class="line">    myweb: the sample project</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<hr>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Program/20150614-Pyramid环境自动安装.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Pyramid环境自动安装
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Program/20140614-Debian系统安装Python的MySQLdb库.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Debian系统安装Python的MySQLdb库</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Linux-Nginx-Mysql-Python环境搭建" data-title="Linux-Nginx-Mysql-Python环境搭建" data-url="http://fanzicai.github.com/Program/20140614-Linux-Nginx-Mysql-Python环境搭建.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 fanzi.blog
+    	</div>
+      	<div class="footer-right">
+      		<a href="https://github.com/hexojs/hexo" target="_blank">Hexo</a>  Theme <a href="https://github.com/fanzicai/hexo-theme-athene" target="_blank">Athene</a> by fanzicai
+      	</div>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+  <a href="https://github.com/fanzicai"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+</body>
+</html>
