@@ -644,6 +644,20 @@ a {
 #header .header-nav .social a.cnblog:hover {
   border: 1px solid #9c3019;
 }
+#header .header-nav .social a.wordpress {
+  background: url("/img/wordpress.png") center no-repeat #c83d20;
+  border: 1px solid #c83d20;
+}
+#header .header-nav .social a.wordpress:hover {
+  border: 1px solid #cf5d0f;
+}
+#header .header-nav .social a.gravatar {
+  background: url("/img/gravatar.png") center no-repeat #0078d8;
+  border: 1px solid #0078d8;
+}
+#header .header-nav .social a.gravatar:hover {
+  border: 1px solid #0078d8;
+}
 #header .header-nav .social a.facebook {
   background: url("/img/facebook.png") center no-repeat #3b5998;
   border: 1px solid #3b5998;

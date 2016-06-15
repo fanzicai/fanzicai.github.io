@@ -18,7 +18,7 @@
 
 持续的软件版本发布/测试项目。
 监控外部调用执行的工作。">
-<meta property="og:updated_time" content="2016-06-13T06:23:55.415Z">
+<meta property="og:updated_time" content="2016-06-14T09:32:43.542Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CentOS7上安装Docker及Jenkins">
 <meta name="twitter:description" content="Jenkins是基于Java开发的一种持续集成工具，用于监控持续重复的工作，功能包括：
@@ -157,6 +157,10 @@
 					        
 								<a class="cnblog" target="_blank" href="http://www.cnblogs.com/fanzicai/" title="cnblog">cnblog</a>
 					        
+								<a class="wordpress" target="_blank" href="https://fanzicai.wordpress.com/" title="wordpress">wordpress</a>
+					        
+								<a class="gravatar" target="_blank" href="http://cn.gravatar.com/fanzicai" title="gravatar">gravatar</a>
+					        
 								<a class="mail" target="_blank" href="mailto:fanzicai@yahoo.com" title="mail">mail</a>
 					        
 						</div>
@@ -262,6 +266,10 @@
 			        
 						<a class="cnblog" target="_blank" href="http://www.cnblogs.com/fanzicai/" title="cnblog">cnblog</a>
 			        
+						<a class="wordpress" target="_blank" href="https://fanzicai.wordpress.com/" title="wordpress">wordpress</a>
+			        
+						<a class="gravatar" target="_blank" href="http://cn.gravatar.com/fanzicai" title="gravatar">gravatar</a>
+			        
 						<a class="mail" target="_blank" href="mailto:fanzicai@yahoo.com" title="mail">mail</a>
 			        
 				</div>
@@ -360,7 +368,10 @@
 <p>下载image及创建名为jenkis的容器并运行<br>启动、停止容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker start jenkins</span><br><span class="line">docker stop jenkins</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <ul>
-<li>访问<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://*.*.*.*:8080</span><br></pre></td></tr></table></figure>
+<li>访问<blockquote>
+<p>建议采用IE内核的浏览器<br>在chrome浏览器下，配置任务时容易出错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://*.*.*.*:8080</span><br></pre></td></tr></table></figure>
+</blockquote>
 </li>
 </ul>
 <hr>
@@ -373,8 +384,15 @@
 <li>gitlab plugin</li>
 <li>gitlab merge request builder</li>
 <li>gitlab logo plugin</li>
+<li>Gitlab Authentication plugin</li>
 </ul>
 </blockquote>
+<hr>
+<h2 id="4-访问Gitlab"><a href="#4-访问Gitlab" class="headerlink" title="4. 访问Gitlab"></a><strong>4. 访问Gitlab</strong></h2><blockquote>
+<p>采用git clone git@host_gitlab:usr_name/repo_name.git<br>需先在jenkins容器中生成私钥<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /var/jenkins_home</span><br><span class="line">ssh-keygen -t rsa -C &quot;fanzicai@yahoo.com&quot; -f /var/jenkins_home/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
+<p>把id_rsa.pub的公钥内容，配置到gitlab服务器上<br>同时，在jenkins构建工程设置中私钥采用<br>From the Jenkins master ~/.ssh</p>
+</blockquote>
+<hr>
 
       
     </div>
