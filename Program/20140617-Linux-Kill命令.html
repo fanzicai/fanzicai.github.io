@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: SCGI | fanzi.home@web</title>
+  <title>Linux Kill命令 | fanzi.home@web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="凡尘过客今他乡，子若布衣奈何天">
-<meta property="og:type" content="website">
-<meta property="og:title" content="fanzi.home@web">
-<meta property="og:url" content="http://fanzicai.github.com/tags/SCGI/index.html">
+  <meta name="description" content="使用Linux kill最安全的方法是不加修饰符，不带标志。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux Kill命令">
+<meta property="og:url" content="http://fanzicai.github.com/Program/20140617-Linux-Kill命令.html">
 <meta property="og:site_name" content="fanzi.home@web">
-<meta property="og:description" content="凡尘过客今他乡，子若布衣奈何天">
+<meta property="og:description" content="使用Linux kill最安全的方法是不加修饰符，不带标志。">
+<meta property="og:updated_time" content="2016-06-17T01:21:33.697Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="fanzi.home@web">
-<meta name="twitter:description" content="凡尘过客今他乡，子若布衣奈何天">
+<meta name="twitter:title" content="Linux Kill命令">
+<meta name="twitter:description" content="使用Linux kill最安全的方法是不加修饰符，不带标志。">
   
     <link rel="alternative" href="/atom.xml" title="fanzi.home@web" type="application/atom+xml">
   
@@ -272,58 +273,129 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-Linux-Kill命令" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Program/20130613-lighttpd中pylons的SCGI发布.html" class="archive-article-date">
-  	<time datetime="2013-06-13T01:40:57.000Z" itemprop="datePublished">6月 13日</time>
+    <div class="article-meta">
+      <a href="/Program/20140617-Linux-Kill命令.html" class="article-date">
+  	<time datetime="2014-06-17T01:18:08.000Z" itemprop="datePublished">2014-06-17</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Program/20130613-lighttpd中pylons的SCGI发布.html">lighttpd中pylons的SCGI发布</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux Kill命令
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2013/">2013</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LightTPD/">LightTPD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pylons/">Pylons</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Pyramid/">Pyramid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SCGI/">SCGI</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2014/">2014</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/">Shell</a></li></ul>
 	</div>
 
-          
+        
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/Program/">Program</a>
 	</div>
 
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用Linux kill最安全的方法是不加修饰符，不带标志。</p>
+<a id="more"></a>
+<h2 id="1-绝杀"><a href="#1-绝杀" class="headerlink" title="1. 绝杀"></a><strong>1. 绝杀</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 PID</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="2-优雅"><a href="#2-优雅" class="headerlink" title="2. 优雅"></a><strong>2. 优雅</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -l PID</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="3-其他"><a href="#3-其他" class="headerlink" title="3. 其他"></a><strong>3. 其他</strong></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep httpd</span><br><span class="line">ps -ef  PID</span><br></pre></td></tr></table></figure>
+<hr>
+
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/Program/20150614-Pyramid环境自动安装.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Pyramid环境自动安装
+        
+      </div>
+    </a>
+  
+  
+    <a href="/Program/20140614-Linux-Nginx-Mysql-Python环境搭建.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux-Nginx-Mysql-Python环境搭建</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
 
-  
-  
-    </div></section>
-  
 
-    
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Linux-Kill命令" data-title="Linux Kill命令" data-url="http://fanzicai.github.com/Program/20140617-Linux-Kill命令.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -350,9 +422,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}
