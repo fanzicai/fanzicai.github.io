@@ -4,27 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>CentOS7上安装Docker及Jenkins | fanzi.home@web</title>
+  <title>Bind-chroot部署DNS服务器 | fanzi.home@web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Jenkins是基于Java开发的一种持续集成工具，用于监控持续重复的工作，功能包括：
-
-持续的软件版本发布/测试项目。
-监控外部调用执行的工作。">
+  <meta name="description" content="CentOS 7部署DNS内网服务器，采用bind-chroot工具。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CentOS7上安装Docker及Jenkins">
-<meta property="og:url" content="http://fanzicai.github.com/Program/20160525-CentOS7上安装Docker及Jenkins.html">
+<meta property="og:title" content="Bind-chroot部署DNS服务器">
+<meta property="og:url" content="http://fanzicai.github.com/program/20160720-Bind-chroot部署DNS服务器.html">
 <meta property="og:site_name" content="fanzi.home@web">
-<meta property="og:description" content="Jenkins是基于Java开发的一种持续集成工具，用于监控持续重复的工作，功能包括：
-
-持续的软件版本发布/测试项目。
-监控外部调用执行的工作。">
-<meta property="og:updated_time" content="2016-06-14T09:32:43.542Z">
+<meta property="og:description" content="CentOS 7部署DNS内网服务器，采用bind-chroot工具。">
+<meta property="og:updated_time" content="2016-07-20T06:06:59.964Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS7上安装Docker及Jenkins">
-<meta name="twitter:description" content="Jenkins是基于Java开发的一种持续集成工具，用于监控持续重复的工作，功能包括：
-
-持续的软件版本发布/测试项目。
-监控外部调用执行的工作。">
+<meta name="twitter:title" content="Bind-chroot部署DNS服务器">
+<meta name="twitter:description" content="CentOS 7部署DNS内网服务器，采用bind-chroot工具。">
   
     <link rel="alternative" href="/atom.xml" title="fanzi.home@web" type="application/atom+xml">
   
@@ -282,11 +273,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-CentOS7上安装Docker及Jenkins" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Bind-chroot部署DNS服务器" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/Program/20160525-CentOS7上安装Docker及Jenkins.html" class="article-date">
-  	<time datetime="2016-05-25T07:50:55.000Z" itemprop="datePublished">2016-05-25</time>
+      <a href="/program/20160720-Bind-chroot部署DNS服务器.html" class="article-date">
+  	<time datetime="2016-07-20T05:49:06.000Z" itemprop="datePublished">2016-07-20</time>
 </a>
     </div>
   
@@ -299,7 +290,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      CentOS7上安装Docker及Jenkins
+      Bind-chroot部署DNS服务器
     </h1>
   
 
@@ -308,12 +299,12 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2016/">2016</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jenkins/">Jenkins</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2016/">2016</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bind/">Bind</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chroot/">Chroot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DNS/">DNS</a></li></ul>
 	</div>
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Program/">Program</a>
+	<a class="article-category-link" href="/categories/program/">program</a>
 	</div>
 
 
@@ -323,78 +314,57 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://jenkins.io/" target="_blank" rel="external">Jenkins</a>是基于Java开发的一种持续集成工具，用于监控持续重复的工作，功能包括：</p>
-<ul>
-<li>持续的软件版本发布/测试项目。</li>
-<li>监控外部调用执行的工作。<a id="more"></a>
-</li>
-</ul>
-<h2 id="1-CentOS"><a href="#1-CentOS" class="headerlink" title="1. CentOS"></a><strong>1. CentOS</strong></h2><p><a href="https://www.centos.org/" target="_blank" rel="external">CentOS7</a>（Community Enterprise Operation System, 社区企业操作系统）,截至发文时，最新版为CentOS7，本文安装的是64位。</p>
-<ul>
-<li><p>安装环境：</p>
-<blockquote>
-<p>VMware® Workstation 12 Pro</p>
-</blockquote>
-</li>
-<li><p>安装版本</p>
-<blockquote>
-<p><a href="https://www.centos.org/download/" target="_blank" rel="external">CentOS-7-x86_64-Everything-1511</a> </p>
-</blockquote>
-</li>
-<li><p>安装方式</p>
-<blockquote>
-<p>Minimal Install</p>
-</blockquote>
+        <p>CentOS 7部署DNS内网服务器，采用bind-chroot工具。</p>
+<a id="more"></a>
+<h2 id="1-安装工具"><a href="#1-安装工具" class="headerlink" title="1. 安装工具"></a><strong>1. 安装工具</strong></h2><ul>
+<li>bind-utils</li>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install bind-utils</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
-<h2 id="2-Docker"><a href="#2-Docker" class="headerlink" title="2. Docker"></a><strong>2. <a href="https://www.docker.com/" target="_blank" rel="external">Docker</a></strong></h2><p>参考<a href="https://wiki.centos.org/zh/Cloud/Docker?highlight=%28docker%29" target="_blank" rel="external">CentOS Wiki</a>。</p>
-<ul>
-<li><p>准备工作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y update</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>CentOS Wiki推荐方式</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install docker</span><br></pre></td></tr></table></figure>
+<h2 id="2-修改配置"><a href="#2-修改配置" class="headerlink" title="2. 修改配置"></a><strong>2. 修改配置</strong></h2><blockquote>
+<p>涉及目录有<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/var/named/chroot/etc/</span><br><span class="line">    named.conf</span><br><span class="line">    named.rfc1912.zones</span><br><span class="line">/var/named/chroot/var/named/</span><br><span class="line">    nid.com.zone</span><br><span class="line">    1.168.192.local</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-</li>
-<li><p>自启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h2 id="3-Jenkins"><a href="#3-Jenkins" class="headerlink" title="3. Jenkins"></a><strong>3. <a href="https://jenkins.io/" target="_blank" rel="external">Jenkins</a></strong></h2><p>采用<a href="https://hub.docker.com/_/jenkins/" target="_blank" rel="external">docker jenkins</a></p>
 <ul>
-<li>安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --detach --name jenkins --restart always -p 8080:8080 -p 50000:50000 jenkins</span><br></pre></td></tr></table></figure>
+<li>named.conf<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -y /etc/named.conf /var/named/chroot/etc/</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <blockquote>
-<p>下载image及创建名为jenkis的容器并运行<br>启动、停止容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker start jenkins</span><br><span class="line">docker stop jenkins</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">options &#123;</span><br><span class="line">        listen-on port 53 &#123; 192.168.1.183; &#125;;</span><br><span class="line"></span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        allow-query     &#123; any; &#125;;</span><br><span class="line"></span><br><span class="line">        recursion yes;</span><br><span class="line"></span><br><span class="line">        dnssec-enable no;</span><br><span class="line">        dnssec-validation no;</span><br><span class="line"></span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
 </blockquote>
 <ul>
-<li>访问<blockquote>
-<p>建议采用IE内核的浏览器<br>在chrome浏览器下，配置任务时容易出错</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://*.*.*.*:8080</span><br></pre></td></tr></table></figure>
+<li><p>named.rfc1912.zones</p>
+<blockquote>
+<p>添加内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">zone &quot;nid.com&quot; IN &#123;</span><br><span class="line">        type master;</span><br><span class="line">        file &quot;nid.com.zone&quot;;</span><br><span class="line">        allow-update &#123;none;&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">zone &quot;1.168.192.in-addr.arpa&quot; IN &#123;</span><br><span class="line">        type master;</span><br><span class="line">        file &quot;1.168.192.local&quot;;</span><br><span class="line">        allow-update &#123;none;&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>nid.com.zone</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$TTL 86400</span><br><span class="line">@       IN SOA  nid.com. mail.nid.com. (</span><br><span class="line">                                        46      ; serial</span><br><span class="line">                                        43200   ; refresh</span><br><span class="line">                                        3600    ; retry</span><br><span class="line">                                        3600000 ; expire</span><br><span class="line">                                        2592000 )       ; minimum</span><br><span class="line">        IN      NS      www.nid.com.</span><br><span class="line">        IN      A       192.168.1.200</span><br><span class="line">www     IN      A       192.168.1.200</span><br><span class="line">gitlab  IN      A       192.168.1.10</span><br><span class="line">jenkins IN      A       192.168.1.80</span><br><span class="line">nginx   IN      A       192.168.1.200</span><br><span class="line">tomcat  IN      A       192.168.1.80</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>1.168.192.local</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$TTL 86400</span><br><span class="line">@       IN SOA  nid.com. mail.nid.com. (</span><br><span class="line">                                        45      ; serial</span><br><span class="line">                                        28800   ; refresh</span><br><span class="line">                                        14400   ; retry</span><br><span class="line">                                        36000000        ; expire</span><br><span class="line">                                        86400 ) ; minimum</span><br><span class="line">        IN      NS      www.nid.com.</span><br><span class="line">200     IN      PTR     www.nid.com.</span><br><span class="line">10      IN      PTR     gitlab.nid.com</span><br><span class="line">80      IN      PTR     jenkins.nid.com</span><br><span class="line"></span><br><span class="line">www     IN      A       192.168.1.200</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>/etc/resolv.conf</p>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nameserver 192.168.1.183</span><br><span class="line">nameserver 192.168.1.1</span><br></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ul>
-<hr>
-<h2 id="3-Git插件"><a href="#3-Git插件" class="headerlink" title="3. Git插件"></a><strong>3. Git插件</strong></h2><blockquote>
-<p>管理插件<br>因为采用gitlab管理源码，需要添加</p>
-<ul>
-<li>git plugin</li>
-<li>git client plugin</li>
-<li>gitlab hook plugin</li>
-<li>gitlab plugin</li>
-<li>gitlab merge request builder</li>
-<li>gitlab logo plugin</li>
-<li>Gitlab Authentication plugin</li>
-</ul>
+<blockquote>
+<p>其中，192.168.1.183为DNS服务器的IP</p>
 </blockquote>
 <hr>
-<h2 id="4-访问Gitlab"><a href="#4-访问Gitlab" class="headerlink" title="4. 访问Gitlab"></a><strong>4. 访问Gitlab</strong></h2><blockquote>
-<p>采用git clone git@host_gitlab:usr_name/repo_name.git<br>需先在jenkins容器中生成私钥<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /var/jenkins_home</span><br><span class="line">ssh-keygen -t rsa -C &quot;fanzicai@yahoo.com&quot; -f /var/jenkins_home/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
-<p>把id_rsa.pub的公钥内容，配置到gitlab服务器上<br>同时，在jenkins构建工程设置中私钥采用<br>From the Jenkins master ~/.ssh</p>
+<h2 id="3-启动DNS"><a href="#3-启动DNS" class="headerlink" title="3. 启动DNS"></a><strong>3. 启动DNS</strong></h2><blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/usr/libexec/setup-named-chroot.sh /var/named/chroot on</span><br><span class="line">systemctl enable named-chroot</span><br><span class="line">systemctl start named-chroot</span><br></pre></td></tr></table></figure>
+</blockquote>
+<hr>
+<h2 id="4-测试"><a href="#4-测试" class="headerlink" title="4. 测试"></a><strong>4. 测试</strong></h2><blockquote>
+<p>采用nslookup<br>server 查看DNS服务器列表<br>www.nid.com 查看该域名的ip</p>
 </blockquote>
 <hr>
 
@@ -406,18 +376,9 @@
     
 <nav id="article-nav">
   
-    <a href="/Program/20160525-CentOS7上搭建Docker私有仓库.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          CentOS7上搭建Docker私有仓库
-        
-      </div>
-    </a>
   
-  
-    <a href="/Program/20160525-CentOS7上安装Docker及GitLab.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CentOS7上安装Docker及GitLab</div>
+    <a href="/Program/20160613-个人域名绑定GitHub-Pages.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">个人域名绑定GitHub Pages</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -452,7 +413,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="CentOS7上安装Docker及Jenkins" data-title="CentOS7上安装Docker及Jenkins" data-url="http://fanzicai.github.com/Program/20160525-CentOS7上安装Docker及Jenkins.html"></div>
+	<div class="ds-thread" data-thread-key="Bind-chroot部署DNS服务器" data-title="Bind-chroot部署DNS服务器" data-url="http://fanzicai.github.com/program/20160720-Bind-chroot部署DNS服务器.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

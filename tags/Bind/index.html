@@ -4,27 +4,17 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>CentOS7上安装Docker及Jenkins | fanzi.home@web</title>
+  <title>Tag: Bind | fanzi.home@web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Jenkins是基于Java开发的一种持续集成工具，用于监控持续重复的工作，功能包括：
-
-持续的软件版本发布/测试项目。
-监控外部调用执行的工作。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="CentOS7上安装Docker及Jenkins">
-<meta property="og:url" content="http://fanzicai.github.com/Program/20160525-CentOS7上安装Docker及Jenkins.html">
+  <meta name="description" content="凡尘过客今他乡，子若布衣奈何天">
+<meta property="og:type" content="website">
+<meta property="og:title" content="fanzi.home@web">
+<meta property="og:url" content="http://fanzicai.github.com/tags/Bind/index.html">
 <meta property="og:site_name" content="fanzi.home@web">
-<meta property="og:description" content="Jenkins是基于Java开发的一种持续集成工具，用于监控持续重复的工作，功能包括：
-
-持续的软件版本发布/测试项目。
-监控外部调用执行的工作。">
-<meta property="og:updated_time" content="2016-06-14T09:32:43.542Z">
+<meta property="og:description" content="凡尘过客今他乡，子若布衣奈何天">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CentOS7上安装Docker及Jenkins">
-<meta name="twitter:description" content="Jenkins是基于Java开发的一种持续集成工具，用于监控持续重复的工作，功能包括：
-
-持续的软件版本发布/测试项目。
-监控外部调用执行的工作。">
+<meta name="twitter:title" content="fanzi.home@web">
+<meta name="twitter:description" content="凡尘过客今他乡，子若布衣奈何天">
   
     <link rel="alternative" href="/atom.xml" title="fanzi.home@web" type="application/atom+xml">
   
@@ -282,195 +272,58 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-CentOS7上安装Docker及Jenkins" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/Program/20160525-CentOS7上安装Docker及Jenkins.html" class="article-date">
-  	<time datetime="2016-05-25T07:50:55.000Z" itemprop="datePublished">2016-05-25</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/program/20160720-Bind-chroot部署DNS服务器.html" class="archive-article-date">
+  	<time datetime="2016-07-20T05:49:06.000Z" itemprop="datePublished">7月 20日</time>
 </a>
-    </div>
+        </div>
+    	 
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      CentOS7上安装Docker及Jenkins
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/program/20160720-Bind-chroot部署DNS服务器.html">Bind-chroot部署DNS服务器</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2016/">2016</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jenkins/">Jenkins</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2016/">2016</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bind/">Bind</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chroot/">Chroot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DNS/">DNS</a></li></ul>
 	</div>
 
-        
+          
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Program/">Program</a>
+	<a class="article-category-link" href="/categories/program/">program</a>
 	</div>
 
 
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://jenkins.io/" target="_blank" rel="external">Jenkins</a>是基于Java开发的一种持续集成工具，用于监控持续重复的工作，功能包括：</p>
-<ul>
-<li>持续的软件版本发布/测试项目。</li>
-<li>监控外部调用执行的工作。<a id="more"></a>
-</li>
-</ul>
-<h2 id="1-CentOS"><a href="#1-CentOS" class="headerlink" title="1. CentOS"></a><strong>1. CentOS</strong></h2><p><a href="https://www.centos.org/" target="_blank" rel="external">CentOS7</a>（Community Enterprise Operation System, 社区企业操作系统）,截至发文时，最新版为CentOS7，本文安装的是64位。</p>
-<ul>
-<li><p>安装环境：</p>
-<blockquote>
-<p>VMware® Workstation 12 Pro</p>
-</blockquote>
-</li>
-<li><p>安装版本</p>
-<blockquote>
-<p><a href="https://www.centos.org/download/" target="_blank" rel="external">CentOS-7-x86_64-Everything-1511</a> </p>
-</blockquote>
-</li>
-<li><p>安装方式</p>
-<blockquote>
-<p>Minimal Install</p>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h2 id="2-Docker"><a href="#2-Docker" class="headerlink" title="2. Docker"></a><strong>2. <a href="https://www.docker.com/" target="_blank" rel="external">Docker</a></strong></h2><p>参考<a href="https://wiki.centos.org/zh/Cloud/Docker?highlight=%28docker%29" target="_blank" rel="external">CentOS Wiki</a>。</p>
-<ul>
-<li><p>准备工作</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y update</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>CentOS Wiki推荐方式</p>
-<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install docker</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>自启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable docker</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h2 id="3-Jenkins"><a href="#3-Jenkins" class="headerlink" title="3. Jenkins"></a><strong>3. <a href="https://jenkins.io/" target="_blank" rel="external">Jenkins</a></strong></h2><p>采用<a href="https://hub.docker.com/_/jenkins/" target="_blank" rel="external">docker jenkins</a></p>
-<ul>
-<li>安装<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --detach --name jenkins --restart always -p 8080:8080 -p 50000:50000 jenkins</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>下载image及创建名为jenkis的容器并运行<br>启动、停止容器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker start jenkins</span><br><span class="line">docker stop jenkins</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<ul>
-<li>访问<blockquote>
-<p>建议采用IE内核的浏览器<br>在chrome浏览器下，配置任务时容易出错</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://*.*.*.*:8080</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
-<hr>
-<h2 id="3-Git插件"><a href="#3-Git插件" class="headerlink" title="3. Git插件"></a><strong>3. Git插件</strong></h2><blockquote>
-<p>管理插件<br>因为采用gitlab管理源码，需要添加</p>
-<ul>
-<li>git plugin</li>
-<li>git client plugin</li>
-<li>gitlab hook plugin</li>
-<li>gitlab plugin</li>
-<li>gitlab merge request builder</li>
-<li>gitlab logo plugin</li>
-<li>Gitlab Authentication plugin</li>
-</ul>
-</blockquote>
-<hr>
-<h2 id="4-访问Gitlab"><a href="#4-访问Gitlab" class="headerlink" title="4. 访问Gitlab"></a><strong>4. 访问Gitlab</strong></h2><blockquote>
-<p>采用git clone git@host_gitlab:usr_name/repo_name.git<br>需先在jenkins容器中生成私钥<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /var/jenkins_home</span><br><span class="line">ssh-keygen -t rsa -C &quot;fanzicai@yahoo.com&quot; -f /var/jenkins_home/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
-<p>把id_rsa.pub的公钥内容，配置到gitlab服务器上<br>同时，在jenkins构建工程设置中私钥采用<br>From the Jenkins master ~/.ssh</p>
-</blockquote>
-<hr>
-
-      
-    </div>
-    
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/Program/20160525-CentOS7上搭建Docker私有仓库.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          CentOS7上搭建Docker私有仓库
-        
-      </div>
-    </a>
-  
-  
-    <a href="/Program/20160525-CentOS7上安装Docker及GitLab.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CentOS7上安装Docker及GitLab</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
 
+  
+  
+    </div></section>
+  
 
-<div class="share_jia">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到: &nbsp; </span>
-		<a class="jiathis_button_facebook"></a> 
-    <a class="jiathis_button_twitter"></a>
-    <a class="jiathis_button_plus"></a> 
-    <a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-
-
-
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="CentOS7上安装Docker及Jenkins" data-title="CentOS7上安装Docker及Jenkins" data-url="http://fanzicai.github.com/Program/20160525-CentOS7上安装Docker及Jenkins.html"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
+    
 
 </div>
       <footer id="footer">
@@ -497,9 +350,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false
 	}
