@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: ARM | fanzi.home@web</title>
+  <title>Eclipse中配置Git和SSH | fanzi.home@web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="凡尘过客今他乡，子若布衣奈何天">
-<meta property="og:type" content="website">
-<meta property="og:title" content="fanzi.home@web">
-<meta property="og:url" content="http://fanzicai.github.com/tags/ARM/index.html">
+  <meta name="description" content="Eclipse中使用Git进行Team协同。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Eclipse中配置Git和SSH">
+<meta property="og:url" content="http://fanzicai.github.com/Program/20160726-Eclipse中配置Git和SSH.html">
 <meta property="og:site_name" content="fanzi.home@web">
-<meta property="og:description" content="凡尘过客今他乡，子若布衣奈何天">
+<meta property="og:description" content="Eclipse中使用Git进行Team协同。">
+<meta property="og:updated_time" content="2016-07-26T07:44:45.387Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="fanzi.home@web">
-<meta name="twitter:description" content="凡尘过客今他乡，子若布衣奈何天">
+<meta name="twitter:title" content="Eclipse中配置Git和SSH">
+<meta name="twitter:description" content="Eclipse中使用Git进行Team协同。">
   
     <link rel="alternative" href="/atom.xml" title="fanzi.home@web" type="application/atom+xml">
   
@@ -272,94 +273,127 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-Eclipse中配置Git和SSH" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2013" class="archive-year">2013</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Program/20130613-Linux-ARM环境Python调用C库.html" class="archive-article-date">
-  	<time datetime="2013-06-13T02:50:32.000Z" itemprop="datePublished">6月 13日</time>
+    <div class="article-meta">
+      <a href="/Program/20160726-Eclipse中配置Git和SSH.html" class="article-date">
+  	<time datetime="2016-07-26T07:09:16.000Z" itemprop="datePublished">2016-07-26</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Program/20130613-Linux-ARM环境Python调用C库.html">Linux-ARM环境Python调用C库</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Eclipse中配置Git和SSH
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2013/">2013</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARM/">ARM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2016/">2016</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Eclipse/">Eclipse</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSH/">SSH</a></li></ul>
 	</div>
 
-          
+        
 	<div class="article-category tagcloud">
 	<a class="article-category-link" href="/categories/Program/">Program</a>
 	</div>
 
 
-        </div>
         <div class="clearfix"></div>
-    </header>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Eclipse中使用Git进行Team协同。</p>
+<a id="more"></a>
+<h2 id="1-Git-Plug-in"><a href="#1-Git-Plug-in" class="headerlink" title="1. Git Plug-in"></a><strong>1. Git Plug-in</strong></h2><blockquote>
+<p>默认情况下，Eclipse已经安装了Git插件，一般为EGit或JGit。<br>直接使用即可。</p>
+</blockquote>
+<hr>
+<h2 id="2-Git配置"><a href="#2-Git配置" class="headerlink" title="2. Git配置"></a><strong>2. Git配置</strong></h2><blockquote>
+<p>系统环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HOME = /.gitconfig目录</span><br></pre></td></tr></table></figure></p>
+<p>Eclipse配置<br>Team - Git - Configuration<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">key     - user.name</span><br><span class="line">value  - fanzi</span><br><span class="line">key     - user.email</span><br><span class="line">value  - fanzicai@yahoo.com</span><br></pre></td></tr></table></figure></p>
+<p>Eclipse配置<br>General - Network Connections - SSH2</p>
+<pre><code>SSH2 home  = /git目录/.ssh    # 一般为gitlab或github等的私钥存放地
+Key Management    #如有现成私钥，则导入，如无则创建，同时把公钥上传到git服务器
+</code></pre><p>使用时，采用ssh访问 git@gitlab.com/<em>*</em>.git方式</p>
+</blockquote>
+<hr>
+
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/Program/20160720-Bind-chroot部署DNS服务器.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Bind-chroot部署DNS服务器</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
 
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/Program/20130613-Linux-ARM环境Python编译安装.html" class="archive-article-date">
-  	<time datetime="2013-06-13T02:42:52.000Z" itemprop="datePublished">6月 13日</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/Program/20130613-Linux-ARM环境Python编译安装.html">Linux-ARM环境Python编译安装</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2013/">2013</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ARM/">ARM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Program/">Program</a>
-	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
 
-  
-  
-    </div></section>
-  
 
-    
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Eclipse中配置Git和SSH" data-title="Eclipse中配置Git和SSH" data-url="http://fanzicai.github.com/Program/20160726-Eclipse中配置Git和SSH.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -386,9 +420,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}
