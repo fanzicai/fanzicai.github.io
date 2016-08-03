@@ -4,18 +4,17 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>V5Max优化GPS设置 | fanzi.home@web</title>
+  <title>Tag: Ruby | fanzi.home@web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ZTE V5Max默认配置下搜星贼慢，故优化配置，主要两个文件gps.conf和apns-conf.xml。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="V5Max优化GPS设置">
-<meta property="og:url" content="http://fanzicai.github.com/Phone/20160729-V5Max优化GPS设置.html">
+  <meta name="description" content="凡尘过客今他乡，子若布衣奈何天">
+<meta property="og:type" content="website">
+<meta property="og:title" content="fanzi.home@web">
+<meta property="og:url" content="http://fanzicai.github.com/tags/Ruby/index.html">
 <meta property="og:site_name" content="fanzi.home@web">
-<meta property="og:description" content="ZTE V5Max默认配置下搜星贼慢，故优化配置，主要两个文件gps.conf和apns-conf.xml。">
-<meta property="og:updated_time" content="2016-07-29T08:30:48.874Z">
+<meta property="og:description" content="凡尘过客今他乡，子若布衣奈何天">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="V5Max优化GPS设置">
-<meta name="twitter:description" content="ZTE V5Max默认配置下搜星贼慢，故优化配置，主要两个文件gps.conf和apns-conf.xml。">
+<meta name="twitter:title" content="fanzi.home@web">
+<meta name="twitter:description" content="凡尘过客今他乡，子若布衣奈何天">
   
     <link rel="alternative" href="/atom.xml" title="fanzi.home@web" type="application/atom+xml">
   
@@ -285,136 +284,58 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-V5Max优化GPS设置" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/Phone/20160729-V5Max优化GPS设置.html" class="article-date">
-  	<time datetime="2016-07-29T08:19:15.000Z" itemprop="datePublished">2016-07-29</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/Program/20160803-GitHub和Jekyll搭建静态博客.html" class="archive-article-date">
+  	<time datetime="2016-08-03T09:07:27.000Z" itemprop="datePublished">8月 3日</time>
 </a>
-    </div>
+        </div>
+    	 
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      V5Max优化GPS设置
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/Program/20160803-GitHub和Jekyll搭建静态博客.html">GitHub和Jekyll搭建静态博客</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2016/">2016</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phone/">Phone</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/V5Max/">V5Max</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ZTE/">ZTE</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2016/">2016</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jekyll/">Jekyll</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ruby/">Ruby</a></li></ul>
 	</div>
 
-        
+          
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Phone/">Phone</a>
+	<a class="article-category-link" href="/categories/Program/">Program</a>
 	</div>
 
 
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>ZTE V5Max默认配置下搜星贼慢，故优化配置，主要两个文件gps.conf和apns-conf.xml。</p>
-<a id="more"></a>
-<h2 id="1-前提"><a href="#1-前提" class="headerlink" title="1. 前提"></a><strong>1. 前提</strong></h2><p>文件均在system/etc目录下，须root权限才能操作，常用RE管理器</p>
-<blockquote>
-<p>root推荐360一键root工具</p>
-</blockquote>
-<hr>
-<h2 id="2-gps-conf"><a href="#2-gps-conf" class="headerlink" title="2. gps.conf"></a><strong>2. gps.conf</strong></h2><blockquote>
-<p>文件修改后为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">XTRA_SERVER_1=http://xtra2.gpsonextra.net/xtra.bin</span><br><span class="line">XTRA_SERVER_2=http://xtra1.gpsonextra.net/xtra.bin</span><br><span class="line">XTRA_SERVER_3=http://xtra3.gpsonextra.net/xtra.bin</span><br><span class="line"></span><br><span class="line">ERR_ESTIMATE=0</span><br><span class="line"></span><br><span class="line">NTP_SERVER=0.cn.pool.ntp.org</span><br><span class="line">NTP_SERVER=1.cn.pool.ntp.org</span><br><span class="line">NTP_SERVER=2.cn.pool.ntp.org</span><br><span class="line">NTP_SERVER=3.cn.pool.ntp.org</span><br><span class="line">NTP_SERVER=cn.pool.ntp.org</span><br><span class="line"></span><br><span class="line">DEBUG_LEVEL = 3</span><br><span class="line"></span><br><span class="line">INTERMEDIATE_POS=0</span><br><span class="line"></span><br><span class="line">SUPL_VER=0x20000</span><br><span class="line"></span><br><span class="line">SUPL_ES=1</span><br><span class="line"></span><br><span class="line">CAPABILITIES=0x31</span><br><span class="line"></span><br><span class="line">SUPL_HOST=suplcn.sirf.com</span><br><span class="line">SUPL_HOST=221.176.0.55</span><br><span class="line">SUPL_HOST=supl.nokia.com</span><br><span class="line">SUPL_PORT=7275</span><br><span class="line"># SUPL_HOST=supl.google.com</span><br><span class="line"># SUPL_PORT=7276</span><br><span class="line"></span><br><span class="line">LPP_PROFILE = 0</span><br><span class="line"></span><br><span class="line">NMEA_PROVIDER=0</span><br><span class="line">SGLTE_TARGET=0</span><br><span class="line"></span><br><span class="line">A_GLONASS_POS_PROTOCOL_SELECT = 0</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<hr>
-<h2 id="3-apns-conf-xml"><a href="#3-apns-conf-xml" class="headerlink" title="3. apns-conf.xml"></a><strong>3. apns-conf.xml</strong></h2><blockquote>
-<p>将type=”default”改为type=”default,supl”</p>
-</blockquote>
-<hr>
-
-      
-    </div>
-    
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/Program/20160802-CentOS安装Erlang和RabbitMQ.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          CentOS安装Erlang和RabbitMQ
-        
-      </div>
-    </a>
-  
-  
-    <a href="/Program/20160729-CentOS设置多IP的方法.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CentOS设置多IP的方法</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
 
+  
+  
+    </div></section>
+  
 
-<div class="share_jia">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到: &nbsp; </span>
-		<a class="jiathis_button_facebook"></a> 
-    <a class="jiathis_button_twitter"></a>
-    <a class="jiathis_button_plus"></a> 
-    <a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-
-
-
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="V5Max优化GPS设置" data-title="V5Max优化GPS设置" data-url="http://fanzicai.github.com/Phone/20160729-V5Max优化GPS设置.html"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
+    
 
 </div>
       <footer id="footer">
@@ -441,9 +362,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false
 	}

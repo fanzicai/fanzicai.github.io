@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>V5Max优化GPS设置 | fanzi.home@web</title>
+  <title>GitHub和Jekyll搭建静态博客 | fanzi.home@web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ZTE V5Max默认配置下搜星贼慢，故优化配置，主要两个文件gps.conf和apns-conf.xml。">
+  <meta name="description" content="根据官方教程进行搭建，https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="V5Max优化GPS设置">
-<meta property="og:url" content="http://fanzicai.github.com/Phone/20160729-V5Max优化GPS设置.html">
+<meta property="og:title" content="GitHub和Jekyll搭建静态博客">
+<meta property="og:url" content="http://fanzicai.github.com/Program/20160803-GitHub和Jekyll搭建静态博客.html">
 <meta property="og:site_name" content="fanzi.home@web">
-<meta property="og:description" content="ZTE V5Max默认配置下搜星贼慢，故优化配置，主要两个文件gps.conf和apns-conf.xml。">
-<meta property="og:updated_time" content="2016-07-29T08:30:48.874Z">
+<meta property="og:description" content="根据官方教程进行搭建，https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/。">
+<meta property="og:updated_time" content="2016-08-03T09:51:59.491Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="V5Max优化GPS设置">
-<meta name="twitter:description" content="ZTE V5Max默认配置下搜星贼慢，故优化配置，主要两个文件gps.conf和apns-conf.xml。">
+<meta name="twitter:title" content="GitHub和Jekyll搭建静态博客">
+<meta name="twitter:description" content="根据官方教程进行搭建，https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/。">
   
     <link rel="alternative" href="/atom.xml" title="fanzi.home@web" type="application/atom+xml">
   
@@ -285,11 +285,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-V5Max优化GPS设置" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-GitHub和Jekyll搭建静态博客" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/Phone/20160729-V5Max优化GPS设置.html" class="article-date">
-  	<time datetime="2016-07-29T08:19:15.000Z" itemprop="datePublished">2016-07-29</time>
+      <a href="/Program/20160803-GitHub和Jekyll搭建静态博客.html" class="article-date">
+  	<time datetime="2016-08-03T09:07:27.000Z" itemprop="datePublished">2016-08-03</time>
 </a>
     </div>
   
@@ -302,7 +302,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      V5Max优化GPS设置
+      GitHub和Jekyll搭建静态博客
     </h1>
   
 
@@ -311,12 +311,12 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2016/">2016</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Phone/">Phone</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/V5Max/">V5Max</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ZTE/">ZTE</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/2016/">2016</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GitHub/">GitHub</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jekyll/">Jekyll</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ruby/">Ruby</a></li></ul>
 	</div>
 
         
 	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/Phone/">Phone</a>
+	<a class="article-category-link" href="/categories/Program/">Program</a>
 	</div>
 
 
@@ -326,19 +326,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ZTE V5Max默认配置下搜星贼慢，故优化配置，主要两个文件gps.conf和apns-conf.xml。</p>
+        <p>根据官方教程进行搭建，<a href="https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/" target="_blank" rel="external">https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/</a>。</p>
 <a id="more"></a>
-<h2 id="1-前提"><a href="#1-前提" class="headerlink" title="1. 前提"></a><strong>1. 前提</strong></h2><p>文件均在system/etc目录下，须root权限才能操作，常用RE管理器</p>
-<blockquote>
-<p>root推荐360一键root工具</p>
+<h2 id="1-官方教程"><a href="#1-官方教程" class="headerlink" title="1. 官方教程"></a><strong>1. 官方教程</strong></h2><blockquote>
+<p>根据官方教程<br>安装ruby、bundle<br>创建blog_jekyll目录<br>初始化jekyll工程</p>
 </blockquote>
 <hr>
-<h2 id="2-gps-conf"><a href="#2-gps-conf" class="headerlink" title="2. gps.conf"></a><strong>2. gps.conf</strong></h2><blockquote>
-<p>文件修改后为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">XTRA_SERVER_1=http://xtra2.gpsonextra.net/xtra.bin</span><br><span class="line">XTRA_SERVER_2=http://xtra1.gpsonextra.net/xtra.bin</span><br><span class="line">XTRA_SERVER_3=http://xtra3.gpsonextra.net/xtra.bin</span><br><span class="line"></span><br><span class="line">ERR_ESTIMATE=0</span><br><span class="line"></span><br><span class="line">NTP_SERVER=0.cn.pool.ntp.org</span><br><span class="line">NTP_SERVER=1.cn.pool.ntp.org</span><br><span class="line">NTP_SERVER=2.cn.pool.ntp.org</span><br><span class="line">NTP_SERVER=3.cn.pool.ntp.org</span><br><span class="line">NTP_SERVER=cn.pool.ntp.org</span><br><span class="line"></span><br><span class="line">DEBUG_LEVEL = 3</span><br><span class="line"></span><br><span class="line">INTERMEDIATE_POS=0</span><br><span class="line"></span><br><span class="line">SUPL_VER=0x20000</span><br><span class="line"></span><br><span class="line">SUPL_ES=1</span><br><span class="line"></span><br><span class="line">CAPABILITIES=0x31</span><br><span class="line"></span><br><span class="line">SUPL_HOST=suplcn.sirf.com</span><br><span class="line">SUPL_HOST=221.176.0.55</span><br><span class="line">SUPL_HOST=supl.nokia.com</span><br><span class="line">SUPL_PORT=7275</span><br><span class="line"># SUPL_HOST=supl.google.com</span><br><span class="line"># SUPL_PORT=7276</span><br><span class="line"></span><br><span class="line">LPP_PROFILE = 0</span><br><span class="line"></span><br><span class="line">NMEA_PROVIDER=0</span><br><span class="line">SGLTE_TARGET=0</span><br><span class="line"></span><br><span class="line">A_GLONASS_POS_PROTOCOL_SELECT = 0</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-Jekyll配置"><a href="#2-Jekyll配置" class="headerlink" title="2. Jekyll配置"></a><strong>2. Jekyll配置</strong></h2><blockquote>
+<p>_config.yml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">title: fanzi.home@web</span><br><span class="line">email: fanzicai@yahoo.com</span><br><span class="line">description: &gt; # this means to ignore newlines until &quot;baseurl:&quot;</span><br><span class="line">  nothing to say.</span><br><span class="line">baseurl: &quot;/blog_jekyll&quot; # the subpath of your site, e.g. /blog</span><br><span class="line">url: &quot;https://www.fanzicai.com&quot; # the base hostname &amp; protocol for your site</span><br><span class="line">#twitter_username: jekyllrb</span><br><span class="line">github_username:  fanzicai</span><br><span class="line"># Build settings</span><br><span class="line">markdown: kramdown</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <hr>
-<h2 id="3-apns-conf-xml"><a href="#3-apns-conf-xml" class="headerlink" title="3. apns-conf.xml"></a><strong>3. apns-conf.xml</strong></h2><blockquote>
-<p>将type=”default”改为type=”default,supl”</p>
+<h2 id="3-GitHub配置"><a href="#3-GitHub配置" class="headerlink" title="3. GitHub配置"></a><strong>3. GitHub配置</strong></h2><blockquote>
+<p>repo<br>blog_jekyll<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --set-upstream origin gh-pages</span><br></pre></td></tr></table></figure></p>
+<p>访问<a href="https://fanzicai.github.io/blog_jekyll" target="_blank" rel="external">https://fanzicai.github.io/blog_jekyll</a></p>
 </blockquote>
 <hr>
 
@@ -350,18 +350,9 @@
     
 <nav id="article-nav">
   
-    <a href="/Program/20160802-CentOS安装Erlang和RabbitMQ.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          CentOS安装Erlang和RabbitMQ
-        
-      </div>
-    </a>
   
-  
-    <a href="/Program/20160729-CentOS设置多IP的方法.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CentOS设置多IP的方法</div>
+    <a href="/Program/20160802-CentOS安装Erlang和RabbitMQ.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CentOS安装Erlang和RabbitMQ</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -396,7 +387,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="V5Max优化GPS设置" data-title="V5Max优化GPS设置" data-url="http://fanzicai.github.com/Phone/20160729-V5Max优化GPS设置.html"></div>
+	<div class="ds-thread" data-thread-key="GitHub和Jekyll搭建静态博客" data-title="GitHub和Jekyll搭建静态博客" data-url="http://fanzicai.github.com/Program/20160803-GitHub和Jekyll搭建静态博客.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
