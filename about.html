@@ -112,7 +112,7 @@
     <script src="js/holder.min.js"></script>
     <script language="JavaScript">
       $("#nav").load("nav.html");
-      $("#about").attr("class", "active");
+      $("#about").load(function(){$("#about").attr("class", "active");});
     </script>
   </body>
 </html>

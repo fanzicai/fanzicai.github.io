@@ -83,7 +83,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script language="JavaScript">
       $("#nav").load("nav.html");
-      $("#index").attr("class", "active");
+      $("#index").load(function(){$("#index").attr("class", "active");});
     </script>
   </body>
 </html>
